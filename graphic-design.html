@@ -46,6 +46,7 @@
             <a class="iod-dd__all" href="services.html">View all services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
+        <a href="portfolio.html">Portfolio</a>
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html" class="iod-btn iod-btn--gold iod-nav__cta">Let's talk</a>
@@ -76,7 +77,7 @@
           <h1 class="iod-phero__title" data-hero>Design that makes your brand <span class="iod-gold-text">unforgettable</span>.</h1>
           <p class="iod-phero__text" data-hero>Logos, brand identities, social creatives, brochures and UI design — crafted to make your brand instantly recognisable everywhere it appears.</p>
           <div class="iod-phero__actions" data-hero>
-            <a href="contact.html" class="iod-btn iod-btn--gold iod-btn--lg">Get a free quote <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="contact.html" class="iod-btn iod-btn--gold iod-btn--lg" data-quote>Get a free quote <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a href="#overview" class="iod-btn iod-btn--ghost iod-btn--lg">Learn more</a>
           </div>
         </div>
@@ -264,7 +265,7 @@
             <p>Tell us about your project and we'll get back within one business day.</p>
           </div>
           <div class="iod-cta__actions">
-            <a href="contact.html" class="iod-btn iod-btn--dark iod-btn--lg">Get a free quote <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="contact.html" class="iod-btn iod-btn--dark iod-btn--lg" data-quote>Get a free quote <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a href="tel:+910000000000" class="iod-btn iod-btn--outline-dark iod-btn--lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg> +91 00000 00000</a>
           </div>
         </div>
@@ -307,6 +308,7 @@
           <ul>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -333,7 +335,14 @@
   <!-- Floating actions (desktop) -->
   <div class="iod-fab" aria-label="Quick actions">
     <a href="https://wa.me/910000000000" class="iod-fab__btn iod-fab__btn--wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" class="iod-wa"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.1 5.1 0 001.1 2.7 11.7 11.7 0 004.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
-    <a href="contact.html" class="iod-fab__quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg><span>Get a quote</span></a>
+    <a href="contact.html" class="iod-fab__quote" data-quote aria-haspopup="dialog" aria-label="Get a free quote">
+      <span class="iod-fab__tip">Free quote in 24h</span>
+      <svg class="iod-fab__ring" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id="iodRingPath" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/></defs>
+        <text><textPath href="#iodRingPath" textLength="282" lengthAdjust="spacing">GET A FREE QUOTE &#10022; GET A FREE QUOTE &#10022;</textPath></text>
+      </svg>
+      <span class="iod-fab__core"><span class="iod-fab__chev"></span><span class="iod-fab__chev"></span></span>
+    </a>
     <button type="button" class="iod-fab__btn iod-fab__top" id="iodToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
   </div>
 
@@ -341,8 +350,95 @@
   <nav class="iod-mbar" aria-label="Quick actions">
     <a href="tel:+910000000000" class="iod-mbar__item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><span>Call</span></a>
     <a href="https://wa.me/910000000000" class="iod-mbar__item" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="iod-wa"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.1 5.1 0 001.1 2.7 11.7 11.7 0 004.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span>WhatsApp</span></a>
-    <a href="contact.html" class="iod-mbar__item iod-mbar__item--gold"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg><span>Get a quote</span></a>
+    <a href="contact.html" class="iod-mbar__item iod-mbar__item--gold" data-quote aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg><span>Get a quote</span></a>
   </nav>
+
+  <!-- Quote popup -->
+  <div class="iod-modal" id="iodQuote" role="dialog" aria-modal="true" aria-labelledby="iodQuoteTitle" hidden>
+    <div class="iod-modal__overlay" data-quote-close></div>
+    <div class="iod-modal__panel">
+      <button type="button" class="iod-modal__close" data-quote-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+
+      <aside class="iod-modal__side">
+        <span class="iod-modal__shape" aria-hidden="true"></span>
+        <span class="iod-modal__eyebrow">Free proposal</span>
+        <h2 class="iod-modal__title" id="iodQuoteTitle">Let&rsquo;s build something great.</h2>
+        <p class="iod-modal__lead">Tell us about your project and we&rsquo;ll send a tailored plan and quote within 24 hours.</p>
+        <ul class="iod-modal__perks">
+          <li>Reply within one business day</li>
+          <li>Transparent, no-obligation pricing</li>
+          <li>Free website &amp; SEO audit included</li>
+        </ul>
+        <div class="iod-modal__reach">
+          <a href="tel:+910000000000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>+91 00000 00000</a>
+          <a href="https://wa.me/910000000000" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="iod-wa"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.1 5.1 0 001.1 2.7 11.7 11.7 0 004.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp us</a>
+        </div>
+      </aside>
+
+      <div class="iod-modal__body">
+        <form class="iod-form iod-form--dark iod-modal__form" id="iodQuoteForm" novalidate>
+          <fieldset class="iod-form__services">
+            <legend>What do you need?</legend>
+            <label><input type="checkbox" name="service" value="Website"><span>Website</span></label>
+            <label><input type="checkbox" name="service" value="Web app"><span>Web app</span></label>
+            <label><input type="checkbox" name="service" value="SEO"><span>SEO</span></label>
+            <label><input type="checkbox" name="service" value="Content"><span>Content</span></label>
+            <label><input type="checkbox" name="service" value="Design"><span>Design</span></label>
+            <label><input type="checkbox" name="service" value="Ads"><span>Ads</span></label>
+            <label><input type="checkbox" name="service" value="Social media"><span>Social media</span></label>
+            <label><input type="checkbox" name="service" value="Maintenance"><span>Maintenance</span></label>
+          </fieldset>
+
+          <div class="iod-form__row">
+            <label class="iod-field">
+              <span>Name</span>
+              <input type="text" name="name" required autocomplete="name" placeholder="Your name">
+            </label>
+            <label class="iod-field">
+              <span>Email</span>
+              <input type="email" name="email" required autocomplete="email" placeholder="you@company.com">
+            </label>
+          </div>
+
+          <div class="iod-form__row">
+            <label class="iod-field">
+              <span>Phone</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="+91 98765 43210">
+            </label>
+            <label class="iod-field">
+              <span>Budget</span>
+              <select name="budget">
+                <option value="">Select a range</option>
+                <option>Under &#8377;50k</option>
+                <option>&#8377;50k &ndash; &#8377;2L</option>
+                <option>&#8377;2L &ndash; &#8377;5L</option>
+                <option>&#8377;5L+</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="iod-field">
+            <span>Project details</span>
+            <textarea name="message" rows="3" placeholder="Goals, timeline, links to your current site&hellip;"></textarea>
+          </label>
+
+          <button type="submit" class="iod-btn iod-btn--gold iod-btn--lg">
+            Request my quote
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="iod-form__status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="iod-modal__done" hidden>
+          <span class="iod-modal__tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <h3>Request received!</h3>
+          <p>Thanks<span data-quote-name></span> &mdash; our team will get back to you within one business day.</p>
+          <button type="button" class="iod-btn iod-btn--ghost" data-quote-close>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/js/lib/gsap.min.js"></script>
   <script src="assets/js/lib/ScrollTrigger.min.js"></script>

@@ -91,12 +91,106 @@
     });
   }
 
-  // Blog category filter.
-  function initBlogFilter() {
-    var buttons = document.querySelectorAll('.iod-filter__btn');
-    if (!buttons.length) return;
-    var posts = document.querySelectorAll('.iod-blog .iod-post');
+  // Quote popup — opened by any [data-quote] trigger, links fall back to contact.html.
+  function initQuote() {
+    var modal = document.getElementById('iodQuote');
+    var triggers = document.querySelectorAll('[data-quote]');
+    if (!modal || !triggers.length) return;
 
+    var form = modal.querySelector('form');
+    var status = form.querySelector('.iod-form__status');
+    var done = modal.querySelector('.iod-modal__done');
+    var lastFocus = null;
+    var closeTimer = null;
+
+    function focusables() {
+      return Array.prototype.filter.call(
+        modal.querySelectorAll('a[href], button, input, select, textarea'),
+        function (el) { return !el.disabled && el.offsetParent !== null; }
+      );
+    }
+
+    function open(e) {
+      e.preventDefault();
+      clearTimeout(closeTimer);
+      lastFocus = document.activeElement;
+      form.hidden = false;
+      done.hidden = true;
+      modal.hidden = false;
+      root.classList.add('iod-locked');
+      requestAnimationFrame(function () {
+        modal.classList.add('is-open');
+        var first = form.querySelector('input[name="name"]');
+        if (first) first.focus({ preventScroll: true });
+      });
+    }
+
+    function close() {
+      if (modal.hidden) return;
+      modal.classList.remove('is-open');
+      root.classList.remove('iod-locked');
+      closeTimer = setTimeout(function () { modal.hidden = true; }, reduceMotion ? 0 : 450);
+      if (lastFocus) lastFocus.focus({ preventScroll: true });
+    }
+
+    triggers.forEach(function (t) { t.addEventListener('click', open); });
+
+    modal.addEventListener('click', function (e) {
+      if (e.target.closest('[data-quote-close]')) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (modal.hidden) return;
+      if (e.key === 'Escape') return close();
+      if (e.key !== 'Tab') return;
+      var items = focusables();
+      var first = items[0];
+      var last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = form.elements.name;
+      var email = form.elements.email;
+      var valid = true;
+
+      [name, email].forEach(function (field) {
+        var ok = field.value.trim() !== '' && field.checkValidity();
+        field.classList.toggle('is-invalid', !ok);
+        if (!ok) valid = false;
+      });
+
+      if (!valid) {
+        status.classList.add('is-error');
+        status.textContent = 'Please add your name and a valid email.';
+        return;
+      }
+
+      status.textContent = '';
+      modal.querySelector('[data-quote-name]').textContent = ', ' + name.value.trim();
+      form.reset();
+      form.hidden = true;
+      done.hidden = false;
+      done.querySelector('button').focus({ preventScroll: true });
+    });
+  }
+
+  // Category filter (blog posts, portfolio projects) — filters [data-cat] items in the same section.
+  function initFilter() {
+    document.querySelectorAll('.iod-filter').forEach(function (group) {
+      var section = group.closest('section') || document;
+      initFilterGroup(group.querySelectorAll('.iod-filter__btn'), section.querySelectorAll('[data-cat]'));
+    });
+  }
+
+  function initFilterGroup(buttons, posts) {
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var cat = btn.getAttribute('data-filter');
@@ -363,7 +457,8 @@
   initNav();
   initDropdown();
   initToTop();
-  initBlogFilter();
+  initQuote();
+  initFilter();
   initNewsletter();
   initArticle();
   initReveal();
