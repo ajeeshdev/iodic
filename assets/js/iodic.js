@@ -341,6 +341,160 @@
     });
   }
 
+  // Motion layer: image parallax, word reveals, scroll-linked depth, tilt,
+  // magnetic buttons and a cursor follower. Skipped for reduced motion.
+  function initMotion() {
+    if (!hasGsap || reduceMotion) return;
+    var gsap = window.gsap;
+    var ST = window.ScrollTrigger;
+    var finePointer = window.matchMedia('(pointer: fine)').matches;
+
+    // Images drift inside their frames as they cross the viewport.
+    var plx = '.iod-phero__img img, .iod-srow__img img, .iod-scard__img img, .iod-post__img img, ' +
+      '.iod-work__shot img, .iod-about__img img, .iod-article__cover img';
+    document.querySelectorAll(plx).forEach(function (img) {
+      img.classList.add('iod-plx');
+      ST.create({
+        trigger: img.parentElement,
+        start: 'top bottom',
+        end: 'bottom top',
+        onUpdate: function (self) {
+          img.style.translate = '0 ' + ((self.progress - 0.5) * 12).toFixed(2) + '%';
+        }
+      });
+    });
+
+    // Section headings rise in word by word.
+    document.querySelectorAll('.iod-section-title, .iod-cta__title').forEach(function (title) {
+      splitWords(title);
+      gsap.from(title.querySelectorAll('.iod-w__i'), {
+        yPercent: 110,
+        duration: 1,
+        ease: 'expo.out',
+        stagger: 0.05,
+        scrollTrigger: { trigger: title, start: 'top 88%', once: true }
+      });
+    });
+
+    // Page-hero glow and the footer wordmark move at their own pace.
+    document.querySelectorAll('.iod-phero .iod-hero__bg, .iod-404 .iod-hero__bg, .iod-thanks .iod-hero__bg').forEach(function (bg) {
+      gsap.to(bg, {
+        yPercent: 30,
+        ease: 'none',
+        scrollTrigger: { trigger: bg.parentElement, start: 'top top', end: 'bottom top', scrub: true }
+      });
+    });
+
+    var wordmark = document.querySelector('.iod-footer__wordmark');
+    if (wordmark) {
+      gsap.fromTo(wordmark, { yPercent: 35, scale: 0.92 }, {
+        yPercent: 0,
+        scale: 1,
+        ease: 'none',
+        scrollTrigger: { trigger: '.iod-footer', start: 'top bottom', end: 'bottom bottom', scrub: true }
+      });
+    }
+
+    // Marquee strips lean with scroll speed.
+    var strips = document.querySelectorAll('.iod-marquee, .iod-showcase');
+    if (strips.length) {
+      var skewTo = gsap.quickTo(strips, 'skewX', { duration: 0.6, ease: 'power3.out' });
+      ST.create({
+        onUpdate: function (self) {
+          skewTo(gsap.utils.clamp(-6, 6, self.getVelocity() / -300));
+        }
+      });
+      ST.addEventListener('scrollEnd', function () { skewTo(0); });
+    }
+
+    if (!finePointer) return;
+
+    // 3D tilt on image frames.
+    document.querySelectorAll('.iod-work__frame, .iod-phero__img, .iod-srow__img').forEach(function (el) {
+      el.classList.add('iod-tilt');
+      var rx = gsap.quickTo(el, 'rotationX', { duration: 0.6, ease: 'power3.out' });
+      var ry = gsap.quickTo(el, 'rotationY', { duration: 0.6, ease: 'power3.out' });
+      gsap.set(el, { transformPerspective: 1000 });
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        ry(((e.clientX - r.left) / r.width - 0.5) * 10);
+        rx(((e.clientY - r.top) / r.height - 0.5) * -10);
+      });
+      el.addEventListener('pointerleave', function () { rx(0); ry(0); });
+    });
+
+    // Magnetic buttons pull toward the pointer.
+    document.querySelectorAll('.iod-btn, .iod-fab__btn, .iod-fab__quote, .iod-social a, .iod-nav__toggle').forEach(function (el) {
+      el.classList.add('iod-magnetic');
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.25;
+        var y = (e.clientY - r.top - r.height / 2) * 0.35;
+        el.classList.add('is-pulling');
+        el.style.translate = x.toFixed(1) + 'px ' + y.toFixed(1) + 'px';
+      });
+      el.addEventListener('pointerleave', function () {
+        el.classList.remove('is-pulling');
+        el.style.translate = '';
+      });
+    });
+
+    // Cursor ring that eases after the pointer and swells over interactive elements.
+    var cursor = document.createElement('div');
+    cursor.className = 'iod-cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cursor);
+    var cx = gsap.quickTo(cursor, 'x', { duration: 0.35, ease: 'power3.out' });
+    var cy = gsap.quickTo(cursor, 'y', { duration: 0.35, ease: 'power3.out' });
+    var interactive = 'a, button, input, select, textarea, label, [data-quote]';
+
+    window.addEventListener('pointermove', function (e) {
+      cx(e.clientX);
+      cy(e.clientY);
+      cursor.classList.add('is-visible');
+      cursor.classList.toggle('is-hover', !!e.target.closest(interactive));
+    }, { passive: true });
+    document.addEventListener('pointerleave', function () { cursor.classList.remove('is-visible'); });
+    window.addEventListener('pointerdown', function () { cursor.classList.add('is-down'); });
+    window.addEventListener('pointerup', function () { cursor.classList.remove('is-down'); });
+  }
+
+  // Wrap each word in a mask; gradient-text spans stay whole so their clip survives.
+  function splitWords(el) {
+    Array.prototype.slice.call(el.childNodes).forEach(function (node) {
+      if (node.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            frag.appendChild(document.createTextNode(part));
+          } else {
+            frag.appendChild(wordMask(document.createTextNode(part)));
+          }
+        });
+        el.replaceChild(frag, node);
+      } else if (node.nodeType === 1 && node.tagName !== 'BR') {
+        if (node.classList.contains('iod-gold-text')) {
+          var mask = wordMask(null);
+          el.replaceChild(mask, node);
+          mask.firstChild.appendChild(node);
+        } else {
+          splitWords(node);
+        }
+      }
+    });
+  }
+
+  function wordMask(child) {
+    var outer = document.createElement('span');
+    var inner = document.createElement('span');
+    outer.className = 'iod-w';
+    inner.className = 'iod-w__i';
+    if (child) inner.appendChild(child);
+    outer.appendChild(inner);
+    return outer;
+  }
+
   // Hero chips follow the pointer (each chip scales the offset by its --d in CSS).
   function initHeroParallax() {
     var hero = document.getElementById('iodHero');
@@ -472,6 +626,7 @@
   initNewsletter();
   initArticle();
   initReveal();
+  initMotion();
   initHeroParallax();
   initCounters();
   initCardGlow();

@@ -1,0 +1,160 @@
+// iodic Digital — motion layer: hover polish, parallax hooks, cursor.
+// JS (initMotion in iodic.js) adds the classes used here; everything
+// degrades to static styles without JS or with reduced motion.
+
+// ---------- Image parallax ----------
+// Uses the individual `translate`/`scale` properties so it composes with
+// the existing hover `transform: scale()` zooms instead of fighting them.
+.iod-plx {
+  scale: 1.14;
+  will-change: translate;
+}
+
+// ---------- Split-word heading reveal ----------
+.iod-w {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+  vertical-align: top;
+}
+
+.iod-w__i {
+  display: inline-block;
+  will-change: transform;
+}
+
+// ---------- Magnetic elements ----------
+.iod-magnetic {
+  transition: translate 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s $iod-ease, box-shadow 0.35s $iod-ease,
+    background 0.3s, color 0.3s, border-color 0.3s;
+
+  &.is-pulling {
+    transition: translate 0.15s linear, transform 0.35s $iod-ease, box-shadow 0.35s $iod-ease, background 0.3s, color 0.3s,
+      border-color 0.3s;
+  }
+}
+
+// ---------- Button light sweep ----------
+.iod-btn--gold,
+.iod-mbar__item--gold {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -60%;
+    z-index: -1;
+    width: 45%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    transform: skewX(-20deg) translateX(0);
+    transition: transform 0.8s $iod-ease;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    transform: skewX(-20deg) translateX(420%);
+  }
+}
+
+// Ghost buttons fill from the bottom on hover.
+.iod-btn--ghost {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba($iod-gold, 0.1);
+    transform: translateY(101%);
+    transition: transform 0.5s $iod-ease;
+  }
+
+  &:hover::before {
+    transform: none;
+  }
+}
+
+// ---------- Animated underlines ----------
+.iod-footer__col a,
+.iod-post h3 a,
+.iod-footer__bottom a {
+  background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1px;
+  transition: background-size 0.45s $iod-ease, color 0.3s;
+
+  &:hover {
+    background-size: 100% 1px;
+    text-decoration: none;
+  }
+}
+
+// ---------- Social icons spin up ----------
+.iod-social a svg {
+  transition: transform 0.5s $iod-ease;
+}
+
+.iod-social a:hover svg {
+  transform: rotate(-12deg) scale(1.15);
+}
+
+// ---------- Tilt frames ----------
+.iod-tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+// ---------- Cursor follower ----------
+.iod-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1.5px solid rgba($iod-gold, 0.75);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s, width 0.35s $iod-ease, height 0.35s $iod-ease, margin 0.35s $iod-ease, background 0.35s,
+    border-color 0.35s;
+
+  &.is-visible {
+    opacity: 1;
+  }
+
+  &.is-hover {
+    width: 64px;
+    height: 64px;
+    margin: -32px 0 0 -32px;
+    border-color: transparent;
+    background: rgba($iod-gold, 0.14);
+  }
+
+  &.is-down {
+    width: 24px;
+    height: 24px;
+    margin: -12px 0 0 -12px;
+  }
+
+  @media (pointer: coarse) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iod-plx {
+    scale: none;
+  }
+
+  .iod-cursor {
+    display: none;
+  }
+}
