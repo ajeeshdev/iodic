@@ -4158,3 +4158,183 @@ html.iod-locked {
 .iod-work--cta:hover .iod-work__cta-shape {
   transform: translateX(24px);
 }
+
+.iod-thanks {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 88vh;
+  min-height: 88svh;
+  padding: 150px 0 70px;
+  overflow: hidden;
+  text-align: center;
+}
+.iod-thanks__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.iod-thanks__badge {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 132px;
+  height: 132px;
+  margin-bottom: 34px;
+}
+.iod-thanks__ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(244, 194, 54, 0.45);
+  border-radius: 50%;
+  animation: iod-ripple 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+.iod-thanks__ring + .iod-thanks__ring {
+  animation-delay: 1.4s;
+}
+.iod-thanks__tick {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
+  box-shadow: 0 0 0 10px rgba(244, 194, 54, 0.1), 0 24px 60px -10px rgba(244, 194, 54, 0.65);
+}
+.iod-thanks__tick svg {
+  width: 46px;
+  height: 46px;
+  fill: none;
+  stroke: #000000;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: iod-tick 0.7s 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.iod-thanks__title {
+  margin: 22px 0 18px;
+  color: #ffffff;
+  font-family: "Audiowide", "Manrope", sans-serif;
+  font-size: clamp(44px, 7vw, 92px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+.iod-thanks__steps {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+.iod-thanks__step {
+  display: flex;
+  gap: 22px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: #151515;
+  transition: border-color 0.4s;
+}
+@media (max-width: 575px) {
+  .iod-thanks__step {
+    gap: 16px;
+    padding: 20px;
+  }
+}
+.iod-thanks__step:hover {
+  border-color: rgba(244, 194, 54, 0.45);
+}
+.iod-thanks__step h3 {
+  margin-bottom: 6px;
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 800;
+}
+.iod-thanks__step p {
+  margin-bottom: 10px;
+  color: #a9a9a9;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.iod-thanks__step small {
+  color: #f4c236;
+  font-size: 13px;
+  font-weight: 700;
+}
+.iod-thanks__num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(244, 194, 54, 0.4);
+  border-radius: 14px;
+  background: rgba(244, 194, 54, 0.08);
+  color: #f4c236;
+  font-family: "Audiowide", "Manrope", sans-serif;
+  font-size: 18px;
+}
+.iod-thanks__reach {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+.iod-thanks__reach p {
+  flex-basis: 100%;
+  color: #a9a9a9;
+  font-weight: 600;
+}
+.iod-thanks__reach .iod-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.iod-thanks-next {
+  padding-top: 70px;
+  padding-bottom: 0;
+}
+@media (max-width: 767px) {
+  .iod-thanks-next {
+    padding-top: 50px;
+  }
+}
+.iod-thanks-next__inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+  gap: 60px;
+}
+@media (max-width: 991px) {
+  .iod-thanks-next__inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@keyframes iod-ripple {
+  from {
+    opacity: 1;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .iod-thanks__ring {
+    animation: none;
+  }
+  .iod-thanks__tick svg {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

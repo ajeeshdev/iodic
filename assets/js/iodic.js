@@ -443,9 +443,19 @@
         return;
       }
 
-      status.textContent = 'Thanks, ' + name.value.trim() + '! We’ll be in touch within one business day.';
-      form.reset();
+      // No backend yet — once one exists, redirect after it responds.
+      window.location.href = 'thank-you.html?name=' + encodeURIComponent(name.value.trim());
     });
+  }
+
+  // Thank-you page: greet by first name passed from the form.
+  function initThanks() {
+    var slot = document.querySelector('[data-thanks-name]');
+    if (!slot) return;
+    var name = new URLSearchParams(window.location.search).get('name');
+    if (!name) return;
+    var first = name.trim().split(/\s+/)[0].slice(0, 30);
+    if (first) slot.textContent = ', ' + first;
   }
 
   function initYear() {
@@ -466,5 +476,6 @@
   initCounters();
   initCardGlow();
   initForm();
+  initThanks();
   initYear();
 })();

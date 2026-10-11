@@ -2690,3 +2690,202 @@ html.iod-locked {
 .iod-work--cta:hover .iod-work__cta-shape {
   transform: translateX(24px);
 }
+
+// ---------- Thank you ----------
+.iod-thanks {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 88vh;
+  min-height: 88svh;
+  padding: 150px 0 70px;
+  overflow: hidden;
+  text-align: center;
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__badge {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 132px;
+    height: 132px;
+    margin-bottom: 34px;
+  }
+
+  &__ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba($iod-gold, 0.45);
+    border-radius: 50%;
+    animation: iod-ripple 2.8s $iod-ease infinite;
+
+    & + & {
+      animation-delay: 1.4s;
+    }
+  }
+
+  &__tick {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: $iod-gold-gradient;
+    box-shadow: 0 0 0 10px rgba($iod-gold, 0.1), 0 24px 60px -10px rgba($iod-gold, 0.65);
+
+    svg {
+      width: 46px;
+      height: 46px;
+      fill: none;
+      stroke: $iod-black;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 24;
+      stroke-dashoffset: 24;
+      animation: iod-tick 0.7s 0.6s $iod-ease forwards;
+    }
+  }
+
+  &__title {
+    margin: 22px 0 18px;
+    color: $iod-white;
+    font-family: $iod-display;
+    font-size: clamp(44px, 7vw, 92px);
+    font-weight: 400;
+    line-height: 1.05;
+  }
+
+  &__steps {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: none;
+  }
+
+  &__step {
+    display: flex;
+    gap: 22px;
+    padding: 26px;
+    border: 1px solid $iod-border;
+    border-radius: $iod-radius;
+    background: $iod-surface;
+    transition: border-color 0.4s;
+
+    @include max(575) {
+      gap: 16px;
+      padding: 20px;
+    }
+
+    &:hover {
+      border-color: rgba($iod-gold, 0.45);
+    }
+
+    h3 {
+      margin-bottom: 6px;
+      color: $iod-white;
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    p {
+      margin-bottom: 10px;
+      color: #a9a9a9;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    small {
+      color: $iod-gold;
+      font-size: 13px;
+      font-weight: 700;
+    }
+  }
+
+  &__num {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border: 1px solid rgba($iod-gold, 0.4);
+    border-radius: 14px;
+    background: rgba($iod-gold, 0.08);
+    color: $iod-gold;
+    font-family: $iod-display;
+    font-size: 18px;
+  }
+
+  &__reach {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+
+    p {
+      flex-basis: 100%;
+      color: #a9a9a9;
+      font-weight: 600;
+    }
+
+    .iod-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.iod-thanks-next {
+  padding-top: 70px;
+  padding-bottom: 0;
+
+  @include max(767) {
+    padding-top: 50px;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+    gap: 60px;
+
+    @include max(991) {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+}
+
+@keyframes iod-ripple {
+  from {
+    opacity: 1;
+    transform: scale(0.75);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iod-thanks__ring {
+    animation: none;
+  }
+
+  .iod-thanks__tick svg {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
