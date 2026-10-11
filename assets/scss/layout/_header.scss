@@ -1,0 +1,584 @@
+// Header — Figma node 527:3741 (MW-Realty-V2): logo 527:3784, nav 527:3785, lang 527:3793, currency 527:3807, login 527:3810
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  z-index: 1000;
+  padding: 14px 0;
+  background: linear-gradient(180deg, rgba($black, 0.28) 0%, rgba($black, 0) 100%);
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease, backdrop-filter 0.3s ease;
+
+  @include min(768) {
+    padding: 16px 0;
+  }
+
+  @include min(1200) {
+    padding: 18px 0;
+  }
+
+  &.is-scrolled {
+    background: rgba($white, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 30px rgba($black, 0.08);
+    padding: 10px 0;
+
+    @include min(1200) {
+      padding: 12px 0;
+    }
+
+    .mw-nav > li > a,
+    .mw-header__lang,
+    .mw-header__lang span,
+    .mw-header__currency,
+    .mw-header__currency span {
+      color: $mw-heading;
+    }
+
+    .mw-nav > li > a.is-active::after,
+    .mw-nav > li > a:hover::after {
+      background: $mw-primary;
+    }
+
+    .mw-header__login,
+    .mw-header__lang,
+    .mw-header__currency {
+      background: $white;
+      border-color: $mw-border;
+    }
+  .mw-header__lang,
+    .mw-header__currency, .mw-header__login  {
+      color: $mw-heading;
+
+      span {
+        color: $mw-heading;
+      }
+
+      img:not(.mw-header__lang-flag) {
+        filter: none;
+      }
+    }
+
+  
+
+    .mw-header__login {
+      border-color: $mw-primary;
+      color: $mw-primary;
+    }
+
+    .mobile-menu-toggle {
+      border-color: $mw-border;
+    }
+
+    .mobile-menu-toggle path {
+      stroke: $mw-heading;
+    }
+
+    .mw-header__login img {
+      filter: invert(1)!important;
+    }
+  }
+
+  &.mw-header--light {
+    background: $white;
+    box-shadow: none;
+
+    .mw-nav > li > a {
+      color: #35373c;
+    }
+
+    .mw-nav > li > a.is-active::after,
+    .mw-nav > li > a:hover::after {
+      background: $mw-primary;
+    }
+
+    .mw-header__login,
+    .mw-header__lang,
+    .mw-header__currency {
+      background: $white;
+      border-color: $mw-border;
+      color: $mw-primary;
+    }
+
+    .mw-header__lang span,
+    .mw-header__currency span,.mw-header__login span {
+      color: $mw-primary;
+    }
+
+    .mw-header__lang img:not(.mw-header__lang-flag),
+    .mw-header__currency img {
+      filter: none;
+    }
+
+    .mw-header__login img {
+      filter: invert(1);
+    }
+
+    .mobile-menu-toggle {
+      border-color: $mw-border;
+    }
+
+    .mobile-menu-toggle path {
+      stroke: $mw-heading;
+    }
+
+    &.is-scrolled {
+      background: rgba($white, 0.96);
+      box-shadow: 0 8px 30px rgba($black, 0.08);
+    }
+  }
+
+  .mw-header__row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+
+    @include max(1199) {
+      grid-template-columns: auto 1fr;
+    }
+
+    @include min(1200) {
+      grid-template-columns: 1fr auto 1fr;
+    }
+  }
+
+  .mw-header__logo {
+    position: relative;
+    flex-shrink: 0;
+    display: block;
+    width: clamp(100px, 6.4vw, 128px);
+    justify-self: start;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: opacity 0.3s ease;
+    }
+
+    .mw-header__logo-img--color {
+      display: none;
+    }
+  }
+
+  &.is-scrolled .mw-header__logo-img--light,
+  &.mw-header--light .mw-header__logo-img--light {
+    display: none;
+  }
+
+  &.is-scrolled .mw-header__logo-img--color,
+  &.mw-header--light .mw-header__logo-img--color {
+    display: block;
+  }
+
+  nav {
+    justify-self: center;
+
+    @include max(1199) {
+      display: none;
+    }
+  }
+
+  .mw-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: clamp(16px, 2.2vw, 36px);
+    margin: 0;
+    padding: 0;
+
+    @include max(1199) {
+      display: none;
+    }
+
+    > li {
+      list-style: none;
+
+      > a {
+        position: relative;
+        display: inline-block;
+        color: $white;
+        font-weight: 500;
+        font-size: clamp(14px, 0.83vw, 16px);
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        white-space: nowrap;
+        padding: 6px 0;
+        transition: color 0.2s ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 2px;
+          border-radius: 2px;
+          background: $white;
+          transform: scaleX(0);
+          transform-origin: center;
+          transition: transform 0.2s ease;
+        }
+
+        &:hover::after,
+        &.is-active::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  .mw-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    justify-self: end;
+  }
+
+  .mw-header__login,
+  .mw-header__lang,
+  .mw-header__currency {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 16px;
+    border: 1px solid rgba($white, 0.7);
+    border-radius: 8px;
+    color: $white;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    background: rgba($white, 0.1);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    span{
+      color: #fff;
+    }
+    @include min(1200) {
+      font-size: 15px;
+    }
+
+    &:hover {
+      background: rgba($white, 0.18);
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+  }
+
+  // .mw-header__login intentionally excluded — its own icon (user.svg)
+  // already ships white, so it needs no filter on the transparent
+  // overlay header. Forcing one here previously tied in specificity with
+  // (and, being later in the file, beat) the .mw-header--light /
+  // .is-scrolled rules that turn it black for light backgrounds further
+  // up, leaving the login icon invisible (white-on-white) on inner pages.
+  .mw-header__lang,
+  .mw-header__currency {
+    color: $white;
+
+    span {
+      color: $white;
+    }
+
+    svg,
+    img:not(.mw-header__lang-flag) {
+      width: 14px;
+      height: 14px;
+      color: $white;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  .mw-header__lang-flag {
+    width: 22px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  @include max(1199) {
+    .mw-header__actions .mw-header__login,
+    .mw-header__actions .mw-dropdown {
+      display: none;
+    }
+  }
+
+  // Login dropdown menu — User / Agent / Agency Login options.
+  .mw-header__login-menu {
+    min-width: 200px;
+    padding: 6px;
+
+    li {
+      list-style: none;
+    }
+
+    li + li {
+      margin-top: 2px;
+      padding-top: 2px;
+      border-top: 1px solid $mw-border;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: $mw-text;
+      font-family: $mw-font;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, color 0.15s ease;
+
+      &:hover,
+      &:focus-visible {
+        background: $mw-section-bg;
+        color: $mw-primary;
+      }
+    }
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba($white, 0.7);
+    border-radius: 8px;
+    background: rgba($white, 0.1);
+    cursor: pointer;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    path {
+      stroke: $white;
+      transition: stroke 0.3s ease;
+    }
+
+    @include max(1199) {
+      display: inline-flex;
+    }
+  }
+}
+
+// Overlay variant: transparent header sitting on the hero photo until scrolled
+body.home-page header:not(.is-scrolled) {
+  .mw-header__login {
+    border-color: $white;
+  }
+}
+
+// Off-canvas menu (tablet + mobile) — Bootstrap Offcanvas component.
+// Bootstrap's JS drives open/close, the backdrop element, Esc-to-close and
+// body scroll lock; this project supplies all of the visual CSS below since
+// bootstrap.css itself isn't loaded on the site.
+.offcanvas-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1090;
+  background: $black;
+  opacity: 0;
+
+  &.fade {
+    transition: opacity 0.28s ease;
+  }
+
+  &.show {
+    opacity: 0.52;
+  }
+}
+
+.mw-mobile-nav {
+  &.offcanvas {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1100;
+    width: min(380px, 88%);
+    visibility: hidden;
+    background: $white;
+    padding: 20px 22px 28px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-shadow: -18px 0 40px rgba(16, 24, 32, 0.18);
+    transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &.show,
+    &.showing {
+      visibility: visible;
+    }
+
+    &.show {
+      transform: translateX(0);
+    }
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $mw-border;
+  }
+
+  &__logo {
+    display: block;
+    width: 118px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__close {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background: $mw-section-bg;
+    border-radius: 8px;
+    color: $mw-heading;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li + li {
+    margin-top: 4px;
+  }
+
+  nav a {
+    display: block;
+    padding: 12px 4px;
+    color: $mw-heading;
+    font-family: $mw-font;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    border-bottom: 1px solid $mw-border;
+
+    &:hover,
+    &.is-active {
+      color: $mw-primary;
+    }
+  }
+
+  &__foot {
+    margin-top: auto;
+    padding-top: 24px;
+  }
+
+  &__login-label {
+    margin: 0 0 10px;
+    color: $mw-muted;
+    font-family: $mw-font;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__login-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__login-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 16px;
+    border: 1px solid $mw-border;
+    border-radius: 8px;
+    color: $mw-heading;
+    font-family: $mw-font;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      border-color: $mw-primary;
+      color: $mw-primary;
+    }
+  }
+
+  &__prefs {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+
+    .mw-dropdown {
+      flex: 1;
+    }
+
+    .mw-header__lang,
+    .mw-header__currency {
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: $mw-section-bg;
+      border: 1px solid $mw-border;
+      color: $mw-heading;
+      font-weight: 600;
+      cursor: pointer;
+
+      span {
+        color: $mw-heading;
+      }
+
+      img:not(.mw-header__lang-flag) {
+        filter: none;
+      }
+    }
+  }
+}

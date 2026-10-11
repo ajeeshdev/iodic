@@ -1,0 +1,65 @@
+// Fancybox lightbox — ensure controls stay visible on dark overlay
+.fancybox__container {
+  --fancybox-color: #fff;
+  --fancybox-hover-color: #fff;
+  --f-button-color: #fff;
+  --f-button-hover-color: #fff;
+  --f-button-bg: rgba(255, 255, 255, 0.14);
+  --f-button-hover-bg: rgba(255, 255, 255, 0.24);
+  --f-button-active-bg: rgba(255, 255, 255, 0.32);
+  --f-button-svg-filter: none;
+
+  .f-button {
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.14) !important;
+    border: 0 !important;
+
+    @media (hover: hover) {
+      &:hover:not([disabled]) {
+        color: #fff !important;
+        background-color: rgba(255, 255, 255, 0.24) !important;
+      }
+    }
+
+    svg {
+      stroke: currentColor !important;
+      fill: none !important;
+      filter: none !important;
+      opacity: 1 !important;
+    }
+  }
+
+  .fancybox__nav .f-button {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+
+    @media (hover: hover) {
+      &:hover:not([disabled]) {
+        background-color: rgba(0, 0, 0, 0.55) !important;
+      }
+    }
+  }
+
+  .fancybox__toolbar {
+    --f-button-bg: rgba(0, 0, 0, 0.45);
+    --f-button-hover-bg: rgba(0, 0, 0, 0.6);
+  }
+
+  .fancybox__counter,
+  .f-counter {
+    color: #fff !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  }
+
+  .fancybox__caption {
+    color: #fff !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  }
+
+  .f-thumbs__slide {
+    opacity: 0.55;
+  }
+
+  .f-thumbs__slide.is-nav-selected {
+    opacity: 1;
+  }
+}

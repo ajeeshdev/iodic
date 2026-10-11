@@ -1,0 +1,1889 @@
+// iodic Digital — home page
+
+// ---------- Base ----------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body.iod-page {
+  background: $iod-bg;
+  color: $iod-text;
+  font-family: $iod-font;
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: $iod-gold;
+  color: $iod-black;
+}
+
+:focus-visible {
+  outline: 2px solid $iod-gold;
+  outline-offset: 3px;
+}
+
+.container-ctn {
+  width: 100%;
+  max-width: $iod-container;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @include max(575) {
+    padding: 0 16px;
+  }
+}
+
+.iod-gold-text {
+  background: $iod-gold-gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+// Brand chevron (from the guide's colour swatches)
+.iod-chevron {
+  display: inline-block;
+  width: 14px;
+  height: 11px;
+  background: $iod-gold-gradient;
+  clip-path: polygon(0 0, 65% 0, 100% 50%, 65% 100%, 0 100%, 30% 50%);
+  flex-shrink: 0;
+}
+
+// ---------- Buttons ----------
+.iod-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.35s $iod-ease, box-shadow 0.35s $iod-ease, background 0.3s, color 0.3s, border-color 0.3s;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.35s $iod-ease;
+  }
+
+  &:hover svg {
+    transform: translateX(4px);
+  }
+
+  &--lg {
+    padding: 17px 30px;
+    font-size: 16px;
+  }
+
+  &--gold {
+    background: $iod-gold-gradient;
+    color: $iod-black;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 34px -8px rgba($iod-gold, 0.55);
+    }
+  }
+
+  &--ghost {
+    border-color: $iod-border-strong;
+    color: $iod-white;
+    background: rgba(255, 255, 255, 0.03);
+
+    &:hover {
+      border-color: $iod-gold;
+      color: $iod-gold;
+    }
+  }
+
+  &--dark {
+    background: $iod-black;
+    color: $iod-white;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+// ---------- Header ----------
+.iod-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  padding: 16px 0;
+  transition: padding 0.4s $iod-ease;
+
+  &__bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 68px;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+  }
+
+  &.is-scrolled {
+    padding: 10px 0;
+
+    .iod-header__bar {
+      background: rgba(12, 12, 12, 0.72);
+      border-color: $iod-border;
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      width: calc(100% - 24px);
+      max-width: calc(#{$iod-container} - 24px);
+      padding: 0 12px 0 24px;
+    }
+  }
+
+  &__logo img {
+    width: 140px;
+    height: auto;
+
+    @include max(575) {
+      width: 118px;
+    }
+  }
+
+  &__cta {
+    @include max(991) {
+      display: none;
+    }
+  }
+}
+
+.iod-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  border: 1px solid $iod-border;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+
+  > a:not(.iod-btn),
+  .iod-dd__toggle {
+    padding: 9px 16px;
+    border-radius: 100px;
+    color: #d0d0d0;
+    font-weight: 600;
+    font-size: 14.5px;
+    transition: color 0.3s, background 0.3s;
+
+    &:hover,
+    &.is-active {
+      color: $iod-white;
+      background: rgba(255, 255, 255, 0.07);
+    }
+  }
+
+  &__cta {
+    display: none;
+  }
+
+  // Anchored to the header bar (its backdrop-filter would otherwise
+  // become the containing block for a fixed menu anyway).
+  @include max(991) {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 12px;
+    border-radius: $iod-radius;
+    background: #0e0e0e;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s $iod-ease, visibility 0.3s;
+
+    max-height: calc(100vh - 120px);
+    max-height: calc(100svh - 120px);
+    overflow-y: auto;
+
+    > a:not(.iod-btn),
+    .iod-dd__toggle {
+      padding: 14px 16px;
+      font-size: 16px;
+    }
+
+    &__cta {
+      display: inline-flex;
+      margin-top: 8px;
+      padding: 15px;
+    }
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+  }
+}
+
+.iod-nav-toggle {
+  display: none;
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border: 1px solid $iod-border-strong;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+
+  span {
+    position: absolute;
+    left: 13px;
+    right: 13px;
+    height: 2px;
+    border-radius: 2px;
+    background: $iod-white;
+    transition: transform 0.3s $iod-ease, top 0.3s $iod-ease;
+
+    &:first-child {
+      top: 18px;
+    }
+
+    &:last-child {
+      top: 25px;
+    }
+  }
+
+  &[aria-expanded="true"] span {
+    top: 21.5px;
+
+    &:first-child {
+      transform: rotate(45deg);
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+
+  @include max(991) {
+    display: block;
+  }
+}
+
+// ---------- Shared section bits ----------
+.iod-section {
+  position: relative;
+  padding: 120px 0;
+
+  @include max(991) {
+    padding: 90px 0;
+  }
+
+  @include max(575) {
+    padding: 70px 0;
+  }
+}
+
+.iod-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 12px;
+  border: 1px solid $iod-gold-tint;
+  border-radius: 100px;
+  background: $iod-gold-soft;
+  color: $iod-gold;
+  font-size: 13.5px;
+  font-weight: 700;
+
+  &__dot {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $iod-gold;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px solid $iod-gold;
+      animation: iod-ping 2s $iod-ease infinite;
+    }
+  }
+}
+
+.iod-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: $iod-gold;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  &--dark {
+    color: $iod-black;
+
+    .iod-chevron {
+      background: $iod-black;
+    }
+  }
+}
+
+.iod-section-title {
+  color: $iod-heading;
+  font-family: $iod-display;
+  font-weight: 400;
+  font-size: clamp(30px, 4.2vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.iod-section-text {
+  margin-top: 18px;
+  max-width: 560px;
+  font-size: 17px;
+
+  a {
+    color: $iod-gold;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+.iod-section-head {
+  max-width: 760px;
+  margin-bottom: 60px;
+
+  @include max(575) {
+    margin-bottom: 40px;
+  }
+}
+
+// ---------- Hero ----------
+.iod-hero {
+  --mx: 0;
+  --my: 0;
+  position: relative;
+  padding: 170px 0 0;
+  overflow: hidden;
+  text-align: center;
+
+  @include max(991) {
+    padding-top: 140px;
+  }
+
+  @include max(575) {
+    padding-top: 120px;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.55;
+    animation: iod-drift 16s ease-in-out infinite alternate;
+
+    &--a {
+      top: -18%;
+      left: 50%;
+      width: 820px;
+      height: 520px;
+      margin-left: -410px;
+      background: radial-gradient(circle, rgba($iod-gold, 0.55), transparent 65%);
+    }
+
+    &--b {
+      top: 38%;
+      left: 62%;
+      width: 560px;
+      height: 460px;
+      background: radial-gradient(circle, rgba($iod-amber, 0.5), transparent 65%);
+      animation-duration: 20s;
+      animation-direction: alternate-reverse;
+    }
+
+    @include max(767) {
+      &--a {
+        width: 480px;
+        height: 380px;
+        margin-left: -240px;
+      }
+
+      &--b {
+        display: none;
+      }
+    }
+  }
+
+  // Perspective grid floor
+  &__floor {
+    position: absolute;
+    left: -50%;
+    right: -50%;
+    bottom: -10%;
+    height: 70%;
+    background-image:
+      linear-gradient(rgba($iod-gold, 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($iod-gold, 0.22) 1px, transparent 1px);
+    background-size: 72px 72px;
+    transform: perspective(700px) rotateX(62deg);
+    transform-origin: bottom center;
+    mask-image: linear-gradient(to top, #000 10%, transparent 75%);
+    -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 75%);
+    animation: iod-floor 3.5s linear infinite;
+  }
+
+  &__noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    max-width: 1060px;
+    margin: 28px 0 26px;
+    color: $iod-white;
+    font-family: $iod-display;
+    font-weight: 400;
+    font-size: clamp(40px, 6.8vw, 98px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-shadow: 0 10px 60px rgba(0, 0, 0, 0.6);
+
+    .iod-gold-text {
+      position: relative;
+      display: inline-block;
+      text-shadow: none;
+
+      // brand chevron underline
+      &::after {
+        content: "";
+        position: absolute;
+        left: 4%;
+        right: 4%;
+        bottom: -0.08em;
+        height: 0.09em;
+        border-radius: 1em;
+        background: $iod-gold-gradient;
+        transform-origin: left;
+        animation: iod-underline 1.2s 0.9s $iod-ease both;
+      }
+    }
+  }
+
+  &__text {
+    max-width: 600px;
+    font-size: 18.5px;
+    color: #bdbdbd;
+
+    @include max(575) {
+      font-size: 16.5px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 38px;
+
+    @include max(575) {
+      width: 100%;
+
+      .iod-btn {
+        flex: 1 1 100%;
+      }
+    }
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+    padding: 16px 8px;
+    border: 1px solid $iod-border;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 28px;
+      text-align: left;
+
+      & + li {
+        border-left: 1px solid $iod-border-strong;
+      }
+    }
+
+    strong {
+      color: $iod-white;
+      font-family: $iod-display;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    span {
+      max-width: 90px;
+      font-size: 12.5px;
+      line-height: 1.3;
+      color: $iod-text;
+    }
+
+    @include max(575) {
+      width: 100%;
+      padding: 14px 4px;
+      border-radius: 18px;
+
+      li {
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 0 6px;
+        text-align: center;
+      }
+
+      strong {
+        font-size: 22px;
+      }
+    }
+  }
+
+  &__chips {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    @include max(1199) {
+      display: none;
+    }
+  }
+}
+
+.iod-chip {
+  --d: 1;
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px 10px 10px;
+  border: 1px solid $iod-border-strong;
+  border-radius: 100px;
+  background: rgba(22, 22, 22, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 16px 40px -14px rgba(0, 0, 0, 0.8);
+  color: #e6e6e6;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  translate: calc(var(--mx) * var(--d) * 1px) calc(var(--my) * var(--d) * 1px);
+  animation: iod-float 7s ease-in-out infinite;
+  transition: translate 0.6s $iod-ease;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    border-radius: 50%;
+    background: $iod-gold-gradient;
+    fill: none;
+    stroke: $iod-black;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  b {
+    color: $iod-gold;
+    font-weight: 800;
+  }
+
+  &--1 { top: 210px; left: 6%; --d: 0.6; animation-delay: -1s; }
+  &--2 { top: 190px; right: 8%; --d: 1; animation-delay: -3s; }
+  &--3 { top: 400px; left: 2.5%; --d: 0.8; animation-delay: -5s; }
+  &--4 { top: 380px; right: 3%; --d: 1.2; animation-delay: -2s; }
+  &--5 { top: 580px; left: 9%; --d: 0.7; animation-delay: -4s; }
+  &--6 { top: 570px; right: 9%; --d: 1.1; animation-delay: -6s; }
+}
+
+// Fanned brand cards
+.iod-fan {
+  --spread: 220px;
+  --tilt: 7deg;
+  position: relative;
+  z-index: 2;
+  height: 320px;
+  margin-top: 64px;
+
+  &:hover {
+    --spread: 250px;
+    --tilt: 9deg;
+  }
+
+  &__card {
+    position: absolute;
+    left: 50%;
+    bottom: -130px;
+    width: 290px;
+    height: 400px;
+    margin-left: -145px;
+    overflow: hidden;
+    border: 1px solid $iod-border-strong;
+    border-radius: 24px;
+    background: $iod-surface;
+    box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.9);
+    transform-origin: 50% 120%;
+    transform:
+      translateX(calc(var(--i) * var(--spread)))
+      rotate(calc(var(--i) * var(--tilt)));
+    transition: transform 0.8s $iod-ease;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    // top shade keeps the label legible on bright photos
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, transparent 35%, rgba(0, 0, 0, 0.25) 100%);
+      pointer-events: none;
+    }
+
+    &:nth-child(1),
+    &:nth-child(5) {
+      z-index: 1;
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      z-index: 2;
+    }
+
+    &--main {
+      z-index: 3;
+      width: 340px;
+      height: 440px;
+      margin-left: -170px;
+      border-color: rgba($iod-gold, 0.5);
+      box-shadow: 0 40px 100px -20px rgba($iod-gold, 0.35);
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    z-index: 1;
+    padding: 7px 14px;
+    border: 1px solid $iod-border-strong;
+    border-radius: 100px;
+    background: rgba(10, 10, 10, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: $iod-white;
+    font-size: 12.5px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  // right-hand cards: label on the outer corner so the centre card doesn't cover it
+  .iod-fan__card:nth-child(n + 4) &__label {
+    left: auto;
+    right: 14px;
+  }
+
+  .iod-fan__card--main &__label {
+    background: $iod-gold-gradient;
+    border-color: transparent;
+    color: $iod-black;
+  }
+
+  &__score {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 2px solid $iod-gold;
+    border-radius: 50%;
+    background: rgba(10, 10, 10, 0.72);
+    color: $iod-gold;
+    font-family: $iod-display;
+    font-size: 13px;
+  }
+
+  @include max(991) {
+    --spread: 170px;
+    height: 230px;
+    margin-top: 56px;
+
+    &__card {
+      width: 220px;
+      height: 300px;
+      margin-left: -110px;
+
+      &--main {
+        width: 260px;
+        height: 340px;
+        margin-left: -130px;
+      }
+    }
+  }
+
+  @include max(575) {
+    --spread: 110px;
+    --tilt: 8deg;
+    height: 170px;
+    margin-top: 44px;
+
+    &__card {
+      width: 160px;
+      height: 220px;
+      margin-left: -80px;
+      bottom: -90px;
+      border-radius: 18px;
+
+      &:nth-child(1),
+      &:nth-child(5) {
+        display: none;
+      }
+
+      &--main {
+        width: 190px;
+        height: 250px;
+        margin-left: -95px;
+      }
+    }
+
+    &__label {
+      left: 10px;
+      top: 10px;
+      padding: 6px 11px;
+      font-size: 11px;
+    }
+
+    .iod-fan__card:not(.iod-fan__card--main) &__label {
+      display: none;
+    }
+
+    &__score {
+      display: none;
+    }
+  }
+}
+
+// ---------- Marquee ----------
+.iod-marquee {
+  overflow: hidden;
+  padding: 22px 0;
+  background: $iod-gold-gradient;
+  transform: rotate(-1.2deg) scale(1.02);
+
+  &__track {
+    display: flex;
+    width: max-content;
+    animation: iod-marquee 32s linear infinite;
+  }
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+    padding-right: 28px;
+    color: $iod-black;
+    font-family: $iod-display;
+    font-size: clamp(20px, 2.4vw, 30px);
+    white-space: nowrap;
+
+    &::after {
+      content: "";
+      width: 16px;
+      height: 13px;
+      background: $iod-black;
+      clip-path: polygon(0 0, 65% 0, 100% 50%, 65% 100%, 0 100%, 30% 50%);
+    }
+  }
+}
+
+// ---------- Services (bento) ----------
+.iod-services {
+  padding-top: 150px;
+}
+
+.iod-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  @include max(1199) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include max(767) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.iod-card {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border: 1px solid $iod-border;
+  border-radius: $iod-radius;
+  background: $iod-surface;
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 0.4s, transform 0.5s $iod-ease;
+
+  // cursor-follow glow
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(420px circle at var(--mx) var(--my), rgba($iod-gold, 0.13), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  &:hover {
+    border-color: rgba($iod-gold, 0.35);
+    transform: translateY(-4px);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .iod-card__icon {
+      background: $iod-gold-gradient;
+      color: $iod-black;
+      border-color: transparent;
+    }
+  }
+
+  &--wide {
+    grid-column: span 2;
+
+    @include max(767) {
+      grid-column: auto;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 44px;
+
+    @include max(575) {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border: 1px solid $iod-gold-tint;
+    border-radius: 16px;
+    background: $iod-gold-soft;
+    color: $iod-gold;
+    transition: background 0.4s, color 0.4s, border-color 0.4s;
+
+    svg {
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+
+  &__num {
+    color: #3a3a3a;
+    font-family: $iod-display;
+    font-size: 15px;
+  }
+
+  h3 {
+    margin-bottom: 12px;
+    color: $iod-white;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 15.5px;
+  }
+
+  &--feature {
+    background:
+      radial-gradient(120% 120% at 100% 100%, rgba($iod-gold, 0.14), transparent 55%),
+      $iod-surface;
+  }
+
+  &--cta {
+    justify-content: center;
+    gap: 6px;
+    background: $iod-gold-gradient;
+    border-color: transparent;
+    color: rgba(0, 0, 0, 0.72);
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      bottom: -60px;
+      width: 260px;
+      height: 210px;
+      background: rgba(0, 0, 0, 0.07);
+      clip-path: polygon(0 0, 65% 0, 100% 50%, 65% 100%, 0 100%, 30% 50%);
+      z-index: -1;
+    }
+
+    &:hover {
+      border-color: transparent;
+    }
+
+    .iod-eyebrow {
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      color: $iod-black;
+      font-family: $iod-display;
+      font-weight: 400;
+      font-size: clamp(22px, 2.2vw, 28px);
+    }
+
+    p {
+      max-width: 440px;
+    }
+
+    .iod-btn {
+      align-self: flex-start;
+      margin-top: 22px;
+    }
+  }
+
+  &__chart {
+    position: absolute;
+    right: 84px;
+    top: 26px;
+    display: flex;
+    align-items: flex-end;
+    gap: 7px;
+    height: 70px;
+    opacity: 0.85;
+
+    span {
+      width: 12px;
+      height: var(--h);
+      border-radius: 4px 4px 2px 2px;
+      background: $iod-gold-gradient;
+      transform-origin: bottom;
+      animation: iod-bar 2.4s $iod-ease infinite alternate;
+
+      @for $i from 1 through 7 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i * 0.12}s;
+        }
+      }
+    }
+
+    @include max(575) {
+      display: none;
+    }
+  }
+}
+
+.iod-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 24px;
+
+  li {
+    padding: 6px 13px;
+    border: 1px solid $iod-border-strong;
+    border-radius: 100px;
+    color: #d6d6d6;
+    font-size: 13px;
+    font-weight: 600;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  .iod-card:hover & li {
+    border-color: rgba($iod-gold, 0.3);
+  }
+}
+
+// ---------- Stack ----------
+.iod-stack {
+  padding-top: 40px;
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 44px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 980px;
+    margin: 0 auto;
+
+    li {
+      padding: 14px 24px;
+      border: 1px solid $iod-border;
+      border-radius: 14px;
+      background: $iod-bg-alt;
+      color: #e2e2e2;
+      font-weight: 700;
+      font-size: 15.5px;
+      transition: transform 0.35s $iod-ease, border-color 0.35s, color 0.35s;
+
+      &:hover {
+        transform: translateY(-3px);
+        border-color: $iod-gold;
+        color: $iod-gold;
+      }
+
+      @include max(575) {
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// ---------- Process ----------
+.iod-process {
+  background: $iod-bg-alt;
+  border-top: 1px solid $iod-border;
+  border-bottom: 1px solid $iod-border;
+}
+
+.iod-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  counter-reset: step;
+
+  @include max(991) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include max(575) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.iod-step {
+  position: relative;
+  padding: 30px 26px 32px;
+  border-top: 2px solid $iod-border-strong;
+  transition: border-color 0.4s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $iod-gold-gradient;
+    transition: width 0.7s $iod-ease;
+  }
+
+  &:hover::before,
+  &.is-active::before {
+    width: 100%;
+  }
+
+  &__badge {
+    display: inline-grid;
+    place-items: center;
+    width: 76px;
+    height: 46px;
+    margin-bottom: 26px;
+    padding-right: 8px;
+    background: $iod-gold-gradient;
+    color: $iod-black;
+    font-family: $iod-display;
+    font-size: 17px;
+    clip-path: polygon(0 0, 78% 0, 100% 50%, 78% 100%, 0 100%, 16% 50%);
+  }
+
+  h3 {
+    margin-bottom: 10px;
+    color: $iod-white;
+    font-size: 21px;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 15.5px;
+  }
+}
+
+// ---------- About ----------
+.iod-about {
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+
+    @include max(991) {
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+  }
+
+  &__gallery {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    grid-template-rows: 220px 220px;
+    gap: 16px;
+
+    @include max(575) {
+      grid-template-rows: 160px 160px;
+      gap: 10px;
+    }
+  }
+
+  &__img {
+    overflow: hidden;
+    border-radius: $iod-radius;
+    border: 1px solid $iod-border;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s $iod-ease;
+    }
+
+    &:hover img {
+      transform: scale(1.06);
+    }
+
+    &--a {
+      grid-row: span 2;
+    }
+  }
+
+  &__content .iod-btn {
+    margin-top: 36px;
+  }
+}
+
+.iod-checks {
+  display: grid;
+  gap: 14px;
+  margin-top: 30px;
+
+  li {
+    position: relative;
+    padding-left: 34px;
+    color: #dcdcdc;
+    font-weight: 600;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: $iod-gold-gradient;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      width: 8px;
+      height: 5px;
+      border-left: 2px solid $iod-black;
+      border-bottom: 2px solid $iod-black;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// ---------- Showcase strip ----------
+.iod-showcase {
+  overflow: hidden;
+  padding: 10px 0 30px;
+
+  &__track {
+    display: flex;
+    gap: 18px;
+    width: max-content;
+    animation: iod-marquee 50s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  &__item {
+    position: relative;
+    flex-shrink: 0;
+    width: 380px;
+    height: 260px;
+    overflow: hidden;
+    border: 1px solid $iod-border;
+    border-radius: $iod-radius;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s $iod-ease;
+    }
+
+    figcaption {
+      position: absolute;
+      left: 20px;
+      bottom: 18px;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: $iod-white;
+      font-family: $iod-display;
+      font-size: 18px;
+    }
+
+    &:hover img {
+      transform: scale(1.06);
+    }
+
+    @include max(575) {
+      width: 260px;
+      height: 180px;
+
+      figcaption {
+        left: 16px;
+        bottom: 14px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+// ---------- FAQ ----------
+.iod-faq {
+  &__inner {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 70px;
+
+    @include max(991) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__head {
+    align-self: start;
+
+    @include min(992) {
+      position: sticky;
+      top: 120px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 12px;
+  }
+
+  &__item {
+    border: 1px solid $iod-border;
+    border-radius: $iod-radius-sm;
+    background: $iod-surface;
+    transition: border-color 0.3s;
+
+    &[open] {
+      border-color: rgba($iod-gold, 0.35);
+
+      summary::after {
+        transform: rotate(45deg);
+        background: $iod-gold-gradient;
+        color: $iod-black;
+      }
+    }
+
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 24px;
+      color: $iod-white;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: "+";
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        color: $iod-gold;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1;
+        transition: transform 0.35s $iod-ease, background 0.3s, color 0.3s;
+      }
+    }
+
+    p {
+      padding: 0 24px 24px;
+      font-size: 15.5px;
+    }
+  }
+}
+
+// ---------- Contact ----------
+.iod-contact {
+  padding-top: 40px;
+
+  &__card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 60px;
+    padding: 64px;
+    border-radius: 32px;
+    background: $iod-gold-gradient;
+    color: rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+
+    // oversized brand chevron watermark
+    &::before {
+      content: "";
+      position: absolute;
+      left: -120px;
+      bottom: -160px;
+      width: 520px;
+      height: 420px;
+      background: rgba(0, 0, 0, 0.06);
+      clip-path: polygon(0 0, 65% 0, 100% 50%, 65% 100%, 0 100%, 30% 50%);
+      pointer-events: none;
+    }
+
+    @include max(991) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 44px 32px;
+    }
+
+    @include max(575) {
+      padding: 36px 20px;
+      border-radius: 24px;
+    }
+  }
+
+  &__intro {
+    position: relative;
+  }
+
+  &__title {
+    margin-bottom: 18px;
+    color: $iod-black;
+    font-family: $iod-display;
+    font-weight: 400;
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.12;
+  }
+
+  &__info {
+    display: grid;
+    gap: 14px;
+    margin-top: 34px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: $iod-black;
+      font-weight: 700;
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.1);
+      fill: none;
+      stroke: $iod-black;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.iod-form {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  padding: 32px;
+  border-radius: $iod-radius;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.45);
+
+  @include max(575) {
+    padding: 22px 18px;
+  }
+
+  &__services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border: 0;
+
+    legend {
+      margin-bottom: 12px;
+      color: #222;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    span {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid #d9d9d9;
+      border-radius: 100px;
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+
+    input:checked + span {
+      background: $iod-black;
+      border-color: $iod-black;
+      color: $iod-gold;
+    }
+
+    input:focus-visible + span {
+      outline: 2px solid $iod-black;
+      outline-offset: 2px;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+
+    @include max(575) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .iod-btn {
+    justify-self: start;
+
+    @include max(575) {
+      justify-self: stretch;
+    }
+  }
+
+  &__status {
+    min-height: 1em;
+    color: #1d6b2a;
+    font-size: 14px;
+    font-weight: 700;
+
+    &.is-error {
+      color: #b3261e;
+    }
+  }
+}
+
+.iod-field {
+  display: grid;
+  gap: 6px;
+
+  span {
+    color: #222;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    background: $iod-white;
+    color: #111;
+    font-size: 15px;
+    resize: vertical;
+    transition: border-color 0.25s, box-shadow 0.25s;
+
+    &::placeholder {
+      color: #9a9a9a;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $iod-amber;
+      box-shadow: 0 0 0 4px rgba($iod-gold, 0.3);
+    }
+
+    &.is-invalid {
+      border-color: #b3261e;
+    }
+  }
+}
+
+// ---------- Footer ----------
+.iod-footer {
+  padding: 20px 0 30px;
+  overflow: hidden;
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1.6fr repeat(3, 1fr);
+    gap: 40px;
+
+    @include max(991) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include max(575) {
+      gap: 36px 20px;
+    }
+  }
+
+  &__brand {
+    max-width: 320px;
+
+    @include max(991) {
+      grid-column: 1 / -1;
+    }
+
+    img {
+      width: 160px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__col {
+    h4 {
+      margin-bottom: 18px;
+      color: $iod-white;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    ul {
+      display: grid;
+      gap: 10px;
+    }
+
+    a {
+      font-size: 15px;
+      transition: color 0.25s;
+
+      &:hover {
+        color: $iod-gold;
+      }
+    }
+  }
+
+  &__wordmark {
+    margin: 60px 0 10px;
+    font-family: $iod-display;
+    font-size: clamp(90px, 22vw, 330px);
+    line-height: 0.85;
+    text-align: center;
+    background: linear-gradient(180deg, rgba($iod-gold, 0.22), rgba($iod-gold, 0));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    user-select: none;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 24px;
+    border-top: 1px solid $iod-border;
+    font-size: 14px;
+    color: $iod-text-soft;
+
+    a:hover {
+      color: $iod-gold;
+    }
+  }
+}
+
+.iod-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+
+  a {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid $iod-border-strong;
+    border-radius: 50%;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
+
+    &:hover {
+      background: $iod-gold;
+      border-color: $iod-gold;
+      color: $iod-black;
+    }
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+// ---------- Reveal (inline head script adds .iod-js; iodic.js animates in) ----------
+.iod-js [data-reveal],
+.iod-js [data-hero] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+// ---------- Keyframes ----------
+@keyframes iod-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes iod-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes iod-drift {
+  to {
+    transform: translate(-60px, 50px) scale(1.15);
+  }
+}
+
+@keyframes iod-floor {
+  to {
+    background-position: 0 72px;
+  }
+}
+
+@keyframes iod-underline {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes iod-ping {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes iod-bar {
+  from {
+    transform: scaleY(0.55);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .iod-js [data-reveal],
+  .iod-js [data-hero] {
+    opacity: 1;
+    transform: none;
+  }
+}

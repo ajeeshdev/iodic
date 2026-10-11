@@ -1,0 +1,242 @@
+// Custom Property Request modal — Figma 390:6290 (MW-Realty-Custom-Request-Pop-Up)
+// Structural shell (backdrop / dialog / close / open-close behavior / body scroll-lock)
+// is reused as-is from .quote-modal (assets/scss/components/_quote-modal.scss).
+// This file only styles the content that is specific to the Custom Request form.
+
+.crm-modal {
+  &__form {
+    // The generic .quote-modal__fields already handles the outer spacing; this
+    // form has its own section headings instead of a single field list, so we
+    // drop the divider line the base component draws above the field stack.
+    .quote-modal__fields {
+      border-top: 0;
+      padding-top: 0;
+      gap: clamp(10px, 0.9vw, 16px);
+    }
+  }
+
+  &__heading {
+    min-width: 0;
+  }
+
+  &__subtitle {
+    margin: 4px 0 0;
+    color: $mw-muted;
+    font-size: clamp(13px, 0.833vw, 15px);
+    line-height: 1.4;
+  }
+
+  &__close {
+    flex: 0 0 auto;
+    width: clamp(38px, 2.6vw, 50px);
+    height: clamp(38px, 2.6vw, 50px);
+    border-radius: 50%;
+    background: #f0f1f3;
+
+    &:hover {
+      background: $mw-border;
+    }
+
+    svg {
+      display: block;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__section-title {
+    margin: clamp(4px, 0.5vw, 8px) 0 0;
+    color: $mw-primary;
+    font-weight: 700;
+    font-size: clamp(16px, 1.04vw, 20px);
+    line-height: 1.2;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(10px, 0.9vw, 16px);
+
+    @include max(575) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    width: 100%;
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+
+    input,
+    select,
+    textarea {
+      display: block;
+      width: 100%;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid $mw-border;
+      border-radius: 5px;
+      background: $white;
+      color: $mw-text;
+      font-family: inherit;
+      font-size: clamp(13px, 0.833vw, 14px);
+      line-height: 1;
+      outline: none;
+      transition: border-color 0.2s ease;
+
+      &::placeholder {
+        color: $mw-muted;
+      }
+
+      &:focus {
+        border-color: $mw-primary;
+      }
+    }
+
+    textarea {
+      min-height: 68px;
+      padding-top: 10px;
+      line-height: 1.4;
+      resize: vertical;
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding-right: 36px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M12.75 7.5L9 11.25L5.25 7.5' stroke='%23343434' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 18px 18px;
+      cursor: pointer;
+    }
+  }
+
+  &__label {
+    color: $mw-text;
+    font-weight: 500;
+    font-size: clamp(13px, 0.833vw, 14px);
+    line-height: 1.2;
+  }
+
+  &__hint {
+    margin-top: -2px;
+    color: $mw-muted;
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+    }
+
+    &-box {
+      flex: 0 0 auto;
+      width: 20px;
+      height: 20px;
+      margin-top: 1px;
+      border: 1px solid $mw-border;
+      border-radius: 4px;
+      background: $white;
+      position: relative;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    input:checked ~ &-box {
+      background: $mw-primary;
+      border-color: $mw-primary;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid $white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+
+    input:focus-visible ~ &-box {
+      border-color: $mw-primary;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      strong {
+        color: $mw-text;
+        font-weight: 600;
+        font-size: clamp(13px, 0.833vw, 14px);
+      }
+
+      small {
+        color: $mw-muted;
+        font-size: 12px;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 0.9vw, 14px);
+    padding: 0 clamp(20px, 2.5vw, 48px) clamp(18px, 1.5vw, 28px);
+    background: $white;
+    border-radius: 0 0 clamp(20px, 1.56vw, 30px) clamp(20px, 1.56vw, 30px);
+  }
+
+  &__submit {
+    width: 100%;
+    background: linear-gradient(90deg, $mw-accent 0%, $mw-primary 100%);
+    border: 0;
+    color: $white;
+    font-weight: 700;
+
+    &:hover {
+      opacity: 0.92;
+    }
+  }
+
+  &__terms {
+    margin: 0;
+    color: $mw-muted;
+    font-size: 12px;
+    line-height: 1.5;
+
+    a {
+      color: $mw-primary;
+      text-decoration: underline;
+
+      &:hover {
+        color: $mw-accent;
+      }
+    }
+  }
+}

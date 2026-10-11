@@ -1,0 +1,28 @@
+// iodic Digital brand (source: iodic.pdf brand guide — Typography & Colors)
+$iod-gold: #f4c236 !default;
+$iod-amber: #bd7211 !default;
+$iod-gold-gradient: linear-gradient(135deg, $iod-gold 0%, $iod-amber 100%) !default;
+
+$iod-black: #000000 !default;
+$iod-bg: #0a0a0a !default;
+$iod-bg-alt: #111111 !default;
+$iod-surface: #151515 !default;
+$iod-surface-2: #1c1c1c !default;
+$iod-border: rgba(255, 255, 255, 0.08) !default;
+$iod-border-strong: rgba(255, 255, 255, 0.16) !default;
+
+$iod-white: #ffffff !default;
+$iod-text: #a6a6a6 !default;
+$iod-text-soft: #7a7a7a !default;
+$iod-heading: #ffffff !default;
+
+$iod-gold-soft: rgba(244, 194, 54, 0.1) !default;
+$iod-gold-tint: rgba(244, 194, 54, 0.22) !default;
+
+$iod-display: "Audiowide", "Manrope", sans-serif;
+$iod-font: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+$iod-radius: 22px !default;
+$iod-radius-sm: 14px !default;
+$iod-container: 1240px !default;
+$iod-ease: cubic-bezier(0.22, 1, 0.36, 1);

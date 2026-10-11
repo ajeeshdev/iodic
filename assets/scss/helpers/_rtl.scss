@@ -1,0 +1,651 @@
+[dir="rtl"] {
+  text-align: right;
+
+  // —— Header ——
+  header .header-nav {
+    margin-right: 0;
+    margin-left: clamp(6px, 0.521vw, 10px);
+}
+  .main-nav {
+    ul {
+      padding: 0 clamp(12px, 1.24vw, 24px);
+    }
+
+    .main-nav__chevron {
+      margin-right: 5px;
+      margin-left: 0;
+    }
+
+    .sub-menu {
+      left: auto;
+      right: 0;
+      text-align: right;
+    }
+  }
+
+  .language-switcher__chevron {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .language-switcher__menu {
+    right: auto;
+    left: 0;
+
+    button {
+      text-align: right;
+      flex-direction: row-reverse;
+    }
+  }
+
+  .button-wrap {
+    .language-switcher {
+      summary {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  .header-top {
+    .left {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .header-nav .menu-nav li a svg {
+    margin-left: 0;
+    margin-right: 4px;
+  }
+
+  // —— Sliders: keep English scroll direction ——
+  .ap-hero__partners,
+  .ap-products__slider,
+  .ap-case-studies__slider,
+  .ap-clients__slider,
+  .home-blogs__slider,
+  .ap-news__slider,
+  .horus-testimonials__slider,
+  .ap-testimonials__slider,
+  [data-hero-partners-slider],
+  [data-clients-slider],
+  [data-brands-slider],
+  [data-case-studies-slider],
+  [data-news-slider],
+  [data-banner-slider] {
+    direction: ltr !important;
+  }
+
+  // —— Home hero ——
+  // flex-start already goes to the right under dir=rtl
+  .ap-hero__frame{
+
+    transform: scaleX(-1);
+  }
+  .ap-hero__mask {
+    transform: scaleX(-1);
+
+    .ap-hero__poster,
+    .ap-hero__video {
+      transform: scaleX(-1);
+    }
+  }
+  .ap-hero {
+    &__content {
+      text-align: right;
+      justify-content: flex-end;
+    }
+
+    &__card {
+      text-align: right;
+    }
+
+    &__title {
+      justify-content: flex-end;
+    }
+
+    // English: nav bottom-right → Arabic: bottom-left
+    &__slides-nav {
+      right: auto;
+      left: clamp(10px, 2.2vw, 36px);
+    }
+  }
+
+  // —— About (absolute layout — must mirror manually) ——
+  .ap-about {
+    &::after {
+      right: auto;
+      left: clamp(-140px, -5vw, -96px);
+      transform: scaleX(-1);
+    }
+
+    &__media-wrap {
+      border-radius: 0 clamp(28px, 2.6vw, 50px) 0 0;
+
+      @media (min-width: 992px) {
+        border-radius: 0 50px 0 0;
+      }
+    }
+
+    &__media-frame {
+      border-radius: 0 clamp(20px, 2.08vw, 36px) 0 0;
+
+      @media (min-width: 992px) {
+        border-radius: 0 clamp(28px, 2.6vw, 50px) 0 0;
+      }
+    }
+
+    &__badge {
+      right: auto;
+      left: 0;
+      border-radius: 0 clamp(28px, 2.6vw, 50px) 0 0;
+    }
+
+    &__accent {
+      &--lg {
+        right: auto;
+        left: clamp(18px, 3.13vw, 60px);
+
+        @media (min-width: 992px) {
+          left: clamp(-20px, -1.56vw, -30px);
+        }
+      }
+
+      &--sm {
+        right: auto;
+        left: clamp(64px, 7.29vw, 140px);
+
+        @media (min-width: 992px) {
+          left: clamp(28px, 2.5vw, 48px);
+        }
+      }
+    }
+
+    &__content {
+      @media (min-width: 992px) {
+        text-align: right;
+      }
+    }
+
+    &__contact {
+      svg {
+        transform: scaleX(-1);
+      }
+    }
+
+    @media (max-width: 767px) {
+      &__badge {
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+  }
+
+  // —— Products ——
+  .ap-slider-nav {
+    flex-direction: row-reverse; 
+}
+  .container-side{
+    margin-right: auto;
+    margin-left: 0;
+  }
+  .ap-products__slider-wrap::after{
+    left: 0;
+    right: unset;
+  }
+  .ap-products__card::before{
+    transform: scaleX(-1);
+  }
+  .ap-products {
+    &__head,
+    &__tabs-row,
+    &__head-left {
+      text-align: right;
+    }
+
+    &__card {
+      text-align: right;
+
+      h3,
+      p {
+        padding-right: 0;
+        padding-left: clamp(40px, 3.5vw, 60px);
+        margin-left: auto;
+      }
+
+      &-footer {
+        right: auto;
+        left: 20px;
+
+        svg {
+          transform: scaleX(-1);
+        }
+      }
+    }
+  }
+
+  // —— Special services ——
+  .ap-special-services {
+    .ap-section-title,
+    .ap-section-intro,
+    .ap-eyebrow {
+      text-align: right;
+    }
+
+    &__card,
+    .ap-service-card {
+      text-align: right;
+    }
+  }
+
+  // —— Trusted ——
+  .ap-trusted {
+    .ap-section-title,
+    .ap-eyebrow,
+    .ap-section-intro {
+      // text-align: right;
+    }
+
+    &__bg {
+      object-position: right center;
+    }
+
+    &__device {
+      left: auto;
+      right: 0;
+    }
+
+    &__feature {
+      text-align: right;
+      flex-direction: row-reverse;
+
+      @media (min-width: 768px) {
+        &:nth-child(3) {
+          margin-left: 0;
+          margin-right: -70px;
+        }
+
+        &:nth-child(4) {
+          margin-left: 0;
+          margin-right: 70px;
+        }
+      }
+    }
+  }
+
+  // —— Clients ——
+  .ap-clients {
+    .ap-section-title,
+    .ap-eyebrow {
+      // text-align: right;
+    }
+  }
+
+  // —— Case studies ——
+  .ap-case-studies {
+    &__head,
+    &__head-left,
+    &__head-right,
+    &__intro {
+      text-align: right;
+    }
+
+    // Keep card internal layout LTR (image then text) so slider isn't broken
+    &__card {
+      direction: ltr;
+      text-align: left;
+    }
+
+    &__card-body {
+      text-align: right;
+      direction: rtl;
+    }
+  }
+
+  // —— News ——
+  // Grid auto-flips under dir=rtl: content → right, cards → left (opposite of EN)
+  .home-blogs,
+  .ap-news {
+    &__content {
+      text-align: right;
+    }
+
+    // Keep slider LTR; mirror only the white overlay to the right
+    &__card {
+      direction: ltr;
+    }
+
+    &__card-body {
+      left: auto;
+      right: 0;
+      text-align: right;
+      direction: rtl;
+    }
+  }
+
+  // —— Testimonials ——
+  // Grid auto-flips: content → right, cards → left
+  .horus-testimonials__card-shape, .ap-testimonials__card-shape{
+    transform: scaleX(-1);
+  }
+  .horus-testimonials,
+  .ap-testimonials {
+    &__content {
+      text-align: right;
+    }
+
+    &__cube {
+      left: auto;
+      right: clamp(-40px, -3.54vw, -68px);
+    }
+
+
+    &__trust-avatars {
+      img {
+        margin-left: 0;
+        margin-right: clamp(-22px, -1.04vw, -20px);
+
+        &:first-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    // Pink band opens from the left (opposite of English right bleed)
+    &__panel {
+
+      padding-right: clamp(16px, 1.72vw, 33px);
+
+      &::before {
+        left: calc(50% - 50vw);
+        right: 0;
+        border-radius: 0 30px 30px 0;
+      }
+
+      @media (max-width: 767px) {
+        padding-right: 0;
+
+        &::before {
+          left: -16px;
+          border-radius: 0 20px 20px 0;
+        }
+      }
+    }
+
+    // Keep card shell LTR so shape SVG stays correct; flip text/author only
+    &__card {
+      direction: ltr;
+    }
+
+    &__card blockquote {
+      text-align: right;
+      direction: rtl;
+      margin-left: 0;
+      margin-right: clamp(24px, 2.19vw, 42px);
+    }
+
+    &__card-quote {
+      right: auto;
+      left: clamp(20px, 2.19vw, 42px);
+    }
+
+    &__card-author {
+      left: auto;
+      right: 0;
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+  }
+
+  // —— Footer ——
+  .ap-footer {
+    text-align: right;
+
+    &__newsletter-text,
+    &__newsletter-form {
+      @media (min-width: 992px) {
+        margin-left: 0;
+        margin-right: 28px;
+      }
+    }
+
+    &__newsletter-form {
+      flex-direction: row; // keep mail | input | button order readable
+      direction: ltr;
+
+      > svg {
+        margin-right: 11px;
+        margin-left: 0;
+      }
+
+      input {
+        text-align: left;
+        direction: rtl;
+      }
+
+   
+    }
+
+    &__grid {
+      // flex already reverses under dir=rtl
+      > * {
+        text-align: right;
+      }
+    }
+
+    &__contact-line {
+      text-align: right;
+
+      
+    }
+
+    &__bottom {
+      text-align: right;
+    }
+
+    &__legal {
+      flex-direction: row-reverse;
+    }
+
+    &__social {
+      flex-direction: row-reverse;
+    }
+  }
+
+  // —— Floating dock: English right → Arabic left ——
+  .ap-contact-dock {
+    right: auto;
+    left: 0;
+
+    @media (max-width: 767px) {
+      left: 12px;
+      right: 12px;
+    }
+
+    &__tip {
+      right: auto;
+      left: 83px;
+      border-radius: 10px 10px 10px 0;
+      transform: translateY(-50%) translateX(-8px);
+      padding: 0 22px 0 14px;
+
+      &::after {
+        right: auto;
+        left: -14px;
+        transform: scaleX(-1);
+      }
+    }
+
+    &__btn {
+      &:hover,
+      &:focus-visible {
+        .ap-contact-dock__tip {
+          transform: translateY(-50%) translateX(0);
+        }
+      }
+    }
+  }
+
+  // Generic titles
+  .ap-section-intro,
+  .ap-eyebrow,
+  .ap-section-title {
+
+  }
+  .ap-services__card {
+    transform: scaleX(-1);
+
+    .ap-services__card-num,
+    .ap-services__card-icon,
+    .ap-services__card-body {
+      transform: scaleX(-1);
+    }
+  }
+
+  // —— Shared list bullets ——
+  .list {
+    li {
+      padding-left: 0;
+      padding-right: 36px;
+
+      &::before {
+        left: auto;
+        right: 0;
+        transform: scaleX(-1);
+      }
+    }
+  }
+
+  // —— Services page ——
+  .ap-what-we-do {
+    &__card,
+    &__icon {
+      align-items: flex-start;
+    }
+  }
+
+  .ap-contact-now {
+    &__channel {
+      align-items: flex-start;
+    }
+
+    &__vector {
+      left: auto;
+      right: -1%;
+      transform: translateY(-50%) scaleX(-1);
+    }
+
+    &__pattern {
+      right: auto;
+      left: 0;
+      object-position: left bottom;
+      transform: scaleX(-1);
+    }
+  }
+
+  // —— About page journey ——
+  .ap-journey {
+    &__body p {
+      text-align: right;
+    }
+
+    &__points li {
+      &::before {
+        transform: scaleX(-1);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          transform: translateX(-6px);
+        }
+      }
+    }
+
+    &__year {
+      @media (hover: hover) {
+        .ap-journey__item:hover & {
+          transform: translateX(-4px);
+        }
+      }
+    }
+  }
+  // —— Enquire phone (intl-tel-input) ——
+  .ap-sd-enquire__field--phone {
+    .iti__flag-container {
+      left: auto !important;
+      right: 5px;
+      padding-left: 0;
+      padding-right: 6px;
+    }
+
+    .iti--allow-dropdown input[type="tel"] {
+      padding-left: clamp(12px, 0.73vw, 14px) !important;
+      padding-right: 81px !important;
+      text-align: right;
+    }
+
+    .iti__arrow {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+
+    .iti__country-list {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  .iti__country {
+    text-align: right;
+  }
+  .iti__selected-flag {
+    border-left: 1px solid #B1BCCD;
+    border-right: none;
+  }
+
+  // —— Products listing ——
+  .ap-pl {
+    &.is-list .ap-pl-card {
+      grid-template-columns: minmax(0, 1fr) clamp(110px, 32%, 180px);
+
+      .ap-pl-card__media {
+        grid-column: 2;
+      }
+
+      .ap-pl-card__title,
+      .ap-pl-card__desc,
+      .ap-pl-card__actions {
+        grid-column: 1;
+      }
+
+      .ap-pl-card__actions {
+        @include min(768) {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+
+    &__views {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  .ap-pl-card {
+    &__link {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  .ap-pl__views .ap-pl__view:first-child {
+    border-left: 1px solid #BAC0D4;
+    border-right: none;    
+  }
+  .ap-products {
+  .slick-track{
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+}

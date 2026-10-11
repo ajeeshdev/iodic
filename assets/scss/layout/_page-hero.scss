@@ -1,0 +1,84 @@
+// Shared inner-page title band + breadcrumb.
+// Reuse this markup on every inner page:
+// <section class="mw-about-hero">
+//   <div class="mw-about-hero__band">...</div>
+//   <nav class="mw-about-crumb">...</nav>
+// </section>
+
+.mw-about-title {
+  margin: 0;
+  color: $mw-primary;
+  font-family: $mw-display, Georgia, serif;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.mw-about-hero {
+  margin-top: clamp(64px, 4.85vw, 74px);
+  background: $white;
+  text-align: center;
+
+  &__band {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(100px, 7.24vw, 139px);
+    padding: clamp(20px, 2.4vw, 46px) 0;
+    background: $mw-page-band;
+    border-top: 1px solid $mw-border;
+    border-bottom: 1px solid $mw-border;
+  }
+
+  .mw-about-title {
+    font-size: clamp(28px, 3.85vw, 74px);
+    font-weight: 600;
+    line-height: 1;
+    color: $mw-primary;
+  }
+}
+
+.mw-about-crumb {
+  margin: 0;
+  background: $white;
+  border-bottom: 1px solid $mw-border;
+  text-align: right;
+
+  p {
+    margin: 0;
+    padding: clamp(10px, 0.83vw, 16px) 0;
+    font-family: $mw-font;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #848484;
+    text-align: center;
+  }
+
+  a,
+  span {
+    font-family: $mw-font;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  a {
+    color: #848484;
+
+    &:hover {
+      color: $mw-primary;
+    }
+  }
+
+  &__sep {
+    color: #848484;
+  }
+
+  span:not(.mw-about-crumb__sep) {
+    color: $mw-primary;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+}

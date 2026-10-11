@@ -1,0 +1,1544 @@
+// Home page — Figma "Mighty-MEG", node 147:157 (Home-Page)
+// Self-contained: header/hero/services/about/jobs/why-choose/testimonials/cta/blog/footer
+// all styled here under the `.meg-` prefix, independent of the pre-existing
+// `.mw-` header/footer/theme partials (those were scaffolded for a different
+// brand/design and don't match this page's nav, colors or footer layout).
+
+body.meg-page {
+  font-family: $meg-font;
+  color: $meg-text;
+  background: $white;
+
+  *,
+  *::before,
+  *::after {
+    font-family: inherit; 
+    box-sizing: border-box;
+  }
+}
+
+.meg-page {
+  h1, h2, h3, h4 { 
+    font-family: $meg-font;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Shared primitives
+// ---------------------------------------------------------------------------
+
+.meg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: clamp(12px, 1.2vw, 20px) clamp(24px, 2.6vw, 45px);
+  border-radius: 100px;
+  border: 1px solid transparent;
+  font-family: $meg-font;
+  font-size: clamp(14px, 0.9vw, 16px);
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  img {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &--teal {
+    background: $meg-teal;
+    color: $white;
+
+    &:hover {
+      background: darken($meg-teal, 6%);
+      color: $white;
+    }
+  }
+
+  &--dark {
+    background: $black;
+    color: $white;
+
+    &:hover {
+      background: #222;
+      color: $white;
+    }
+  }
+
+  &--white {
+    background: $white;
+    color: $meg-teal;
+
+    &:hover {
+      background: $white;
+      color: $meg-navy;
+    }
+  }
+
+  &--outline {
+    background: $white;
+    border-color: $meg-teal;
+    color: $meg-heading;
+    font-weight: 600;
+
+    &:hover {
+      background: $meg-teal;
+      color: $white;
+    }
+  }
+}
+
+.meg-eyebrow {
+  margin: 0 0 12px;
+  color: $meg-text;
+  font-size: clamp(14px, 0.9vw, 16px);
+  font-weight: 400;
+}
+
+.meg-section-title {
+  margin: 0;
+  color: $black;
+  font-weight: 400;
+  font-size: clamp(30px, 3.4vw, 54px);
+  line-height: 1.18;
+}
+
+.meg-section-text {
+  margin: 12px 0 0;
+  color: $meg-text;
+  font-size: clamp(14px, 0.9vw, 16px);
+  line-height: 1.5;
+}
+
+.meg-section-head {
+  margin-bottom: clamp(32px, 4vw, 68px);
+
+  &--split {
+    display: grid;
+    gap: 24px;
+
+    @include min(992) {
+      grid-template-columns: minmax(0, 820fr) minmax(0, 640fr);
+      gap: clamp(24px, 4vw, 80px);
+      align-items: end;
+    }
+  }
+
+  &__aside .meg-btn {
+    margin-top: 20px;
+  }
+
+  &--center {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+.meg-dash-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: clamp(28px, 3vw, 56px);
+
+  &--center {
+    justify-content: center;
+  }
+}
+
+.meg-dash {
+  display: block;
+  height: 12px;
+  width: clamp(56px, 4.5vw, 86px);
+  border-radius: 100px;
+  background: $meg-teal;
+
+  &--gradient {
+    background: linear-gradient(90deg, $meg-maroon 0%, $meg-navy 100%);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Header
+// ---------------------------------------------------------------------------
+
+.meg-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 16px 0;
+}
+
+.meg-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 16px;
+  background: $white;
+  border-radius: 100px;
+  box-shadow: 0 14px 40px rgba($black, 0.12);
+
+  @include min(1200) {
+    padding: 14px 40px;
+  }
+}
+
+.meg-header__logo {
+  display: block;
+  flex-shrink: 0;
+  width: clamp(120px, 8vw, 176px);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.meg-nav {
+  @include max(1199) {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 2.2vw, 42px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a:not(.meg-btn) {
+    position: relative;
+    display: inline-block;
+    padding: 6px 0;
+    color: $black;
+    font-size: clamp(14px, 0.9vw, 16px);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1.5px;
+      background: $meg-teal;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover,
+    &.is-active {
+      color: $meg-teal;
+    }
+
+    &:hover::after,
+    &.is-active::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.meg-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  @include max(1199) {
+    display: none;
+  }
+}
+
+.meg-nav-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: $meg-section-bg;
+  cursor: pointer;
+
+  span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: $black;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  @include max(1199) {
+    display: inline-flex;
+  }
+
+  &[aria-expanded="true"] {
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
+.meg-nav.is-open {
+  @include max(1199) {
+    display: block;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 16px;
+    right: 16px;
+    padding: 16px 20px;
+    background: $white;
+    border-radius: 20px;
+    box-shadow: 0 20px 44px rgba($black, 0.14);
+
+    ul {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    &::after {
+      content: "";
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+  }
+}
+
+.meg-nav__mobile-actions {
+  display: none;
+  padding: 0 !important;
+
+  @include max(1199) {
+    .meg-nav.is-open & {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  .meg-btn {
+    flex: 1 1 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Hero
+// ---------------------------------------------------------------------------
+
+main [id] {
+  scroll-margin-top: 110px;
+}
+
+.meg-hero {
+  position: relative;
+  overflow: hidden;
+  background: $meg-navy;
+  padding: clamp(120px, 12vw, 190px) 0 clamp(64px, 6vw, 100px);
+}
+
+.meg-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.meg-hero__slider {
+  position: absolute;
+  inset: 0;
+
+  .slick-list,
+  .slick-track {
+    height: 100%;
+  }
+
+  .slick-slide {
+    height: 100%;
+  }
+
+  &.slick-initialized .slick-slide {
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.meg-hero__slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.meg-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 78% 30%;
+}
+
+.meg-hero__overlay {
+  position: absolute;
+  inset: 0;
+background: linear-gradient(180deg, rgba(217, 217, 217, 0.00) 0%, #0D8083 100%);
+
+}
+
+.meg-hero__glow {
+  position: absolute;
+  top: 38%;
+  left: -5%;
+  width: 40%;
+  height: 160px;
+  background: $white;
+  filter: blur(60px);
+  opacity: 0.12;
+  border-radius: 100%;
+}
+
+// Figma node 147:171 — sits inside the photo's mask group, painted after the
+// photo/gradient, so it renders in front of them (unlike the sibling decor
+// at 147:161, which sits behind the opaque photo and is never actually
+// visible in the composited design — that one is deliberately left out).
+// Position/size are percentages of the 1920x948 banner canvas.
+.meg-hero__decor {
+  position: absolute;
+  left: -9.97%;
+  top: 57.07%;
+  width: 43.7%;
+  min-width: 360px;
+  height: auto;
+  pointer-events: none;
+}
+
+.meg-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.meg-hero__title {
+  max-width: 720px;
+  margin: 0;
+  color: $white;
+  font-weight: 300;
+  font-size: clamp(34px, 5.2vw, 74px);
+  line-height: 1.15;
+  text-shadow: 0 4px 24px rgba(#000, 0.3);
+
+  span {
+    display: block;
+    color: $white;
+    font-weight: 500;
+  }
+}
+
+.meg-hero__text {
+  max-width: 432px;
+  margin: 20px 0 0;
+  color: $white;
+  font-size: 16px;
+  line-height: 1.5;
+  text-shadow: 0 2px 12px rgba(#000, 0.25);
+}
+
+.meg-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(28px, 3vw, 44px);
+}
+
+.meg-hero__search {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 40px);
+  max-width: 741px;
+  margin-top: clamp(28px, 3vw, 48px);
+  padding: 10px 10px 10px 24px;
+  background: $white;
+  border-radius: 100px;
+  box-shadow: 0 20px 44px rgba($black, 0.16);
+  flex-wrap: wrap;
+
+  @include max(767) {
+    padding: 16px;
+    border-radius: 20px;
+  }
+}
+
+.meg-hero__search-field {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  // Content-sized, not flex-grow — the two fields sit compactly on the
+  // left with the divider between them; the search button is pinned to
+  // the right (margin-left: auto below) with open space in between,
+  // matching the Figma layout rather than both fields stretching evenly.
+  flex: 0 1 auto;
+  min-width: 0;
+
+  img {
+    flex-shrink: 0;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    width: 11ch;
+    background: transparent;
+    border: 0;
+    color: $meg-heading;
+    font-family: $meg-font;
+    font-size: 16px;
+
+    &::placeholder {
+      color: $meg-heading;
+    }
+  }
+}
+
+.meg-hero__search-field + .meg-hero__search-divider + .meg-hero__search-field input {
+  width: 17ch;
+}
+
+.meg-hero__search-divider {
+  width: 1px;
+  height: 24px;
+  background: #dbdbdb;
+  flex-shrink: 0;
+
+  @include max(767) {
+    display: none;
+  }
+}
+
+.meg-hero__search-btn {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 12px 20px;
+
+  @include max(767) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.meg-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px clamp(28px, 4vw, 78px);
+  margin: clamp(40px, 4.5vw, 68px) 0 0;
+  padding: 0;
+  list-style: none;
+
+  strong {
+    display: block;
+    color: $white;
+    font-size: clamp(28px, 2.6vw, 40px);
+    font-weight: 400;
+  }
+
+  span {
+    display: block;
+    margin-top: 8px;
+    color: $white;
+    font-size: 16px;
+  }
+}
+
+.meg-hero__dots {
+  position: absolute;
+  right: clamp(24px, 4vw, 80px);
+  bottom: clamp(24px, 3vw, 48px);
+  z-index: 1;
+
+  @include max(767) {
+    display: none;
+  }
+
+  // Populated by slick (appendDots) as <ul class="slick-dots"><li><button>.
+  // Selectors here need to out-specificity the generic .slick-dots rules in
+  // helpers/_mixins.scss (clamp-sized round dots, $primaryColor) so these
+  // stay the wide teal/white pills the design calls for.
+  .slick-dots {
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      width: auto;
+      height: auto;
+    }
+
+    li button {
+      display: block;
+      width: 86px;
+      height: 12px;
+      padding: 0;
+      border: 0;
+      border-radius: 100px;
+      background: rgba($white, 0.65);
+      font-size: 0;
+      line-height: 0;
+      cursor: pointer;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    li.slick-active button {
+      background: $white;
+      width: 86px;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Services
+// ---------------------------------------------------------------------------
+
+.meg-services {
+  padding: clamp(56px, 6vw, 100px) 0;
+  background: $meg-section-bg;
+}
+
+.meg-services__grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+
+  @include min(576) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include min(1350) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+// Services only — the card row breaks out of the centered container and
+// bleeds to the browser's right edge, so however many cards fit show at
+// their natural width and the next one peeks in cut off at the edge,
+// signalling there's more to slide. Left edge stays put (still lines up
+// with the heading above it); only the right side extends past the
+// container. Standard one-sided "container breakout" trick: a negative
+// right margin equal to the container's own right-side gap.
+.meg-slider--bleed-right {
+  margin-right: calc(50% - 50vw);
+
+  .meg-services__grid.slick-slider {
+    margin-right: 0;
+  }
+
+  .meg-service-card {
+    width: clamp(280px, 24vw, 370px);
+    flex-shrink: 0;
+  }
+
+  // Arrows/dots (.meg-slider-nav) sit outside this element, back in the
+  // normal container width, so they're unaffected by the bleed.
+}
+
+.meg-service-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background: $white;
+  border-radius: 30px 30px 0 30px;
+
+  &__media {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    aspect-ratio: 351 / 163;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: $meg-heading;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  &__rule {
+    display: block;
+    height: 4px;
+    width: 100%;
+    max-width: 120px;
+    margin: 14px 0 18px;
+    border-radius: 4px;
+    background: $grey;
+  }
+
+  &__text {
+    margin: 0 0 28px;
+    color: $meg-text;
+    font-size: 16px;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 6px 6px 24px;
+    border: 1px solid $meg-teal;
+    border-radius: 100px;
+    color: $black;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    > span:first-child {
+      color: inherit;
+    }
+
+    &:hover {
+      background: rgba($meg-teal, 0.06);
+    }
+  }
+
+  &__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: $meg-teal;
+
+    img {
+      width: 24px;
+      height: 24px;
+      transform: rotate(45deg);
+    }
+  }
+
+  &.is-active {
+    .meg-service-card__rule {
+      background: $meg-teal;
+    }
+
+    .meg-service-card__cta {
+      background: $meg-teal;
+      border-color: $meg-teal;
+      color: $white;
+    }
+
+    .meg-service-card__arrow {
+      background: $white;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// About
+// ---------------------------------------------------------------------------
+
+.meg-about {
+  background: $white;
+}
+
+// Figma bleeds the photo all the way to the browser's right edge AND to the
+// section's full height — only the text column carries vertical padding, the
+// photo has none. So this section doesn't sit inside .container-ctn (which
+// would cap the photo's width), and the outer section itself carries no
+// vertical padding either; the media column stretches to match whatever
+// height the padded text column ends up needing.
+.meg-about__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: clamp(40px, 8vw, 64px) clamp(16px, 4vw, 132px);
+
+  @include min(992) {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 0 0 clamp(16px, 4vw, 132px);
+  }
+}
+
+.meg-about__content {
+  @include min(992) {
+    // Matches the white panel's own width in the design (1110 / 1920 ≈
+    // 57.8% of the canvas) so the photo ends up the right proportion — the
+    // text itself stays capped to a comfortable reading width below.
+    flex: 0 0 57.8%;
+    min-width: 0;
+    padding: clamp(48px, 4.2vw, 80px) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .meg-section-title {
+      max-width: 820px;
+    }
+
+    .meg-section-text {
+      max-width: 750px;
+    }
+  }
+}
+
+.meg-about__media {
+  position: relative;
+  min-height: clamp(320px, 32vw, 600px);
+
+  @include min(992) {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 0 0 clamp(60px, 6.25vw, 120px);
+
+    @include max(991) {
+      aspect-ratio: 960 / 563;
+      height: auto;
+    }
+  }
+}
+
+.meg-about__badge {
+  position: absolute;
+  left: 6%;
+  top: 37.5%;
+
+  // On desktop the media box is the photo alone, so the badge's center is
+  // pulled back to sit exactly on the content/photo seam (the media box's
+  // left edge), straddling both halves — not offset into the photo. On
+  // mobile the media box is the full-width stacked photo, so it stays a
+  // simple inset from that photo's own left edge instead.
+  @include min(992) {
+    left: calc(clamp(120px, 10vw, 180px) / -2);
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: clamp(120px, 10vw, 180px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: $meg-teal;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba($black, 0.18);
+}
+
+.meg-about__badge-num {
+  color: $white;
+  font-size: clamp(32px, 3.4vw, 64px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.meg-about__badge-label {
+  margin-top: 8px;
+  color: $white;
+  font-size: 14px;
+}
+
+.meg-about__content .meg-btn {
+  margin-top: 24px;
+}
+
+// ---------------------------------------------------------------------------
+// Jobs
+// ---------------------------------------------------------------------------
+
+.meg-jobs {
+  padding: clamp(56px, 6vw, 100px) 0;
+  background: $meg-section-bg-alt;
+}
+
+.meg-jobs__grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+
+  @include min(576) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include min(1350) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.meg-job-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background: $white;
+  border-radius: 10px;
+}
+
+.meg-job-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.meg-tag {
+  padding: 5px 15px;
+  border-radius: 100px;
+  background: $meg-teal-tint;
+  color: $meg-teal;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.meg-job-card__title {
+  margin: 0 0 20px;
+  color: $black;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.meg-job-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 10px;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: $meg-muted;
+    font-size: 14px;
+  }
+
+  img {
+    flex-shrink: 0;
+  }
+}
+
+.meg-job-card__company {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 16px 0 28px;
+  color: $black;
+  font-size: 16px;
+  font-weight: 500;
+
+  > span:last-child {
+    color: inherit;
+  }
+}
+
+.meg-job-card__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: $meg-section-bg;
+
+  img {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.meg-job-card__apply {
+  margin-top: auto;
+  width: 100%;
+}
+
+// ---------------------------------------------------------------------------
+// Why choose us
+// ---------------------------------------------------------------------------
+
+.meg-why {
+  padding: clamp(56px, 6vw, 100px) 0;
+  background: $white;
+}
+
+.meg-why__panel {
+  padding: clamp(28px, 4vw, 64px);
+  background: $meg-card-bg;
+  border-radius: 20px;
+}
+
+.meg-why__grid {
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+
+  @include min(992) {
+    grid-template-columns: minmax(0, 784fr) minmax(0, 566fr);
+    gap: clamp(32px, 4vw, 70px);
+    align-items: center;
+  }
+}
+
+.meg-why__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.meg-why__media {
+  margin-top: clamp(24px, 3vw, 40px);
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 784 / 277;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+}
+
+.meg-why__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3vw, 36px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  h3 {
+    margin: 0 0 8px;
+    color: $black;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 0;
+    color: $meg-text;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.meg-why__icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+}
+
+.meg-why__icon-inner {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+// ---------------------------------------------------------------------------
+// Testimonials
+// ---------------------------------------------------------------------------
+
+.meg-testimonials {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(56px, 6vw, 100px) 0;
+  background: $white;
+}
+
+.meg-testimonials__decor {
+  position: absolute;
+  width: clamp(280px, 28vw, 550px);
+  height: auto;
+  opacity: 0.5;
+  pointer-events: none;
+
+  &--right {
+    right: -4%;
+    top: 6%;
+  }
+
+  &--left {
+    left: -6%;
+    bottom: 4%;
+  }
+}
+
+.meg-testimonials__grid {
+  position: relative;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+
+  @include min(992) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.meg-testimonial-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: clamp(24px, 2.6vw, 40px);
+  background: $meg-section-bg;
+  border-radius: 20px;
+
+  p {
+    margin: 0 0 24px;
+    color: $meg-text;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba($black, 0.1);
+  }
+
+  &__avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: $meg-teal;
+    color: $white;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  cite {
+    color: $black;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// CTA
+// ---------------------------------------------------------------------------
+
+.meg-cta {
+  padding: clamp(48px, 5vw, 90px) 0;
+
+  .container-ctn {
+    background: $meg-teal;
+    border-radius: 30px;
+  }
+}
+
+.meg-cta__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 40px);
+  text-align: center;
+}
+
+.meg-cta__title {
+  margin: 0;
+  color: $white;
+  font-weight: 400;
+  font-size: clamp(26px, 3vw, 54px);
+  line-height: 1.25;
+}
+
+.meg-cta__text {
+  max-width: 745px;
+  margin: 20px auto 0;
+  color: $white;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.meg-cta .meg-btn {
+  margin-top: clamp(24px, 3vw, 40px);
+}
+
+// ---------------------------------------------------------------------------
+// Blog
+// ---------------------------------------------------------------------------
+
+.meg-blog {
+  padding: clamp(56px, 6vw, 100px) 0;
+  background: $white;
+}
+
+.meg-blog__grid {
+  display: grid;
+  gap: clamp(32px, 4vw, 56px);
+  grid-template-columns: 1fr;
+
+  @include min(768) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include min(1200) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.meg-blog-card {
+  &__media {
+    margin-bottom: 24px;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 488 / 389;
+      object-fit: cover;
+      border-radius: 0 0 60px 0;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    color: $black;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  &__text {
+    margin: 0 0 20px;
+    color: $meg-text;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  &__link {
+    color: $meg-teal;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Footer
+// ---------------------------------------------------------------------------
+
+.meg-footer {
+  padding: clamp(48px, 5vw, 80px) 0 24px;
+  background: $meg-dark;
+  color: $white;
+}
+
+.meg-footer__grid {
+  display: grid;
+  gap: 40px;
+  margin-bottom: clamp(32px, 4vw, 56px);
+
+  @include min(576) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include min(1200) {
+    grid-template-columns: minmax(0, 280fr) minmax(0, 220fr) minmax(0, 260fr) minmax(0, 320fr);
+    gap: clamp(24px, 3vw, 60px);
+  }
+}
+
+.meg-footer__brand {
+  img {
+    display: block;
+    width: 176px;
+    height: auto;
+    margin-bottom: 24px;
+    padding: 10px 14px;
+    background: $white;
+    border-radius: 10px;
+  }
+
+  p {
+    margin: 0;
+    color: $white;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 368px;
+  }
+}
+
+.meg-footer__col {
+  h3 {
+    margin: 0 0 24px;
+    color: $white;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  ul {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    color: $white;
+    font-size: 16px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  &--contact ul {
+    gap: 18px;
+  }
+
+  &--contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 16px;
+  }
+
+  &--contact img {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  &--contact a,
+  &--contact span {
+    color: $white;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.meg-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: $meg-dark-alt;
+  border-radius: 10px;
+  text-align: center;
+
+  @include min(992) {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  p {
+    margin: 0;
+    color: $white;
+    font-size: 15px;
+  }
+}
+
+.meg-footer__legal {
+  color: $white;
+  font-size: 15px;
+}
+
+.meg-footer__social {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+
+  img {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Sliders (slick) — services / jobs / testimonials / blog
+// ---------------------------------------------------------------------------
+
+.meg-slider {
+  position: relative;
+}
+
+// Arrows sit in their own row beside the decorative dash indicator (below
+// the cards) rather than floating over the slides themselves — card content
+// heights vary (title/body length differs per card), so centering an arrow
+// over the slide area risked overlapping text at some breakpoints.
+.meg-slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: clamp(20px, 2.4vw, 32px);
+
+  .meg-dash-group {
+    margin-bottom: 0;
+  }
+
+  &--center {
+    position: relative;
+
+    .meg-dash-group {
+      margin: 0 auto;
+    }
+
+    .meg-slider-arrows {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.meg-slider-arrows {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+
+  @include max(767) {
+    display: none;
+  }
+}
+
+.meg-slider-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid $grey;
+  border-radius: 50%;
+  background: $white;
+  color: $meg-teal;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+
+  svg {
+    display: block;
+  }
+
+  &:hover {
+    background: $meg-teal;
+    border-color: $meg-teal;
+    color: $white;
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+.meg-services__grid,
+.meg-jobs__grid,
+.meg-testimonials__grid,
+.meg-blog__grid {
+  &.slick-initialized {
+    display: block;
+  }
+
+  .slick-track {
+    display: flex;
+  }
+
+  // Slick applies `.slick-slide` directly onto each card element (no
+  // wrapper div), and its own `.slick-initialized .slick-slide { display:
+  // block }` rule (specificity 0,2,0) otherwise beats our card's `display:
+  // flex` (0,1,0) — matching its specificity here to win via source order
+  // (this stylesheet loads after slick-full.css) restores the card's
+  // internal flex column layout.
+  .slick-slide {
+    height: auto;
+    margin: 0 12px;
+  }
+
+  &.slick-slider {
+    margin: 0 -12px;
+  }
+
+  .slick-list {
+    overflow: hidden;
+  }
+}
+
+.meg-service-card,
+.meg-job-card,
+.meg-testimonial-card {
+  height: 100%;
+
+  &.slick-slide {
+    display: flex;
+  }
+}

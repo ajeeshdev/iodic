@@ -1,0 +1,372 @@
+// Footer — Figma node 527:4515 (1920 × 788)
+.mw-footer {
+  position: relative;
+  background: $black;
+  color: #a7a7a7;
+  overflow: hidden;
+  padding: 48px 0 32px;
+
+  @include min(1200) {
+    padding: 112px 0 39px;
+  }
+
+
+  &__grid {
+    display: grid;
+    gap: 32px;
+    margin-bottom: 40px;
+
+    @include min(576) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include min(992) {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      column-gap: 32px;
+    }
+
+    @include min(1200) {
+      grid-template-columns: minmax(0, 158fr) minmax(0, 212fr) minmax(0, 212fr) minmax(0, 212fr) minmax(0, 166fr);
+      column-gap: 130px;
+      margin-bottom: 107px;
+    }
+  }
+
+  &__col-title {
+    color: $white;
+    font-family: $mw-font;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 0 24px;
+  }
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+
+    a {
+      display: block;
+      color: #a7a7a7;
+      font-family: $mw-font;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: normal;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 32px 40px;
+    padding-bottom: 36px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba($white, 0.2);
+
+    @include min(1200) {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 50px;
+      padding-bottom: 57px;
+      margin-bottom: 39px;
+    }
+  }
+
+  &__contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 40px;
+    flex: 1 1 280px;
+
+    @include min(1200) {
+      flex-wrap: nowrap;
+      gap: 50px;
+      flex: 1 1 auto;
+    }
+  }
+
+  &__contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+
+    @include min(1200) {
+      &:nth-child(1) {
+        width: 205px;
+        flex-shrink: 0;
+      }
+
+      &:nth-child(2) {
+        width: 158px;
+        flex-shrink: 0;
+      }
+
+      &:nth-child(3) {
+        width: 200px;
+        flex-shrink: 0;
+      }
+
+      &:nth-child(4) {
+        width: 237px;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__contact-label {
+    display: block;
+    color: $white;
+    font-family: $mw-font;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 0 24px;
+  }
+
+  &__contact-value,
+  &__contact-value a {
+    display: block;
+    color: #a7a7a7;
+    font-family: $mw-font;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__contact-value--phone,
+  &__contact-value--phone a {
+    color: $white;
+    font-size: 24px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__newsletter {
+    width: 100%;
+    max-width: 495px;
+    flex-shrink: 0;
+
+    @include min(1200) {
+      width: 495px;
+      margin-top: -6px;
+    }
+  }
+
+  &__newsletter-title {
+    color: $white;
+    font-family: $mw-font;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0 0 11px;
+  }
+
+  &__newsletter-form {
+    display: flex;
+    align-items: center;
+    height: 54px;
+    padding: 0 24px 0 24px;
+    background: $black;
+    border: 1px solid #5b5b5b;
+    border-radius: 5px;
+
+    input {
+      flex: 1;
+      min-width: 0;
+      height: 100%;
+      background: transparent;
+      border: 0;
+      color: $white;
+      font-family: $mw-font;
+      font-size: 16px;
+      font-weight: 400;
+
+      &::placeholder {
+        color: #a7a7a7;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      flex-shrink: 0;
+      border: 0;
+      background: transparent;
+      color: $white;
+      cursor: pointer;
+
+      img {
+        display: block;
+        width: 24px;
+        height: 24px;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__newsletter-terms {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 13px;
+    font-family: $mw-font;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    color: #a7a7a7;
+    cursor: pointer;
+
+    input {
+      -webkit-appearance: none;
+      appearance: none;
+      box-sizing: border-box;
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      margin: 0;
+      background: #171717;
+      border: 1px solid #5b5b5b;
+      border-radius: 3px;
+      cursor: pointer;
+
+      &:checked {
+        background: #5b5b5b;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+
+    @include min(768) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+  }
+
+  &__copyright {
+    margin: 0;
+    color: $white;
+    font-family: $mw-font;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: clamp(8px, 0.6vw, 10px) clamp(14px, 1.2vw, 20px);
+      border: 0;
+      border-radius: 100px;
+      background: #1a1919;
+      color: $white;
+      font-family: $mw-font;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: normal;
+      white-space: nowrap;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background: #242424;
+      }
+    }
+
+    img {
+      display: block;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+@include max(767) {
+  .mw-footer {
+    &__col-title {
+      font-size: 18px;
+    }
+
+    &__links a {
+      font-size: 14px;
+    }
+
+    &__contact-label {
+      font-size: 18px;
+    }
+
+    &__contact-value,
+    &__contact-value a {
+      font-size: 14px;
+    }
+
+    &__contact-value--phone,
+    &__contact-value--phone a {
+      font-size: 20px;
+    }
+
+    &__newsletter-title {
+      font-size: 20px;
+    }
+
+    &__newsletter-form input {
+      font-size: 14px;
+    }
+
+    &__newsletter-terms {
+      font-size: 14px;
+    }
+
+    &__copyright {
+      font-size: 14px;
+    }
+
+    &__social a {
+      font-size: 14px;
+    }
+  }
+}

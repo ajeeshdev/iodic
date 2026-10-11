@@ -1,0 +1,11 @@
+// iodic Digital — standalone entry (compiled to assets/css/iodic.css).
+// Kept separate from style.scss so the shared reset/brand styles there
+// don't leak into this site.
+
+// Helpers
+@import "helpers/media-queries";
+@import "helpers/iodic-variables";
+
+// Pages
+@import "pages/iodic-home";
+@import "pages/iodic-inner";

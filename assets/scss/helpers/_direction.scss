@@ -1,0 +1,92 @@
+// ENG / عربي language switcher (initLanguageSwitch in script.js) toggles a
+// plain `.is-rtl` class on <html> — deliberately NOT the `dir="rtl"`
+// attribute or the CSS `direction` property. Either of those makes the
+// browser auto-mirror every flex/grid container's main axis (row ⇄
+// row-reverse), which is what caused the widespread overlap/collision bugs
+// across the header, cards and footer the first time this shipped: the
+// site's markup order stays left-to-right (content is still English
+// throughout — no Arabic translations exist), so mirroring layout order
+// while leaving content order alone just made things collide.
+//
+// `.is-rtl` therefore only ever touches `text-align`, never `direction` —
+// it's a right-aligned reading-copy preview, not a real bidi flip.
+.is-rtl {
+  text-align: right;
+
+  // Card/section copy across the site hardcodes text-align: left in its
+  // own component SCSS (higher specificity than the inherited rule above),
+  // so flowing reading-copy elements need an explicit override. Scoped to
+  // genuine content — paragraphs, list text, table cells, captions, labels,
+  // and section titles — not to buttons, tabs, dropdown menus or form
+  // inputs, which are UI chrome whose left alignment isn't a copy-direction
+  // choice and would look broken (not better) mirrored.
+  p,
+  li,
+  dd,
+  dt,
+  td,
+  th,
+  blockquote,
+  figcaption,
+  label,
+  .mw-section-title {
+    text-align: right !important;
+  }
+
+  // Card titles/meta/description text (agency, agent, blog, commercial,
+  // dubai-listing, projects, luxury, realty, highlight, testimonials cards
+  // etc. — every card block on the site names its element classes with
+  // "card" somewhere in them) is often a heading or span rather than a
+  // plain p/li, so the list above alone misses it. Scoped to inside a
+  // "*card*" class specifically, rather than sitewide h1–h6/span, so
+  // section titles and other headings elsewhere that are intentionally
+  // centered aren't dragged into this.
+  [class*="card"] :is(h1, h2, h3, h4, h5, h6, span, p, li, a, div) {
+    text-align: right !important;
+  }
+}
+
+// Sliders keep their internal layout LTR — Slick applies its own RTL
+// handling (reversed slide order, flipped arrows) whenever its container's
+// `direction` is rtl, which would conflict with slides that are still
+// left-to-right English content. Since `.is-rtl` above never sets
+// `direction: rtl`, Slick itself is never triggered either way; this block
+// only needs to undo the blanket `text-align: right` so slide copy doesn't
+// visually flip out of step with its still-LTR layout.
+.is-rtl [data-builders-slider],
+.is-rtl [data-price-slider],
+.is-rtl [data-places-slider],
+.is-rtl [data-realty-slider],
+.is-rtl [data-agent-listings-slider],
+.is-rtl [data-agency-properties-slider],
+.is-rtl [data-agency-agents-slider],
+.is-rtl [data-property-gallery-slider],
+.is-rtl [data-similar-properties-slider],
+.is-rtl [data-highlight-slider],
+.is-rtl [data-projects-slider],
+.is-rtl [data-luxury-slider],
+.is-rtl [data-testimonials-slider],
+.is-rtl [data-ticker-track],
+.is-rtl .slick-slider,
+.is-rtl .slick-list,
+.is-rtl .slick-track {
+  direction: ltr;
+  text-align: left;
+
+  p,
+  li,
+  dd,
+  dt,
+  td,
+  th,
+  blockquote,
+  figcaption,
+  label,
+  .mw-section-title {
+    text-align: left !important;
+  }
+
+  [class*="card"] :is(h1, h2, h3, h4, h5, h6, span, p, li, a, div) {
+    text-align: left !important;
+  }
+}

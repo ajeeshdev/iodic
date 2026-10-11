@@ -1,0 +1,124 @@
+// Sticky app-style tab bar — mobile only
+.mw-bottom-nav {
+  display: none;
+
+  @include max(767) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1005;
+    width: 100%;
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+    background: rgba($white, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid $mw-border;
+    box-shadow: 0 -8px 24px rgba($mw-primary, 0.08);
+    overflow: visible;
+  }
+
+  &__item {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 1 1 0;
+    max-width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    min-width: 0;
+    margin: 0;
+    min-height: 44px;
+    padding: 2px 0 2px;
+    border: 0;
+    background: transparent;
+    color: $mw-muted;
+    font-family: $mw-font;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+
+    img,
+    svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+
+    img {
+      filter: brightness(0);
+      opacity: 0.42;
+    }
+
+    svg {
+      opacity: 0.5;
+    }
+
+    span {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &.is-active,
+    &:focus-visible {
+      color: $mw-primary;
+
+      img {
+        opacity: 1;
+        filter: invert(23%) sepia(32%) saturate(1200%) hue-rotate(188deg) brightness(90%);
+      }
+
+      svg {
+        opacity: 1;
+        color: $mw-primary;
+      }
+    }
+  }
+
+  &__item--search {
+    position: relative;
+    color: $mw-primary;
+
+    &.is-active {
+      color: $mw-primary;
+    }
+  }
+
+  &__fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-top: -20px;
+    margin-bottom: 2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c82845 0%, #254272 100%);
+    box-shadow: 0 8px 18px rgba($mw-primary, 0.32);
+    overflow: hidden;
+    color: $white;
+
+    svg {
+      width: 22px;
+      height: 22px;
+      opacity: 1;
+      color: $white;
+    }
+  }
+}
+
+@include max(767) {
+  body.home-page {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+}

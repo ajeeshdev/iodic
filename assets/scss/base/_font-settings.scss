@@ -1,0 +1,178 @@
+@use "../helpers/media-queries";
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+h4,
+h5,
+h6 {
+  // font-family: $heading-font;
+}
+
+h2 span,
+h1 span {}
+
+h1,
+.h1,
+h1 span,
+.h1 span {
+
+
+  // line-height: 100% ;
+  // font-size:  clamp(30px, 5vw, 96px);
+}
+
+
+h2,
+.h2,
+h2 span,
+.h2 span,
+h2 strong {
+  color: #000;
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  line-height: 100%;
+
+
+  @include media-queries.min(576) {
+    font-size: 30px;
+
+  }
+
+  @include media-queries.min(1200) {
+    font-size: 33px;
+
+  }
+
+  @include media-queries.min(1280) {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+
+  @include media-queries.min(1350) {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  @include media-queries.min(1440) {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+
+  @include media-queries.min(1600) {
+    font-size: 43px;
+    margin-bottom: 14px;
+  }
+
+  @include media-queries.min(1900) {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+}
+
+h3,
+.h3,
+.h3 strong {
+  font-weight: 500;
+  font-size: 20px;
+
+
+  @include media-queries.min(992) {
+    font-size: 20px;
+  }
+
+  @include media-queries.min(1280) {
+    font-size: 21px;
+  }
+
+  @include media-queries.min(1350) {
+    font-size: 23px;
+  }
+
+  @include media-queries.min(1440) {
+    font-size: 26px;
+  }
+
+  @include media-queries.min(1600) {
+    font-size: 33px;
+  }
+
+  @include media-queries.min(1900) {
+    font-size: 36px;
+  }
+
+}
+
+h4,
+.h4,
+.h4 strong {
+  font-weight: 500;
+  font-size: 18px;
+
+  @include media-queries.min(1350) {
+    font-size: 20px;
+
+  }
+
+  @include media-queries.min(1440) {
+    font-size: 21px;
+  }
+
+  @include media-queries.min(1600) {
+    font-size: 22px;
+  }
+
+  @include media-queries.min(1900) {
+    font-size: 24px;
+  }
+
+
+}
+
+
+h5,
+.h5,
+.h5 strong {
+  font-weight: 500;
+
+  font-size: 12px;
+
+  @include media-queries.min(768) {
+    font-size: 13px;
+  }
+
+  @include media-queries.min(992) {
+    font-size: 12px;
+  }
+
+  @include media-queries.min(1200) {
+    font-size: 13px;
+
+  }
+
+  @include media-queries.min(1350) {
+    font-size: 14px;
+
+  }
+
+  @include media-queries.min(1440) {
+    font-size: 15px;
+  }
+
+  @include media-queries.min(1600) {
+    font-size: 15.5px;
+  }
+
+  @include media-queries.min(1900) {
+    font-size: 16px;
+  }
+
+
+}
+
+p {
+  margin-bottom: 0;
+}
