@@ -4338,6 +4338,181 @@ html.iod-locked {
     stroke-dashoffset: 0;
   }
 }
+.iod-testis {
+  overflow: hidden;
+}
+.iod-testis__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+@media (max-width: 767px) {
+  .iod-testis__head {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 34px;
+  }
+}
+.iod-testis__head .iod-section-head {
+  margin-bottom: 0;
+}
+.iod-testis__row {
+  display: flex;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.iod-testis__row + .iod-testis__row {
+  margin-top: 22px;
+}
+.iod-testis__track {
+  display: flex;
+  flex: none;
+  gap: 22px;
+  padding-right: 22px;
+  animation: iod-marquee 60s linear infinite;
+}
+.iod-testis__row--rev .iod-testis__track {
+  animation-direction: reverse;
+  animation-duration: 70s;
+}
+.iod-testis__row:hover .iod-testis__track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .iod-testis__row {
+    overflow-x: auto;
+  }
+  .iod-testis__track {
+    animation: none;
+  }
+  .iod-testis .iod-testi[aria-hidden=true] {
+    display: none;
+  }
+}
+
+.iod-rating {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: #151515;
+}
+.iod-rating > strong {
+  font-family: "Audiowide", "Manrope", sans-serif;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1;
+  background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.iod-rating > span {
+  display: grid;
+  gap: 6px;
+}
+.iod-rating small {
+  color: #a9a9a9;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.iod-testi {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  width: 400px;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: linear-gradient(160deg, #181818, #111);
+  transition: border-color 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+}
+@media (max-width: 575px) {
+  .iod-testi {
+    width: 300px;
+    padding: 22px;
+  }
+}
+.iod-testi:hover {
+  border-color: rgba(244, 194, 54, 0.45);
+  transform: translateY(-6px);
+  box-shadow: 0 26px 50px -24px rgba(244, 194, 54, 0.35);
+}
+.iod-testi__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.iod-testi__stars {
+  display: inline-flex;
+  gap: 3px;
+}
+.iod-testi__stars svg {
+  width: 16px;
+  height: 16px;
+  fill: #f4c236;
+}
+.iod-testi__result {
+  padding: 5px 11px;
+  border: 1px solid rgba(244, 194, 54, 0.35);
+  border-radius: 100px;
+  background: rgba(244, 194, 54, 0.08);
+  color: #f4c236;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.iod-testi blockquote {
+  flex: 1;
+  margin: 0 0 24px;
+  color: #e2e2e2;
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+@media (max-width: 575px) {
+  .iod-testi blockquote {
+    font-size: 14.5px;
+  }
+}
+.iod-testi figcaption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.iod-testi figcaption strong {
+  display: block;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+}
+.iod-testi figcaption small {
+  color: #8f8f8f;
+  font-size: 13px;
+}
+.iod-testi__avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
+  color: #000000;
+  font-family: "Audiowide", "Manrope", sans-serif;
+  font-size: 16px;
+}
+
 .iod-plx {
   scale: 1.14;
   will-change: translate;

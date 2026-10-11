@@ -2889,3 +2889,200 @@ html.iod-locked {
     stroke-dashoffset: 0;
   }
 }
+
+// ---------- Testimonials ----------
+.iod-testis {
+  overflow: hidden;
+
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 50px;
+
+    @include max(767) {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 34px;
+    }
+
+    .iod-section-head {
+      margin-bottom: 0;
+    }
+  }
+
+  // Edge fades so cards drift in and out of view.
+  &__row {
+    display: flex;
+    overflow: hidden;
+    -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+
+    & + & {
+      margin-top: 22px;
+    }
+  }
+
+  &__track {
+    display: flex;
+    flex: none;
+    gap: 22px;
+    padding-right: 22px;
+    animation: iod-marquee 60s linear infinite;
+  }
+
+  &__row--rev &__track {
+    animation-direction: reverse;
+    animation-duration: 70s;
+  }
+
+  &__row:hover &__track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__row {
+      overflow-x: auto;
+    }
+
+    &__track {
+      animation: none;
+    }
+
+    .iod-testi[aria-hidden="true"] {
+      display: none;
+    }
+  }
+}
+
+.iod-rating {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  border: 1px solid $iod-border-strong;
+  border-radius: 18px;
+  background: $iod-surface;
+
+  > strong {
+    font-family: $iod-display;
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1;
+    background: $iod-gold-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  > span {
+    display: grid;
+    gap: 6px;
+  }
+
+  small {
+    color: #a9a9a9;
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+
+.iod-testi {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  width: 400px;
+  padding: 28px;
+  border: 1px solid $iod-border;
+  border-radius: $iod-radius;
+  background: linear-gradient(160deg, #181818, #111);
+  transition: border-color 0.4s, transform 0.5s $iod-ease, box-shadow 0.4s;
+
+  @include max(575) {
+    width: 300px;
+    padding: 22px;
+  }
+
+  &:hover {
+    border-color: rgba($iod-gold, 0.45);
+    transform: translateY(-6px);
+    box-shadow: 0 26px 50px -24px rgba($iod-gold, 0.35);
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  &__stars {
+    display: inline-flex;
+    gap: 3px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: $iod-gold;
+    }
+  }
+
+  &__result {
+    padding: 5px 11px;
+    border: 1px solid rgba($iod-gold, 0.35);
+    border-radius: 100px;
+    background: rgba($iod-gold, 0.08);
+    color: $iod-gold;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  blockquote {
+    flex: 1;
+    margin: 0 0 24px;
+    color: #e2e2e2;
+    font-size: 15.5px;
+    line-height: 1.7;
+
+    @include max(575) {
+      font-size: 14.5px;
+    }
+  }
+
+  figcaption {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid $iod-border;
+
+    strong {
+      display: block;
+      color: $iod-white;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    small {
+      color: #8f8f8f;
+      font-size: 13px;
+    }
+  }
+
+  &__avatar {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: $iod-gold-gradient;
+    color: $iod-black;
+    font-family: $iod-display;
+    font-size: 16px;
+  }
+}
