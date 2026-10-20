@@ -15,8 +15,8 @@ html {
 }
 
 body.iod-page {
-  background: #0a0a0a;
-  color: #a6a6a6;
+  background: #f4f5f8;
+  color: #4a5568;
   font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.65;
@@ -49,18 +49,18 @@ textarea {
 }
 
 ::selection {
-  background: #f4c236;
+  background: #e09f00;
   color: #000000;
 }
 
 :focus-visible {
-  outline: 2px solid #f4c236;
+  outline: 2px solid #e09f00;
   outline-offset: 3px;
 }
 
 .container-ctn {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -124,16 +124,16 @@ textarea {
 }
 .iod-btn--gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 34px -8px rgba(244, 194, 54, 0.55);
+  box-shadow: 0 12px 34px -8px rgba(224, 159, 0, 0.55);
 }
 .iod-btn--ghost {
-  border-color: rgba(255, 255, 255, 0.16);
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(0, 0, 0, 0.14);
+  color: #0a0a0a;
+  background: rgba(0, 0, 0, 0.02);
 }
 .iod-btn--ghost:hover {
-  border-color: #f4c236;
-  color: #f4c236;
+  border-color: #e09f00;
+  color: #b8740c;
 }
 .iod-btn--dark {
   background: #000000;
@@ -141,13 +141,13 @@ textarea {
 }
 .iod-btn--dark:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.35);
 }
 
 .iod-header {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 100;
+  z-index: 1000;
   padding: 16px 0;
   transition: padding 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -166,12 +166,13 @@ textarea {
   padding: 10px 0;
 }
 .iod-header.is-scrolled .iod-header__bar {
-  background: rgba(12, 12, 12, 0.72);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
   width: calc(100% - 24px);
-  max-width: calc(1240px - 24px);
+  max-width: calc(1400px - 24px);
   padding: 0 12px 0 24px;
 }
 .iod-header__logo img {
@@ -194,15 +195,15 @@ textarea {
   align-items: center;
   gap: 4px;
   padding: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.03);
 }
 .iod-nav > a:not(.iod-btn),
 .iod-nav .iod-dd__toggle {
   padding: 9px 16px;
   border-radius: 100px;
-  color: #d0d0d0;
+  color: #4b5563;
   font-weight: 600;
   font-size: 14.5px;
   transition: color 0.3s, background 0.3s;
@@ -210,8 +211,8 @@ textarea {
 .iod-nav > a:not(.iod-btn):hover, .iod-nav > a:not(.iod-btn).is-active,
 .iod-nav .iod-dd__toggle:hover,
 .iod-nav .iod-dd__toggle.is-active {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.07);
+  color: #0a0a0a;
+  background: rgba(0, 0, 0, 0.06);
 }
 .iod-nav__cta {
   display: none;
@@ -227,8 +228,9 @@ textarea {
     gap: 2px;
     padding: 12px;
     border-radius: 22px;
-    background: #0e0e0e;
-    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.14);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -259,9 +261,9 @@ textarea {
   position: relative;
   width: 46px;
   height: 46px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.04);
   cursor: pointer;
 }
 .iod-nav-toggle span {
@@ -270,7 +272,7 @@ textarea {
   right: 13px;
   height: 2px;
   border-radius: 2px;
-  background: #ffffff;
+  background: #0a0a0a;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), top 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .iod-nav-toggle span:first-child {
@@ -308,16 +310,21 @@ textarea {
     padding: 70px 0;
   }
 }
+.iod-section--alt {
+  background: #e9ecf2;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
 
 .iod-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 8px 16px 8px 12px;
-  border: 1px solid rgba(244, 194, 54, 0.22);
+  border: 1px solid rgba(224, 159, 0, 0.22);
   border-radius: 100px;
-  background: rgba(244, 194, 54, 0.1);
-  color: #f4c236;
+  background: rgba(224, 159, 0, 0.1);
+  color: #e09f00;
   font-size: 13.5px;
   font-weight: 700;
 }
@@ -326,14 +333,14 @@ textarea {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #f4c236;
+  background: #e09f00;
 }
 .iod-pill__dot::after {
   content: "";
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  border: 1px solid #f4c236;
+  border: 1px solid #e09f00;
   animation: iod-ping 2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
@@ -342,7 +349,7 @@ textarea {
   align-items: center;
   gap: 10px;
   margin-bottom: 18px;
-  color: #f4c236;
+  color: #e09f00;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -356,7 +363,7 @@ textarea {
 }
 
 .iod-section-title {
-  color: #ffffff;
+  color: #0a0a0a;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-weight: 400;
   font-size: clamp(30px, 4.2vw, 52px);
@@ -370,7 +377,7 @@ textarea {
   font-size: 17px;
 }
 .iod-section-text a {
-  color: #f4c236;
+  color: #e09f00;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -421,7 +428,7 @@ textarea {
   width: 820px;
   height: 520px;
   margin-left: -410px;
-  background: radial-gradient(circle, rgba(244, 194, 54, 0.55), transparent 65%);
+  background: radial-gradient(circle, rgba(224, 159, 0, 0.55), transparent 65%);
 }
 .iod-hero__blob--b {
   top: 38%;
@@ -448,7 +455,7 @@ textarea {
   right: -50%;
   bottom: -10%;
   height: 70%;
-  background-image: linear-gradient(rgba(244, 194, 54, 0.22) 1px, transparent 1px), linear-gradient(90deg, rgba(244, 194, 54, 0.22) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(224, 159, 0, 0.22) 1px, transparent 1px), linear-gradient(90deg, rgba(224, 159, 0, 0.22) 1px, transparent 1px);
   background-size: 72px 72px;
   transform: perspective(700px) rotateX(62deg);
   transform-origin: bottom center;
@@ -472,13 +479,13 @@ textarea {
 .iod-hero__title {
   max-width: 1060px;
   margin: 28px 0 26px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-weight: 400;
   font-size: clamp(40px, 6.8vw, 98px);
   line-height: 1.02;
   letter-spacing: -0.02em;
-  text-shadow: 0 10px 60px rgba(0, 0, 0, 0.6);
+  text-shadow: none;
 }
 .iod-hero__title .iod-gold-text {
   position: relative;
@@ -500,7 +507,7 @@ textarea {
 .iod-hero__text {
   max-width: 600px;
   font-size: 18.5px;
-  color: #bdbdbd;
+  color: #4a5568;
 }
 @media (max-width: 575px) {
   .iod-hero__text {
@@ -527,9 +534,10 @@ textarea {
   justify-content: center;
   margin-top: 48px;
   padding: 16px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -541,10 +549,10 @@ textarea {
   text-align: left;
 }
 .iod-hero__stats li + li {
-  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  border-left: 1px solid rgba(0, 0, 0, 0.14);
 }
 .iod-hero__stats strong {
-  color: #ffffff;
+  color: #0a0a0a;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-weight: 400;
   font-size: 26px;
@@ -554,7 +562,7 @@ textarea {
   max-width: 90px;
   font-size: 12.5px;
   line-height: 1.3;
-  color: #a6a6a6;
+  color: #4a5568;
 }
 @media (max-width: 575px) {
   .iod-hero__stats {
@@ -593,13 +601,13 @@ textarea {
   align-items: center;
   gap: 9px;
   padding: 10px 16px 10px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 100px;
-  background: rgba(22, 22, 22, 0.7);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 16px 40px -14px rgba(0, 0, 0, 0.8);
-  color: #e6e6e6;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.1);
+  color: #0a0a0a;
   font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
@@ -620,7 +628,7 @@ textarea {
   stroke-linejoin: round;
 }
 .iod-chip b {
-  color: #f4c236;
+  color: #e09f00;
   font-weight: 800;
 }
 .iod-chip--1 {
@@ -680,10 +688,10 @@ textarea {
   height: 400px;
   margin-left: -145px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 24px;
-  background: #151515;
-  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.9);
+  background: #ffffff;
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.12);
   transform-origin: 50% 120%;
   transform: translateX(calc(var(--i) * var(--spread))) rotate(calc(var(--i) * var(--tilt)));
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
@@ -711,8 +719,8 @@ textarea {
   width: 340px;
   height: 440px;
   margin-left: -170px;
-  border-color: rgba(244, 194, 54, 0.5);
-  box-shadow: 0 40px 100px -20px rgba(244, 194, 54, 0.35);
+  border-color: rgba(224, 159, 0, 0.5);
+  box-shadow: 0 40px 100px -20px rgba(224, 159, 0, 0.35);
 }
 .iod-fan__label {
   position: absolute;
@@ -720,12 +728,13 @@ textarea {
   top: 14px;
   z-index: 1;
   padding: 7px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 100px;
-  background: rgba(10, 10, 10, 0.72);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  color: #ffffff;
+  color: #0a0a0a;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   font-size: 12.5px;
   font-weight: 700;
   white-space: nowrap;
@@ -748,10 +757,10 @@ textarea {
   place-items: center;
   width: 38px;
   height: 38px;
-  border: 2px solid #f4c236;
+  border: 2px solid #e09f00;
   border-radius: 50%;
-  background: rgba(10, 10, 10, 0.72);
-  color: #f4c236;
+  background: rgba(255, 255, 255, 0.9);
+  color: #e09f00;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-size: 13px;
 }
@@ -838,7 +847,10 @@ textarea {
 }
 
 .iod-services {
-  padding-top: 150px;
+  padding-top: 130px;
+  background: #e9ecf2;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .iod-bento {
@@ -864,24 +876,26 @@ textarea {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
-  background: #151515;
+  background: #ffffff;
+  box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
   overflow: hidden;
   isolation: isolate;
-  transition: border-color 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: border-color 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
 }
 .iod-card::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(244, 194, 54, 0.13), transparent 45%);
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(224, 159, 0, 0.13), transparent 45%);
   opacity: 0;
   transition: opacity 0.4s;
 }
 .iod-card:hover {
-  border-color: rgba(244, 194, 54, 0.35);
+  border-color: rgba(224, 159, 0, 0.45);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
   transform: translateY(-4px);
 }
 .iod-card:hover::before {
@@ -916,10 +930,10 @@ textarea {
   place-items: center;
   width: 54px;
   height: 54px;
-  border: 1px solid rgba(244, 194, 54, 0.22);
+  border: 1px solid rgba(224, 159, 0, 0.22);
   border-radius: 16px;
-  background: rgba(244, 194, 54, 0.1);
-  color: #f4c236;
+  background: rgba(224, 159, 0, 0.1);
+  color: #e09f00;
   transition: background 0.4s, color 0.4s, border-color 0.4s;
 }
 .iod-card__icon svg {
@@ -932,13 +946,13 @@ textarea {
   stroke-linejoin: round;
 }
 .iod-card__num {
-  color: #3a3a3a;
+  color: #cbd5e1;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-size: 15px;
 }
 .iod-card h3 {
   margin-bottom: 12px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
@@ -948,7 +962,7 @@ textarea {
   font-size: 15.5px;
 }
 .iod-card--feature {
-  background: radial-gradient(120% 120% at 100% 100%, rgba(244, 194, 54, 0.14), transparent 55%), #151515;
+  background: radial-gradient(120% 120% at 100% 100%, rgba(224, 159, 0, 0.14), transparent 55%), #ffffff;
 }
 .iod-card--cta {
   justify-content: center;
@@ -1044,15 +1058,68 @@ textarea {
 }
 .iod-tags li {
   padding: 6px 13px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 100px;
-  color: #d6d6d6;
+  color: #4a5568;
+  background: rgba(0, 0, 0, 0.02);
   font-size: 13px;
   font-weight: 600;
   transition: border-color 0.3s, color 0.3s;
 }
 .iod-card:hover .iod-tags li {
-  border-color: rgba(244, 194, 54, 0.3);
+  border-color: rgba(224, 159, 0, 0.3);
+}
+
+.iod-services__foot {
+  margin-top: 36px;
+}
+.iod-services__foot-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 36px 44px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+}
+.iod-services__foot-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
+}
+.iod-services__foot-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+}
+.iod-services__foot-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0a0a0a;
+  margin: 6px 0 8px;
+}
+.iod-services__foot-desc {
+  color: #718096;
+  font-size: 15px;
+  margin: 0;
+  max-width: 680px;
+  line-height: 1.5;
+}
+@media (max-width: 991px) {
+  .iod-services__foot-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px;
+    gap: 20px;
+  }
 }
 
 .iod-stack {
@@ -1075,18 +1142,19 @@ textarea {
 }
 .iod-stack__list li {
   padding: 14px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 14px;
-  background: #111111;
-  color: #e2e2e2;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  color: #0a0a0a;
   font-weight: 700;
   font-size: 15.5px;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s, color 0.35s;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s, color 0.35s, box-shadow 0.35s;
 }
 .iod-stack__list li:hover {
   transform: translateY(-3px);
-  border-color: #f4c236;
-  color: #f4c236;
+  border-color: #e09f00;
+  color: #e09f00;
 }
 @media (max-width: 575px) {
   .iod-stack__list li {
@@ -1096,9 +1164,9 @@ textarea {
 }
 
 .iod-process {
-  background: #111111;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #e9ecf2;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .iod-steps {
@@ -1121,7 +1189,7 @@ textarea {
 .iod-step {
   position: relative;
   padding: 30px 26px 32px;
-  border-top: 2px solid rgba(255, 255, 255, 0.16);
+  border-top: 2px solid rgba(0, 0, 0, 0.14);
   transition: border-color 0.4s;
 }
 .iod-step::before {
@@ -1152,7 +1220,7 @@ textarea {
 }
 .iod-step h3 {
   margin-bottom: 10px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 21px;
   font-weight: 700;
 }
@@ -1188,7 +1256,7 @@ textarea {
 .iod-about__img {
   overflow: hidden;
   border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 .iod-about__img img {
   width: 100%;
@@ -1214,7 +1282,7 @@ textarea {
 .iod-checks li {
   position: relative;
   padding-left: 34px;
-  color: #dcdcdc;
+  color: #0a0a0a;
   font-weight: 600;
 }
 .iod-checks li::before {
@@ -1258,7 +1326,7 @@ textarea {
   width: 380px;
   height: 260px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
 }
 .iod-showcase__item::after {
@@ -1326,13 +1394,15 @@ textarea {
   gap: 12px;
 }
 .iod-faq__item {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 14px;
-  background: #151515;
-  transition: border-color 0.3s;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 .iod-faq__item[open] {
-  border-color: rgba(244, 194, 54, 0.35);
+  border-color: rgba(224, 159, 0, 0.45);
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.06);
 }
 .iod-faq__item[open] summary::after {
   transform: rotate(45deg);
@@ -1345,7 +1415,7 @@ textarea {
   align-items: center;
   gap: 20px;
   padding: 22px 24px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 17px;
   font-weight: 700;
   cursor: pointer;
@@ -1362,8 +1432,8 @@ textarea {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  color: #f4c236;
+  background: rgba(0, 0, 0, 0.05);
+  color: #e09f00;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
@@ -1498,7 +1568,7 @@ textarea {
 .iod-form__services input:checked + span {
   background: #000000;
   border-color: #000000;
-  color: #f4c236;
+  color: #e09f00;
 }
 .iod-form__services input:focus-visible + span {
   outline: 2px solid #000000;
@@ -1561,7 +1631,7 @@ textarea {
 .iod-field textarea:focus {
   outline: none;
   border-color: #bd7211;
-  box-shadow: 0 0 0 4px rgba(244, 194, 54, 0.3);
+  box-shadow: 0 0 0 4px rgba(224, 159, 0, 0.3);
 }
 .iod-field input.is-invalid,
 .iod-field textarea.is-invalid {
@@ -1574,12 +1644,13 @@ textarea {
 }
 .iod-footer__top {
   display: grid;
-  grid-template-columns: 1.6fr repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: 1.25fr 2.35fr 0.85fr 1.05fr;
+  gap: 48px;
 }
 @media (max-width: 991px) {
   .iod-footer__top {
     grid-template-columns: 1fr 1fr;
+    gap: 36px 24px;
   }
 }
 @media (max-width: 575px) {
@@ -1601,7 +1672,7 @@ textarea {
 }
 .iod-footer__col h4 {
   margin-bottom: 18px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -1610,12 +1681,28 @@ textarea {
   display: grid;
   gap: 10px;
 }
+.iod-footer__col--services, .iod-footer__col:nth-child(2) {
+  min-width: 0;
+}
+@media (min-width: 992px) {
+  .iod-footer__col--services ul, .iod-footer__col:nth-child(2) ul {
+    display: block;
+    column-count: 2;
+    column-gap: 32px;
+  }
+  .iod-footer__col--services ul li, .iod-footer__col:nth-child(2) ul li {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 10px;
+  }
+}
 .iod-footer__col a {
-  font-size: 15px;
+  font-size: 14.5px;
   transition: color 0.25s;
 }
 .iod-footer__col a:hover {
-  color: #f4c236;
+  color: #e09f00;
 }
 .iod-footer__wordmark {
   margin: 60px 0 10px;
@@ -1623,7 +1710,7 @@ textarea {
   font-size: clamp(90px, 22vw, 330px);
   line-height: 0.85;
   text-align: center;
-  background: linear-gradient(180deg, rgba(244, 194, 54, 0.22), rgba(244, 194, 54, 0));
+  background: linear-gradient(180deg, rgba(224, 159, 0, 0.22), rgba(224, 159, 0, 0));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1635,12 +1722,12 @@ textarea {
   justify-content: space-between;
   gap: 10px;
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   font-size: 14px;
-  color: #7a7a7a;
+  color: #718096;
 }
 .iod-footer__bottom a:hover {
-  color: #f4c236;
+  color: #e09f00;
 }
 
 .iod-social {
@@ -1653,13 +1740,13 @@ textarea {
   place-items: center;
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 50%;
   transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 .iod-social a:hover {
-  background: #f4c236;
-  border-color: #f4c236;
+  background: #e09f00;
+  border-color: #e09f00;
   color: #000000;
 }
 .iod-social svg {
@@ -1741,7 +1828,7 @@ textarea {
   }
 }
 .iod-dd {
-  position: relative;
+  position: static;
 }
 .iod-dd__toggle {
   display: inline-flex;
@@ -1766,32 +1853,43 @@ textarea {
 }
 .iod-dd__menu {
   position: absolute;
-  top: calc(100% + 18px);
+  top: calc(100% + 10px);
   left: 50%;
-  width: 640px;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 22px;
-  background: #0f0f0f;
-  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.9);
+  transform: translateX(-50%) translateY(8px);
+  width: calc(100% - 24px);
+  max-width: 1240px;
+  max-height: calc(88vh - 40px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+  padding: 26px 28px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.16), 0 10px 24px -5px rgba(0, 0, 0, 0.05);
   opacity: 0;
   visibility: hidden;
-  transform: translate(-50%, 8px);
-  transition: opacity 0.25s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.25s;
+  pointer-events: none;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+  z-index: 1200;
 }
 .iod-dd__menu::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  top: -20px;
-  height: 20px;
+  left: -40px;
+  right: -40px;
+  top: -30px;
+  height: 35px;
+  pointer-events: auto;
 }
 @media (min-width: 992px) {
   .iod-dd:hover .iod-dd__menu, .iod-dd:focus-within .iod-dd__menu, .iod-dd.is-open .iod-dd__menu {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, 0);
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
   }
 }
 .iod-dd__grid {
@@ -1809,19 +1907,19 @@ textarea {
 }
 .iod-dd__item strong {
   display: block;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 14.5px;
   font-weight: 700;
   line-height: 1.3;
 }
 .iod-dd__item small {
   display: block;
-  color: #7a7a7a;
+  color: #718096;
   font-size: 12.5px;
   line-height: 1.35;
 }
 .iod-dd__item:hover, .iod-dd__item.is-active {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.04);
 }
 .iod-dd__item:hover .iod-dd__icon, .iod-dd__item.is-active .iod-dd__icon {
   background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
@@ -1833,10 +1931,10 @@ textarea {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(244, 194, 54, 0.22);
+  border: 1px solid rgba(224, 159, 0, 0.22);
   border-radius: 12px;
-  background: rgba(244, 194, 54, 0.1);
-  color: #f4c236;
+  background: rgba(224, 159, 0, 0.1);
+  color: #e09f00;
   transition: background 0.25s, color 0.25s;
 }
 .iod-dd__icon svg {
@@ -1855,8 +1953,8 @@ textarea {
   gap: 8px;
   margin-top: 10px;
   padding: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  color: #f4c236;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  color: #e09f00;
   font-size: 14px;
   font-weight: 700;
 }
@@ -1870,6 +1968,9 @@ textarea {
   stroke-linejoin: round;
 }
 @media (max-width: 991px) {
+  .iod-dd {
+    position: relative;
+  }
   .iod-dd__toggle {
     width: 100%;
     justify-content: space-between;
@@ -1877,15 +1978,20 @@ textarea {
   .iod-dd__menu {
     position: static;
     width: auto;
+    max-width: none;
+    max-height: none;
+    overflow-y: visible;
     display: none;
-    margin: 4px 0 8px;
-    padding: 6px;
-    border-color: rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.02);
+    margin: 6px 0 10px;
+    padding: 10px;
+    border-radius: 16px;
+    border-color: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.03);
     box-shadow: none;
     opacity: 1;
     visibility: visible;
     transform: none;
+    pointer-events: auto;
   }
   .iod-dd__menu::before {
     display: none;
@@ -1898,6 +2004,335 @@ textarea {
   }
   .iod-dd__item small {
     display: none;
+  }
+}
+
+.iod-mega__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.iod-mega__cols {
+  display: grid;
+  grid-template-columns: 1.1fr 1.25fr 1.2fr 1.25fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.iod-mega__col {
+  display: flex;
+  flex-direction: column;
+}
+.iod-mega__col:not(:last-child) {
+  padding-right: 20px;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+.iod-mega__col--feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+.iod-mega__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.iod-mega__tag {
+  display: inline-block;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  color: #64748b;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.iod-mega__tag--gold {
+  background: rgba(224, 159, 0, 0.12);
+  color: #b45309;
+}
+.iod-mega__title {
+  margin: 0;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.iod-mega__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+.iod-mega__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.iod-mega__item:hover, .iod-mega__item.is-active {
+  background: rgba(244, 194, 54, 0.08);
+  transform: translateX(3px);
+}
+.iod-mega__item:hover .iod-mega__icon, .iod-mega__item.is-active .iod-mega__icon {
+  background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
+  color: #000000;
+  box-shadow: 0 4px 10px rgba(224, 159, 0, 0.25);
+}
+.iod-mega__item:hover strong, .iod-mega__item.is-active strong {
+  color: #b45309;
+}
+.iod-mega__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  margin-top: 2px;
+  border-radius: 10px;
+  background: rgba(224, 159, 0, 0.1);
+  color: #e09f00;
+  border: 1px solid rgba(224, 159, 0, 0.22);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.iod-mega__icon svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.iod-mega__info {
+  flex: 1;
+  min-width: 0;
+}
+.iod-mega__info strong {
+  display: block;
+  color: #0f172a;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+.iod-mega__info small {
+  display: block;
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+.iod-mega__card {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(224, 159, 0, 0.09) 0%, rgba(255, 255, 255, 0.95) 100%);
+  border: 1px solid rgba(224, 159, 0, 0.28);
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.iod-mega__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -8px rgba(224, 159, 0, 0.28);
+  border-color: rgba(224, 159, 0, 0.55);
+}
+.iod-mega__card:hover .iod-mega__card-link svg {
+  transform: translateX(4px);
+}
+.iod-mega__card-badge {
+  display: inline-block;
+  padding: 2.5px 8px;
+  border-radius: 6px;
+  background: #e09f00;
+  color: #000;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 7px;
+}
+.iod-mega__card-title {
+  color: #0f172a;
+  font-size: 14.5px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+.iod-mega__card-text {
+  color: #475569;
+  font-size: 11.5px;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+.iod-mega__card-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(224, 159, 0, 0.2);
+}
+.iod-mega__card-stat strong {
+  color: #b45309;
+  font-size: 14px;
+  font-weight: 800;
+}
+.iod-mega__card-stat span {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 600;
+}
+.iod-mega__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 700;
+}
+.iod-mega__card-link svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  transition: transform 0.2s;
+}
+.iod-mega__audit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.iod-mega__audit-text {
+  flex: 1;
+}
+.iod-mega__audit-text strong {
+  display: block;
+  color: #0f172a;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.iod-mega__audit-text p {
+  margin: 2px 0 0;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.35;
+}
+.iod-mega__audit .iod-btn {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  font-size: 11.5px;
+  font-weight: 700;
+  border-radius: 8px;
+}
+.iod-mega__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+.iod-mega__bar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+.iod-mega__bar-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e09f00;
+  box-shadow: 0 0 8px rgba(224, 159, 0, 0.7);
+  flex-shrink: 0;
+}
+.iod-mega__bar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.iod-mega__bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #b45309;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.iod-mega__bar-link svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  transition: transform 0.2s;
+}
+.iod-mega__bar-link:hover {
+  color: #000000;
+}
+.iod-mega__bar-link:hover svg {
+  transform: translateX(4px);
+}
+@media (max-width: 991px) {
+  .iod-mega__cols {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .iod-mega__col:not(:last-child) {
+    padding-right: 0;
+    border-right: none;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .iod-mega__head {
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+  }
+  .iod-mega__item {
+    padding: 7px 8px;
+  }
+  .iod-mega__item small {
+    display: none;
+  }
+  .iod-mega__card {
+    margin-top: 4px;
+    padding: 10px 12px;
+  }
+  .iod-mega__audit {
+    display: none;
+  }
+  .iod-mega__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .iod-mega__bar-left {
+    font-size: 11.5px;
   }
 }
 
@@ -1921,13 +2356,13 @@ textarea {
   place-items: center;
   width: 54px;
   height: 54px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  background: rgba(20, 20, 20, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  color: #ffffff;
-  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8);
+  color: #0a0a0a;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s, color 0.3s, opacity 0.3s, visibility 0.3s;
 }
@@ -1975,7 +2410,7 @@ textarea {
   transform: none;
 }
 .iod-fab__top:hover {
-  background: #f4c236;
+  background: #e09f00;
   color: #000000;
 }
 .iod-fab__quote {
@@ -1986,8 +2421,8 @@ textarea {
   height: 112px;
   margin: 4px -4px 0 0;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 25%, #262626, #0d0d0d 70%);
-  box-shadow: inset 0 0 0 1px rgba(244, 194, 54, 0.35), 0 22px 44px -16px rgba(0, 0, 0, 0.9), 0 0 50px -12px rgba(244, 194, 54, 0.45);
+  background: radial-gradient(circle at 30% 25%, #ffffff, #f1f5f9 70%);
+  box-shadow: inset 0 0 0 1px rgba(224, 159, 0, 0.35), 0 20px 40px -15px rgba(0, 0, 0, 0.15), 0 0 40px -10px rgba(224, 159, 0, 0.3);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
 }
 .iod-fab__quote::before {
@@ -1995,17 +2430,17 @@ textarea {
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  background: conic-gradient(from 0deg, transparent 0 70%, rgba(244, 194, 54, 0.9) 85%, transparent 100%);
+  background: conic-gradient(from 0deg, transparent 0 70%, rgba(224, 159, 0, 0.9) 85%, transparent 100%);
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
   mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
   animation: iod-spin 3.2s linear infinite;
 }
 .iod-fab__quote:hover {
   transform: scale(1.06) rotate(-4deg);
-  box-shadow: inset 0 0 0 1px rgba(244, 194, 54, 0.7), 0 26px 50px -16px rgba(0, 0, 0, 0.9), 0 0 70px -10px rgba(244, 194, 54, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(224, 159, 0, 0.7), 0 26px 50px -16px rgba(0, 0, 0, 0.9), 0 0 70px -10px rgba(224, 159, 0, 0.7);
 }
 .iod-fab__quote:focus-visible {
-  outline: 2px solid #f4c236;
+  outline: 2px solid #e09f00;
   outline-offset: 6px;
 }
 .iod-fab__ring {
@@ -2017,7 +2452,7 @@ textarea {
   animation: iod-spin 14s linear infinite;
 }
 .iod-fab__ring text {
-  fill: #f4c236;
+  fill: #e09f00;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-size: 10.5px;
   letter-spacing: 0.5px;
@@ -2033,7 +2468,7 @@ textarea {
   overflow: hidden;
   border-radius: 50%;
   background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
-  box-shadow: 0 8px 20px -6px rgba(244, 194, 54, 0.7), inset 0 -4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px -6px rgba(224, 159, 0, 0.7), inset 0 -4px 10px rgba(0, 0, 0, 0.2);
 }
 .iod-fab__chev {
   position: absolute;
@@ -2060,12 +2495,13 @@ textarea {
   right: calc(100% + 14px);
   top: 50%;
   padding: 9px 14px;
-  border: 1px solid rgba(244, 194, 54, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 100px;
-  background: rgba(14, 14, 14, 0.92);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
@@ -2114,8 +2550,8 @@ textarea {
     grid-template-columns: 1fr 1fr 1.3fr;
     gap: 8px;
     padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-    background: rgba(10, 10, 10, 0.92);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
   }
@@ -2126,9 +2562,9 @@ textarea {
   justify-content: center;
   gap: 8px;
   height: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 14px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 14px;
   font-weight: 700;
 }
@@ -2160,7 +2596,7 @@ textarea {
   font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-weight: 600;
   font-size: 14.5px;
-  color: #d0d0d0;
+  color: #4a5568;
 }
 
 .iod-btn--outline-dark {
@@ -2172,7 +2608,7 @@ textarea {
 }
 .iod-btn--outline-dark:hover {
   background: #000000;
-  color: #f4c236;
+  color: #e09f00;
 }
 
 .iod-btn .iod-wa {
@@ -2199,17 +2635,17 @@ textarea {
   margin-bottom: 22px;
   font-size: 14px;
   font-weight: 600;
-  color: #7a7a7a;
+  color: #718096;
 }
 .iod-crumbs a {
-  color: #cfcfcf;
+  color: #4a5568;
   transition: color 0.25s;
 }
 .iod-crumbs a:hover {
-  color: #f4c236;
+  color: #e09f00;
 }
 .iod-crumbs span {
-  color: #f4c236;
+  color: #e09f00;
 }
 .iod-crumbs .iod-chevron {
   width: 9px;
@@ -2243,7 +2679,7 @@ textarea {
 .iod-phero__title {
   max-width: 960px;
   margin: 24px 0 22px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-weight: 400;
   font-size: clamp(34px, 5.2vw, 72px);
@@ -2257,7 +2693,7 @@ textarea {
 .iod-phero__text {
   max-width: 620px;
   font-size: 18px;
-  color: #bdbdbd;
+  color: #4a5568;
 }
 @media (max-width: 575px) {
   .iod-phero__text {
@@ -2312,8 +2748,8 @@ textarea {
 .iod-phero__img {
   overflow: hidden;
   border-radius: 28px;
-  border: 1px solid rgba(244, 194, 54, 0.45);
-  box-shadow: 0 40px 100px -30px rgba(244, 194, 54, 0.3);
+  border: 1px solid rgba(224, 159, 0, 0.45);
+  box-shadow: 0 40px 100px -30px rgba(224, 159, 0, 0.3);
   transform: rotate(3deg);
 }
 .iod-phero__img img {
@@ -2328,23 +2764,23 @@ textarea {
   display: flex;
   flex-direction: column;
   padding: 16px 22px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 18px;
-  background: rgba(18, 18, 18, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.1);
   animation: iod-float 6s ease-in-out infinite;
 }
 .iod-phero__chip strong {
-  color: #f4c236;
+  color: #e09f00;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-weight: 400;
   font-size: 30px;
   line-height: 1.1;
 }
 .iod-phero__chip span {
-  color: #a6a6a6;
+  color: #4a5568;
   font-size: 13px;
 }
 @media (max-width: 575px) {
@@ -2364,7 +2800,7 @@ textarea {
   border-radius: 20px;
   background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
   color: #000000;
-  box-shadow: 0 20px 40px -12px rgba(244, 194, 54, 0.5);
+  box-shadow: 0 20px 40px -12px rgba(224, 159, 0, 0.5);
   animation: iod-float 7s ease-in-out infinite;
   animation-delay: -3s;
 }
@@ -2449,9 +2885,10 @@ textarea {
 }
 .iod-overview__panel {
   padding: 36px;
-  border: 1px solid rgba(244, 194, 54, 0.25);
+  border: 1px solid rgba(224, 159, 0, 0.25);
   border-radius: 22px;
-  background: radial-gradient(120% 120% at 100% 0%, rgba(244, 194, 54, 0.12), transparent 55%), #151515;
+  background: radial-gradient(120% 120% at 100% 0%, rgba(224, 159, 0, 0.12), transparent 55%), #ffffff;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
 }
 @media (max-width: 575px) {
   .iod-overview__panel {
@@ -2459,7 +2896,7 @@ textarea {
   }
 }
 .iod-overview__panel h3 {
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 22px;
   font-weight: 700;
 }
@@ -2468,7 +2905,10 @@ textarea {
 }
 
 .iod-features {
-  padding-top: 0;
+  padding: 100px 0;
+  background: #e9ecf2;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .iod-stack--inner {
@@ -2483,10 +2923,11 @@ textarea {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
-  background: #151515;
-  transition: border-color 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  background: #ffffff;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
 }
 .iod-scard__img {
   height: 220px;
@@ -2510,12 +2951,12 @@ textarea {
   margin-bottom: 18px;
   background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
   color: #000000;
-  border-color: #151515;
+  border-color: #ffffff;
   border-width: 3px;
 }
 .iod-scard__body h3 {
   margin-bottom: 8px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 20px;
   font-weight: 700;
 }
@@ -2528,7 +2969,7 @@ textarea {
   gap: 8px;
   margin-top: auto;
   padding-top: 20px;
-  color: #f4c236;
+  color: #e09f00;
   font-weight: 700;
   font-size: 14.5px;
 }
@@ -2543,7 +2984,7 @@ textarea {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .iod-scard:hover {
-  border-color: rgba(244, 194, 54, 0.35);
+  border-color: rgba(224, 159, 0, 0.35);
   transform: translateY(-4px);
 }
 .iod-scard:hover img {
@@ -2567,9 +3008,10 @@ textarea {
   align-items: center;
   gap: 60px;
   padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 28px;
-  background: #151515;
+  background: #ffffff;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
 }
 @media (max-width: 991px) {
   .iod-srow {
@@ -2630,7 +3072,7 @@ textarea {
 }
 .iod-srow__body h2 {
   margin: 22px 0 14px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-weight: 400;
   font-size: clamp(24px, 2.6vw, 34px);
@@ -2651,9 +3093,9 @@ textarea {
 }
 
 .iod-statband {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: #111111;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: #e9ecf2;
 }
 .iod-statband__inner {
   display: grid;
@@ -2676,7 +3118,7 @@ textarea {
 }
 @media (min-width: 768px) {
   .iod-statband__inner div + div {
-    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
   }
 }
 .iod-statband__inner strong {
@@ -2690,7 +3132,7 @@ textarea {
   color: transparent;
 }
 .iod-statband__inner span {
-  color: #a6a6a6;
+  color: #4a5568;
   font-weight: 600;
 }
 
@@ -2709,9 +3151,9 @@ textarea {
 }
 .iod-mission__card {
   padding: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
-  background: radial-gradient(100% 100% at 0% 0%, rgba(244, 194, 54, 0.1), transparent 60%), #151515;
+  background: radial-gradient(100% 100% at 0% 0%, rgba(224, 159, 0, 0.1), transparent 60%), #ffffff;
 }
 @media (max-width: 575px) {
   .iod-mission__card {
@@ -2723,7 +3165,7 @@ textarea {
 }
 .iod-mission__card h3 {
   margin-bottom: 12px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-weight: 400;
   font-size: 26px;
@@ -2807,18 +3249,18 @@ textarea {
 }
 .iod-filter__btn {
   padding: 10px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 100px;
   background: transparent;
-  color: #d6d6d6;
+  color: #4a5568;
   font-weight: 700;
   font-size: 14px;
   cursor: pointer;
   transition: background 0.25s, color 0.25s, border-color 0.25s;
 }
 .iod-filter__btn:hover {
-  border-color: #f4c236;
-  color: #f4c236;
+  border-color: #e09f00;
+  color: #e09f00;
 }
 .iod-filter__btn.is-active {
   border-color: transparent;
@@ -2846,10 +3288,11 @@ textarea {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
-  background: #151515;
-  transition: border-color 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  background: #ffffff;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
 }
 .iod-post.is-hidden {
   display: none;
@@ -2873,13 +3316,13 @@ textarea {
 }
 .iod-post__body h3 {
   margin: 14px 0 10px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 20px;
   font-weight: 700;
   line-height: 1.35;
 }
 .iod-post__body h3 a:hover {
-  color: #f4c236;
+  color: #e09f00;
 }
 .iod-post__body p {
   font-size: 15px;
@@ -2889,14 +3332,14 @@ textarea {
   flex-wrap: wrap;
   align-items: center;
   gap: 6px 14px;
-  color: #7a7a7a;
+  color: #718096;
   font-size: 13px;
   font-weight: 600;
 }
 .iod-post__meta span + span::before {
   content: "•";
   margin-right: 14px;
-  color: #444;
+  color: #cbd5e1;
 }
 .iod-post__meta--hero {
   justify-content: center;
@@ -2904,8 +3347,8 @@ textarea {
 .iod-post__cat {
   padding: 4px 12px;
   border-radius: 100px;
-  background: rgba(244, 194, 54, 0.1);
-  color: #f4c236;
+  background: rgba(224, 159, 0, 0.1);
+  color: #e09f00;
 }
 .iod-post__cat + span::before {
   display: none;
@@ -2916,7 +3359,7 @@ textarea {
   gap: 8px;
   margin-top: auto;
   padding-top: 20px;
-  color: #f4c236;
+  color: #e09f00;
   font-weight: 700;
   font-size: 14.5px;
 }
@@ -2931,7 +3374,7 @@ textarea {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .iod-post:hover {
-  border-color: rgba(244, 194, 54, 0.35);
+  border-color: rgba(224, 159, 0, 0.35);
   transform: translateY(-4px);
 }
 .iod-post:hover img {
@@ -2990,9 +3433,9 @@ textarea {
   align-items: center;
   gap: 40px;
   padding: 56px;
-  border: 1px solid rgba(244, 194, 54, 0.25);
+  border: 1px solid rgba(224, 159, 0, 0.25);
   border-radius: 28px;
-  background: radial-gradient(80% 140% at 100% 50%, rgba(244, 194, 54, 0.14), transparent 60%), #151515;
+  background: radial-gradient(80% 140% at 100% 50%, rgba(224, 159, 0, 0.14), transparent 60%), #ffffff;
 }
 @media (max-width: 991px) {
   .iod-newsletter {
@@ -3014,14 +3457,14 @@ textarea {
   flex: 1 1 240px;
   height: 54px;
   padding: 0 20px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.04);
-  color: #ffffff;
+  background: #ffffff;
+  color: #0a0a0a;
 }
 .iod-newsletter__form input:focus {
   outline: none;
-  border-color: #f4c236;
+  border-color: #e09f00;
 }
 .iod-newsletter__form input.is-invalid {
   border-color: #e5534b;
@@ -3036,7 +3479,7 @@ textarea {
 }
 .iod-newsletter__form .iod-form__status {
   flex-basis: 100%;
-  color: #f4c236;
+  color: #e09f00;
 }
 .iod-newsletter__form .iod-form__status.is-error {
   color: #e5534b;
@@ -3077,11 +3520,11 @@ textarea {
 }
 .iod-author strong {
   display: block;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 15px;
 }
 .iod-author small {
-  color: #7a7a7a;
+  color: #718096;
   font-size: 13px;
 }
 
@@ -3090,7 +3533,7 @@ textarea {
 }
 .iod-article__cover {
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 28px;
 }
 .iod-article__cover img {
@@ -3130,35 +3573,36 @@ textarea {
   gap: 8px;
   margin-top: 44px;
   padding-top: 28px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 .iod-article__tags span {
   margin-right: 6px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-weight: 700;
 }
 .iod-article__tags a {
   padding: 6px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 100px;
   font-size: 13.5px;
   font-weight: 600;
   transition: border-color 0.25s, color 0.25s;
 }
 .iod-article__tags a:hover {
-  border-color: #f4c236;
-  color: #f4c236;
+  border-color: #e09f00;
+  color: #e09f00;
 }
 
 .iod-aside-card {
   padding: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
-  background: #151515;
+  background: #ffffff;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
 }
 .iod-aside-card h4 {
   margin-bottom: 16px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 16px;
   font-weight: 800;
 }
@@ -3186,7 +3630,7 @@ textarea {
   place-items: center;
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 50%;
   background: none;
   color: inherit;
@@ -3194,8 +3638,8 @@ textarea {
   transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 .iod-copy:hover, .iod-copy.is-copied {
-  background: #f4c236;
-  border-color: #f4c236;
+  background: #e09f00;
+  border-color: #e09f00;
   color: #000000;
 }
 
@@ -3208,21 +3652,21 @@ textarea {
   display: flex;
   gap: 10px;
   padding: 8px 12px;
-  border-left: 2px solid rgba(255, 255, 255, 0.16);
-  color: #a6a6a6;
+  border-left: 2px solid rgba(0, 0, 0, 0.14);
+  color: #4a5568;
   font-size: 14.5px;
   font-weight: 600;
   line-height: 1.4;
   transition: color 0.25s, border-color 0.25s, background 0.25s;
 }
 .iod-toc a:hover, .iod-toc a.is-active {
-  border-color: #f4c236;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.03);
+  border-color: #e09f00;
+  color: #0a0a0a;
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .iod-prose {
-  color: #c4c4c4;
+  color: #374151;
   font-size: 17.5px;
   line-height: 1.8;
 }
@@ -3230,13 +3674,13 @@ textarea {
   margin-top: 22px;
 }
 .iod-prose__lead {
-  color: #e0e0e0;
+  color: #111827;
   font-size: 20px;
   line-height: 1.7;
 }
 .iod-prose h2 {
   margin-top: 54px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-weight: 400;
   font-size: clamp(22px, 2.4vw, 30px);
@@ -3263,24 +3707,25 @@ textarea {
   clip-path: polygon(0 0, 65% 0, 100% 50%, 65% 100%, 0 100%, 30% 50%);
 }
 .iod-prose a {
-  color: #f4c236;
+  color: #e09f00;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 .iod-prose code {
   padding: 2px 8px;
   border-radius: 6px;
-  background: #1c1c1c;
-  color: #f4c236;
+  background: #eceff5;
+  color: #e09f00;
   font-size: 0.88em;
 }
 .iod-prose blockquote {
   position: relative;
   padding: 28px 32px;
-  border-left: 3px solid #f4c236;
+  border-left: 3px solid #e09f00;
   border-radius: 0 22px 22px 0;
-  background: #151515;
-  color: #ffffff;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  color: #0a0a0a;
   font-size: 20px;
   font-weight: 600;
   line-height: 1.5;
@@ -3294,16 +3739,16 @@ textarea {
 }
 .iod-prose figure figcaption {
   margin-top: 12px;
-  color: #7a7a7a;
+  color: #718096;
   font-size: 14px;
   text-align: center;
 }
 .iod-prose__note {
   margin-top: 40px !important;
   padding: 20px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 14px;
-  background: #151515;
+  background: #ffffff;
 }
 
 .iod-contact-page {
@@ -3345,20 +3790,21 @@ textarea {
 
 .iod-info {
   padding: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
-  background: #151515;
+  background: #ffffff;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
   transition: border-color 0.4s;
 }
 .iod-info:hover {
-  border-color: rgba(244, 194, 54, 0.35);
+  border-color: rgba(224, 159, 0, 0.35);
 }
 .iod-info .iod-card__icon {
   margin-bottom: 22px;
 }
 .iod-info h3 {
   margin-bottom: 6px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 18px;
   font-weight: 700;
 }
@@ -3367,21 +3813,21 @@ textarea {
   font-size: 15.5px;
 }
 .iod-info a:hover {
-  color: #f4c236;
+  color: #e09f00;
 }
 
 .iod-form--dark {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #151515;
-  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  box-shadow: 0 8px 30px -6px rgba(0, 0, 0, 0.06);
 }
 .iod-form--dark .iod-form__services legend,
 .iod-form--dark .iod-field span {
-  color: #e6e6e6;
+  color: #0a0a0a;
 }
 .iod-form--dark .iod-form__services span {
-  border-color: rgba(255, 255, 255, 0.16);
-  color: #d6d6d6;
+  border-color: rgba(0, 0, 0, 0.14);
+  color: #4a5568;
 }
 .iod-form--dark .iod-form__services input:checked + span {
   border-color: transparent;
@@ -3391,17 +3837,17 @@ textarea {
 .iod-form--dark .iod-field input,
 .iod-form--dark .iod-field textarea,
 .iod-form--dark .iod-field select {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: #0a0a0a;
-  color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.14);
+  background: #ffffff;
+  color: #0a0a0a;
 }
 .iod-form--dark .iod-field input::placeholder,
 .iod-form--dark .iod-field textarea::placeholder,
 .iod-form--dark .iod-field select::placeholder {
-  color: #6d6d6d;
+  color: #94a3b8;
 }
 .iod-form--dark .iod-form__status {
-  color: #f4c236;
+  color: #e09f00;
 }
 .iod-form--dark .iod-form__status.is-error {
   color: #e5534b;
@@ -3423,7 +3869,7 @@ textarea {
 .iod-field select:focus {
   outline: none;
   border-color: #bd7211;
-  box-shadow: 0 0 0 4px rgba(244, 194, 54, 0.3);
+  box-shadow: 0 0 0 4px rgba(224, 159, 0, 0.3);
 }
 
 .iod-404 {
@@ -3445,7 +3891,7 @@ textarea {
 }
 .iod-404__code {
   margin: 20px 0 10px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-weight: 400;
   font-size: clamp(120px, 24vw, 280px);
@@ -3476,7 +3922,7 @@ html.iod-locked {
 .iod-modal__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(5, 5, 5, 0.72);
+  background: rgba(15, 23, 42, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   opacity: 0;
@@ -3490,10 +3936,10 @@ html.iod-locked {
   max-height: calc(100vh - 48px);
   max-height: calc(100dvh - 48px);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 28px;
-  background: #151515;
-  box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.9);
+  background: #ffffff;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transform: translateY(40px) scale(0.96);
   transition: opacity 0.4s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
@@ -3530,10 +3976,10 @@ html.iod-locked {
   place-items: center;
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 50%;
-  background: rgba(10, 10, 10, 0.7);
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0.05);
+  color: #0a0a0a;
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s, color 0.3s;
 }
@@ -3546,7 +3992,7 @@ html.iod-locked {
   stroke-linecap: round;
 }
 .iod-modal__close:hover {
-  background: #f4c236;
+  background: #e09f00;
   color: #000000;
   transform: rotate(90deg);
 }
@@ -3596,7 +4042,7 @@ html.iod-locked {
   padding: 6px 12px;
   border-radius: 100px;
   background: #000000;
-  color: #f4c236;
+  color: #e09f00;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -3737,8 +4183,9 @@ html.iod-locked {
 .iod-modal__form .iod-field textarea,
 .iod-modal__form .iod-field select {
   padding: 12px 14px;
-  color: #ffffff;
-  background-color: #0a0a0a;
+  color: #0a0a0a;
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.14);
 }
 .iod-modal__form .iod-btn {
   justify-self: stretch;
@@ -3763,7 +4210,7 @@ html.iod-locked {
 }
 .iod-modal__done p {
   max-width: 340px;
-  color: #bdbdbd;
+  color: #4a5568;
   line-height: 1.6;
 }
 .iod-modal__done .iod-btn {
@@ -3777,7 +4224,7 @@ html.iod-locked {
   margin-bottom: 6px;
   border-radius: 50%;
   background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
-  box-shadow: 0 0 0 10px rgba(244, 194, 54, 0.12), 0 20px 40px -10px rgba(244, 194, 54, 0.6);
+  box-shadow: 0 0 0 10px rgba(224, 159, 0, 0.12), 0 20px 40px -10px rgba(224, 159, 0, 0.6);
 }
 .iod-modal__tick svg {
   width: 40px;
@@ -3808,15 +4255,19 @@ html.iod-locked {
   }
 }
 .iod-logos-wrap {
-  padding-bottom: 0;
+  padding-bottom: 70px;
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .iod-logos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
 }
 @media (max-width: 767px) {
   .iod-logos {
@@ -3839,8 +4290,8 @@ html.iod-locked {
   height: 120px;
   padding: 0 24px;
   margin: 0 -1px -1px 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   transition: background 0.4s;
 }
 @media (max-width: 575px) {
@@ -3853,21 +4304,42 @@ html.iod-locked {
   width: 100%;
   max-width: 170px;
   height: auto;
-  opacity: 0.5;
-  filter: grayscale(1);
+  opacity: 0.6;
+  filter: brightness(0);
   transition: opacity 0.4s, filter 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .iod-logos__item:hover {
-  background: radial-gradient(circle at 50% 120%, rgba(244, 194, 54, 0.16), transparent 70%);
+  background: radial-gradient(circle at 50% 120%, rgba(224, 159, 0, 0.16), transparent 70%);
 }
 .iod-logos__item:hover img {
-  opacity: 1;
-  filter: none;
+  opacity: 0.95;
+  filter: brightness(0);
   transform: scale(1.05);
 }
 
+.iod-portfolio {
+  background: #e9ecf2;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
 .iod-portfolio .iod-filter {
-  margin-top: 40px;
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+.iod-portfolio .iod-filter__btn {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+.iod-portfolio .iod-filter__btn:hover {
+  border-color: #e09f00;
+  color: #0a0a0a;
+}
+.iod-portfolio .iod-filter__btn.is-active {
+  background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
+  border-color: transparent;
+  color: #000000;
+  box-shadow: 0 4px 14px rgba(224, 159, 0, 0.3);
 }
 
 .iod-works {
@@ -3886,16 +4358,18 @@ html.iod-locked {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
-  background: #151515;
-  transition: border-color 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  background: #ffffff;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
 }
 .iod-work.is-hidden {
   display: none;
 }
 .iod-work:hover {
-  border-color: rgba(244, 194, 54, 0.45);
+  border-color: rgba(224, 159, 0, 0.45);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
   transform: translateY(-4px);
 }
 .iod-work__frame {
@@ -3903,9 +4377,9 @@ html.iod-locked {
   display: block;
   margin: 14px 14px 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 14px;
-  background: #0d0d0d;
+  background: #f1f5f9;
 }
 .iod-work__bar {
   display: flex;
@@ -3913,8 +4387,8 @@ html.iod-locked {
   gap: 14px;
   height: 40px;
   padding: 0 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: #1b1b1b;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: #e2e8f0;
 }
 .iod-work__dots {
   display: flex;
@@ -3947,8 +4421,8 @@ html.iod-locked {
   padding: 0 12px;
   overflow: hidden;
   border-radius: 100px;
-  background: #0f0f0f;
-  color: #a8a8a8;
+  background: #ffffff;
+  color: #475569;
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
@@ -4011,11 +4485,11 @@ html.iod-locked {
   margin-bottom: 8px;
   font-size: 22px;
   font-weight: 800;
-  color: #ffffff;
+  color: #0a0a0a;
 }
 .iod-work__body p {
   margin-bottom: 18px;
-  color: #a9a9a9;
+  color: #4a5568;
   font-size: 15px;
   line-height: 1.6;
 }
@@ -4029,9 +4503,11 @@ html.iod-locked {
 .iod-work__logo {
   width: auto;
   height: 26px;
+  filter: brightness(0);
+  opacity: 0.85;
 }
 .iod-work__meta {
-  color: #8a8a8a;
+  color: #718096;
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
@@ -4046,9 +4522,10 @@ html.iod-locked {
 }
 .iod-work__stack li {
   padding: 5px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 100px;
-  color: #d0d0d0;
+  color: #4a5568;
+  background: rgba(0, 0, 0, 0.02);
   font-size: 12.5px;
   font-weight: 600;
 }
@@ -4058,7 +4535,7 @@ html.iod-locked {
   align-self: flex-start;
   gap: 8px;
   margin-top: auto;
-  color: #f4c236;
+  color: #e09f00;
   font-weight: 800;
   font-size: 15px;
 }
@@ -4187,7 +4664,7 @@ html.iod-locked {
 .iod-thanks__ring {
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(244, 194, 54, 0.45);
+  border: 1px solid rgba(224, 159, 0, 0.45);
   border-radius: 50%;
   animation: iod-ripple 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
@@ -4202,7 +4679,7 @@ html.iod-locked {
   height: 96px;
   border-radius: 50%;
   background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
-  box-shadow: 0 0 0 10px rgba(244, 194, 54, 0.1), 0 24px 60px -10px rgba(244, 194, 54, 0.65);
+  box-shadow: 0 0 0 10px rgba(224, 159, 0, 0.1), 0 24px 60px -10px rgba(224, 159, 0, 0.65);
 }
 .iod-thanks__tick svg {
   width: 46px;
@@ -4218,7 +4695,7 @@ html.iod-locked {
 }
 .iod-thanks__title {
   margin: 22px 0 18px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-size: clamp(44px, 7vw, 92px);
   font-weight: 400;
@@ -4236,10 +4713,11 @@ html.iod-locked {
   display: flex;
   gap: 22px;
   padding: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
-  background: #151515;
-  transition: border-color 0.4s;
+  background: #ffffff;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.4s, box-shadow 0.4s;
 }
 @media (max-width: 575px) {
   .iod-thanks__step {
@@ -4248,22 +4726,23 @@ html.iod-locked {
   }
 }
 .iod-thanks__step:hover {
-  border-color: rgba(244, 194, 54, 0.45);
+  border-color: rgba(224, 159, 0, 0.45);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
 }
 .iod-thanks__step h3 {
   margin-bottom: 6px;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 19px;
   font-weight: 800;
 }
 .iod-thanks__step p {
   margin-bottom: 10px;
-  color: #a9a9a9;
+  color: #4a5568;
   font-size: 15px;
   line-height: 1.6;
 }
 .iod-thanks__step small {
-  color: #f4c236;
+  color: #e09f00;
   font-size: 13px;
   font-weight: 700;
 }
@@ -4273,10 +4752,10 @@ html.iod-locked {
   place-items: center;
   width: 52px;
   height: 52px;
-  border: 1px solid rgba(244, 194, 54, 0.4);
+  border: 1px solid rgba(224, 159, 0, 0.4);
   border-radius: 14px;
-  background: rgba(244, 194, 54, 0.08);
-  color: #f4c236;
+  background: rgba(224, 159, 0, 0.08);
+  color: #e09f00;
   font-family: "Audiowide", "Manrope", sans-serif;
   font-size: 18px;
 }
@@ -4339,6 +4818,9 @@ html.iod-locked {
   }
 }
 .iod-testis {
+  background: #e9ecf2;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
 .iod-testis__head {
@@ -4399,9 +4881,9 @@ html.iod-locked {
   align-items: center;
   gap: 16px;
   padding: 16px 22px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 18px;
-  background: #151515;
+  background: #ffffff;
 }
 .iod-rating > strong {
   font-family: "Audiowide", "Manrope", sans-serif;
@@ -4429,9 +4911,10 @@ html.iod-locked {
   flex-direction: column;
   width: 400px;
   padding: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 22px;
-  background: linear-gradient(160deg, #181818, #111);
+  background: #ffffff;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
   transition: border-color 0.4s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
 }
 @media (max-width: 575px) {
@@ -4441,9 +4924,9 @@ html.iod-locked {
   }
 }
 .iod-testi:hover {
-  border-color: rgba(244, 194, 54, 0.45);
+  border-color: rgba(224, 159, 0, 0.45);
   transform: translateY(-6px);
-  box-shadow: 0 26px 50px -24px rgba(244, 194, 54, 0.35);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
 }
 .iod-testi__top {
   display: flex;
@@ -4459,14 +4942,14 @@ html.iod-locked {
 .iod-testi__stars svg {
   width: 16px;
   height: 16px;
-  fill: #f4c236;
+  fill: #e09f00;
 }
 .iod-testi__result {
   padding: 5px 11px;
-  border: 1px solid rgba(244, 194, 54, 0.35);
+  border: 1px solid rgba(224, 159, 0, 0.35);
   border-radius: 100px;
-  background: rgba(244, 194, 54, 0.08);
-  color: #f4c236;
+  background: rgba(224, 159, 0, 0.08);
+  color: #e09f00;
   font-size: 12px;
   font-weight: 800;
   white-space: nowrap;
@@ -4474,7 +4957,7 @@ html.iod-locked {
 .iod-testi blockquote {
   flex: 1;
   margin: 0 0 24px;
-  color: #e2e2e2;
+  color: #4a5568;
   font-size: 15.5px;
   line-height: 1.7;
 }
@@ -4488,16 +4971,16 @@ html.iod-locked {
   align-items: center;
   gap: 14px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 .iod-testi figcaption strong {
   display: block;
-  color: #ffffff;
+  color: #0a0a0a;
   font-size: 15px;
   font-weight: 800;
 }
 .iod-testi figcaption small {
-  color: #8f8f8f;
+  color: #718096;
   font-size: 13px;
 }
 .iod-testi__avatar {
@@ -4573,7 +5056,7 @@ html.iod-locked {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(244, 194, 54, 0.1);
+  background: rgba(224, 159, 0, 0.1);
   transform: translateY(101%);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -4615,7 +5098,7 @@ html.iod-locked {
   width: 34px;
   height: 34px;
   margin: -17px 0 0 -17px;
-  border: 1.5px solid rgba(244, 194, 54, 0.75);
+  border: 1.5px solid rgba(224, 159, 0, 0.75);
   border-radius: 50%;
   pointer-events: none;
   opacity: 0;
@@ -4629,7 +5112,7 @@ html.iod-locked {
   height: 64px;
   margin: -32px 0 0 -32px;
   border-color: transparent;
-  background: rgba(244, 194, 54, 0.14);
+  background: rgba(224, 159, 0, 0.14);
 }
 .iod-cursor.is-down {
   width: 24px;
@@ -4650,3 +5133,5 @@ html.iod-locked {
     display: none;
   }
 }
+
+/*# sourceMappingURL=iodic.css.map */

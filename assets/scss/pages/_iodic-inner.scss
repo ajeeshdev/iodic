@@ -1,9 +1,9 @@
 // iodic Digital — shared components for inner pages
 // (dropdown nav, floating actions, page hero, service/blog/article/contact layouts)
 
-// ---------- Services dropdown ----------
+// ---------- Services Mega Menu ----------
 .iod-dd {
-  position: relative;
+  position: static; // Allows mega menu to center/anchor relative to the header bar
 
   &__toggle {
     display: inline-flex;
@@ -31,27 +31,39 @@
 
   &__menu {
     position: absolute;
-    top: calc(100% + 18px);
+    top: calc(100% + 10px);
     left: 50%;
-    width: 640px;
-    padding: 14px;
-    border: 1px solid $iod-border-strong;
-    border-radius: $iod-radius;
-    background: #0f0f0f;
-    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.9);
+    transform: translateX(-50%) translateY(8px);
+    width: calc(100% - 24px);
+    max-width: 1240px;
+    max-height: calc(88vh - 40px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+    padding: 26px 28px 18px;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.16), 0 10px 24px -5px rgba(0, 0, 0, 0.05);
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, 8px);
-    transition: opacity 0.25s, transform 0.3s $iod-ease, visibility 0.25s;
+    pointer-events: none;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.22s;
+    z-index: 1200;
 
-    // hover bridge so the menu doesn't close crossing the gap
+    // Generous invisible hover bridge so cursor can move diagonally or slowly without closing
     &::before {
       content: "";
       position: absolute;
-      left: 0;
-      right: 0;
-      top: -20px;
-      height: 20px;
+      left: -40px;
+      right: -40px;
+      top: -30px;
+      height: 35px;
+      pointer-events: auto;
     }
   }
 
@@ -61,10 +73,12 @@
     &.is-open &__menu {
       opacity: 1;
       visibility: visible;
-      transform: translate(-50%, 0);
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
     }
   }
 
+  // Legacy fallback grid for pages before template swap
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -81,7 +95,7 @@
 
     strong {
       display: block;
-      color: $iod-white;
+      color: $iod-heading;
       font-size: 14.5px;
       font-weight: 700;
       line-height: 1.3;
@@ -96,7 +110,7 @@
 
     &:hover,
     &.is-active {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.04);
 
       .iod-dd__icon {
         background: $iod-gold-gradient;
@@ -153,6 +167,8 @@
 
   // Mobile: inline accordion inside the nav panel
   @include max(991) {
+    position: relative;
+
     &__toggle {
       width: 100%;
       justify-content: space-between;
@@ -161,15 +177,20 @@
     &__menu {
       position: static;
       width: auto;
+      max-width: none;
+      max-height: none;
+      overflow-y: visible;
       display: none;
-      margin: 4px 0 8px;
-      padding: 6px;
+      margin: 6px 0 10px;
+      padding: 10px;
+      border-radius: 16px;
       border-color: $iod-border;
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(0, 0, 0, 0.03);
       box-shadow: none;
       opacity: 1;
       visibility: visible;
       transform: none;
+      pointer-events: auto;
 
       &::before {
         display: none;
@@ -186,6 +207,394 @@
 
     &__item small {
       display: none;
+    }
+  }
+}
+
+// ---------- Modern Mega Menu Layout ----------
+.iod-mega {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__cols {
+    display: grid;
+    grid-template-columns: 1.1fr 1.25fr 1.2fr 1.25fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      padding-right: 20px;
+      border-right: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    &--feature {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 3px 7px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.05);
+    color: #64748b;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    &--gold {
+      background: rgba(224, 159, 0, 0.12);
+      color: #b45309;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+
+    &:hover,
+    &.is-active {
+      background: rgba(244, 194, 54, 0.08);
+      transform: translateX(3px);
+
+      .iod-mega__icon {
+        background: linear-gradient(135deg, #f4c236 0%, #bd7211 100%);
+        color: #000000;
+        box-shadow: 0 4px 10px rgba(224, 159, 0, 0.25);
+      }
+
+      strong {
+        color: #b45309;
+      }
+    }
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    margin-top: 2px;
+    border-radius: 10px;
+    background: rgba(224, 159, 0, 0.1);
+    color: #e09f00;
+    border: 1px solid rgba(224, 159, 0, 0.22);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+
+    svg {
+      width: 17px;
+      height: 17px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    min-width: 0;
+
+    strong {
+      display: block;
+      color: #0f172a;
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    small {
+      display: block;
+      margin-top: 2px;
+      color: #64748b;
+      font-size: 11.5px;
+      line-height: 1.35;
+    }
+  }
+
+  // Feature Card in Spotlight Column
+  &__card {
+    display: block;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(224, 159, 0, 0.09) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border: 1px solid rgba(224, 159, 0, 0.28);
+    text-decoration: none;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -8px rgba(224, 159, 0, 0.28);
+      border-color: rgba(224, 159, 0, 0.55);
+
+      .iod-mega__card-link svg {
+        transform: translateX(4px);
+      }
+    }
+
+    &-badge {
+      display: inline-block;
+      padding: 2.5px 8px;
+      border-radius: 6px;
+      background: #e09f00;
+      color: #000;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 7px;
+    }
+
+    &-title {
+      color: #0f172a;
+      font-size: 14.5px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+
+    &-text {
+      color: #475569;
+      font-size: 11.5px;
+      line-height: 1.45;
+      margin: 0 0 10px;
+    }
+
+    &-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 8px;
+      padding: 5px 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(224, 159, 0, 0.2);
+
+      strong {
+        color: #b45309;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      span {
+        color: #64748b;
+        font-size: 11px;
+        font-weight: 600;
+      }
+    }
+
+    &-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #b45309;
+      font-size: 12px;
+      font-weight: 700;
+
+      svg {
+        width: 13px;
+        height: 13px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.2;
+        transition: transform 0.2s;
+      }
+    }
+  }
+
+  // Audit mini callout
+  &__audit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+
+    &-text {
+      flex: 1;
+
+      strong {
+        display: block;
+        color: #0f172a;
+        font-size: 12.5px;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      p {
+        margin: 2px 0 0;
+        color: #64748b;
+        font-size: 11px;
+        line-height: 1.35;
+      }
+    }
+
+    .iod-btn {
+      flex-shrink: 0;
+      padding: 6px 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 8px;
+    }
+  }
+
+  // Mega menu bottom bar
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+
+    &-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #64748b;
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+
+    &-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #e09f00;
+      box-shadow: 0 0 8px rgba(224, 159, 0, 0.7);
+      flex-shrink: 0;
+    }
+
+    &-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    &-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #b45309;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      svg {
+        width: 14px;
+        height: 14px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.2;
+        transition: transform 0.2s;
+      }
+
+      &:hover {
+        color: #000000;
+
+        svg {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+
+  // Mobile drawer adaptations
+  @include max(991) {
+    &__cols {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    &__col:not(:last-child) {
+      padding-right: 0;
+      border-right: none;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    &__head {
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+    }
+
+    &__item {
+      padding: 7px 8px;
+
+      small {
+        display: none; // Keep drawer compact and tap-friendly
+      }
+    }
+
+    &__card {
+      margin-top: 4px;
+      padding: 10px 12px;
+    }
+
+    &__audit {
+      display: none; // Keep mobile drawer streamlined
+    }
+
+    &__bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      padding-top: 10px;
+
+      &-left {
+        font-size: 11.5px;
+      }
     }
   }
 }
@@ -210,13 +619,13 @@
     place-items: center;
     width: 54px;
     height: 54px;
-    border: 1px solid $iod-border-strong;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    background: rgba(20, 20, 20, 0.85);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    color: $iod-white;
-    box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8);
+    color: $iod-heading;
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.12);
     cursor: pointer;
     transition: transform 0.35s $iod-ease, background 0.3s, color 0.3s, opacity 0.3s, visibility 0.3s;
 
@@ -286,8 +695,8 @@
     height: 112px;
     margin: 4px -4px 0 0;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 25%, #262626, #0d0d0d 70%);
-    box-shadow: inset 0 0 0 1px rgba($iod-gold, 0.35), 0 22px 44px -16px rgba(0, 0, 0, 0.9), 0 0 50px -12px rgba($iod-gold, 0.45);
+    background: radial-gradient(circle at 30% 25%, #ffffff, #f1f5f9 70%);
+    box-shadow: inset 0 0 0 1px rgba($iod-gold, 0.35), 0 20px 40px -15px rgba(0, 0, 0, 0.15), 0 0 40px -10px rgba($iod-gold, 0.3);
     transition: transform 0.5s $iod-ease, box-shadow 0.4s;
 
     &::before {
@@ -373,12 +782,13 @@
     right: calc(100% + 14px);
     top: 50%;
     padding: 9px 14px;
-    border: 1px solid rgba($iod-gold, 0.35);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 100px;
-    background: rgba(14, 14, 14, 0.92);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: $iod-white;
+    color: $iod-heading;
     font-size: 13px;
     font-weight: 700;
     white-space: nowrap;
@@ -432,8 +842,8 @@
     grid-template-columns: 1fr 1fr 1.3fr;
     gap: 8px;
     padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-    border-top: 1px solid $iod-border-strong;
-    background: rgba(10, 10, 10, 0.92);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
   }
@@ -444,9 +854,9 @@
     justify-content: center;
     gap: 8px;
     height: 48px;
-    border: 1px solid $iod-border-strong;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 14px;
-    color: $iod-white;
+    color: $iod-heading;
     font-size: 14px;
     font-weight: 700;
 
@@ -483,7 +893,7 @@ body.iod-page {
   font-family: $iod-font;
   font-weight: 600;
   font-size: 14.5px;
-  color: #d0d0d0;
+  color: $iod-text;
 }
 
 // ---------- Buttons ----------
@@ -530,7 +940,7 @@ body.iod-page {
   color: $iod-text-soft;
 
   a {
-    color: #cfcfcf;
+    color: $iod-text;
     transition: color 0.25s;
 
     &:hover {
@@ -575,7 +985,7 @@ body.iod-page {
   &__title {
     max-width: 960px;
     margin: 24px 0 22px;
-    color: $iod-white;
+    color: $iod-heading;
     font-family: $iod-display;
     font-weight: 400;
     font-size: clamp(34px, 5.2vw, 72px);
@@ -591,7 +1001,7 @@ body.iod-page {
   &__text {
     max-width: 620px;
     font-size: 18px;
-    color: #bdbdbd;
+    color: $iod-text;
 
     @include max(575) {
       font-size: 16px;
@@ -671,12 +1081,12 @@ body.iod-page {
     display: flex;
     flex-direction: column;
     padding: 16px 22px;
-    border: 1px solid $iod-border-strong;
+    border: 1px solid $iod-border;
     border-radius: 18px;
-    background: rgba(18, 18, 18, 0.85);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.1);
     animation: iod-float 6s ease-in-out infinite;
 
     strong {
@@ -804,13 +1214,14 @@ body.iod-page {
     background:
       radial-gradient(120% 120% at 100% 0%, rgba($iod-gold, 0.12), transparent 55%),
       $iod-surface;
+    box-shadow: $iod-shadow-card;
 
     @include max(575) {
       padding: 26px 22px;
     }
 
     h3 {
-      color: $iod-white;
+      color: $iod-heading;
       font-size: 22px;
       font-weight: 700;
     }
@@ -822,7 +1233,10 @@ body.iod-page {
 }
 
 .iod-features {
-  padding-top: 0;
+  padding: 100px 0;
+  background: $iod-bg-alt;
+  border-top: 1px solid $iod-border;
+  border-bottom: 1px solid $iod-border;
 }
 
 .iod-stack--inner {
@@ -841,7 +1255,8 @@ body.iod-page {
   border: 1px solid $iod-border;
   border-radius: $iod-radius;
   background: $iod-surface;
-  transition: border-color 0.4s, transform 0.5s $iod-ease;
+  box-shadow: $iod-shadow-card;
+  transition: border-color 0.4s, transform 0.5s $iod-ease, box-shadow 0.4s;
 
   &__img {
     height: 220px;
@@ -873,7 +1288,7 @@ body.iod-page {
 
     h3 {
       margin-bottom: 8px;
-      color: $iod-white;
+      color: $iod-heading;
       font-size: 20px;
       font-weight: 700;
     }
@@ -938,6 +1353,7 @@ body.iod-page {
   border: 1px solid $iod-border;
   border-radius: 28px;
   background: $iod-surface;
+  box-shadow: $iod-shadow-card;
 
   @include max(991) {
     grid-template-columns: 1fr;
@@ -999,7 +1415,7 @@ body.iod-page {
 
     h2 {
       margin: 22px 0 14px;
-      color: $iod-white;
+      color: $iod-heading;
       font-family: $iod-display;
       font-weight: 400;
       font-size: clamp(24px, 2.6vw, 34px);
@@ -1104,7 +1520,7 @@ body.iod-page {
 
     h3 {
       margin-bottom: 12px;
-      color: $iod-white;
+      color: $iod-heading;
       font-family: $iod-display;
       font-weight: 400;
       font-size: 26px;
@@ -1199,7 +1615,7 @@ body.iod-page {
     border: 1px solid $iod-border-strong;
     border-radius: 100px;
     background: transparent;
-    color: #d6d6d6;
+    color: $iod-text;
     font-weight: 700;
     font-size: 14px;
     cursor: pointer;
@@ -1239,7 +1655,8 @@ body.iod-page {
   border: 1px solid $iod-border;
   border-radius: $iod-radius;
   background: $iod-surface;
-  transition: border-color 0.4s, transform 0.5s $iod-ease;
+  box-shadow: $iod-shadow-card;
+  transition: border-color 0.4s, transform 0.5s $iod-ease, box-shadow 0.4s;
 
   &.is-hidden {
     display: none;
@@ -1266,7 +1683,7 @@ body.iod-page {
 
     h3 {
       margin: 14px 0 10px;
-      color: $iod-white;
+      color: $iod-heading;
       font-size: 20px;
       font-weight: 700;
       line-height: 1.35;
@@ -1293,7 +1710,7 @@ body.iod-page {
     span + span::before {
       content: "•";
       margin-right: 14px;
-      color: #444;
+      color: #cbd5e1;
     }
 
     &--hero {
@@ -1426,8 +1843,8 @@ body.iod-page {
       padding: 0 20px;
       border: 1px solid $iod-border-strong;
       border-radius: 100px;
-      background: rgba(255, 255, 255, 0.04);
-      color: $iod-white;
+      background: #ffffff;
+      color: $iod-heading;
 
       &:focus {
         outline: none;
@@ -1496,7 +1913,7 @@ body.iod-page {
 
   strong {
     display: block;
-    color: $iod-white;
+    color: $iod-heading;
     font-size: 15px;
   }
 
@@ -1558,7 +1975,7 @@ body.iod-page {
 
     span {
       margin-right: 6px;
-      color: $iod-white;
+      color: $iod-heading;
       font-weight: 700;
     }
 
@@ -1583,10 +2000,11 @@ body.iod-page {
   border: 1px solid $iod-border;
   border-radius: $iod-radius;
   background: $iod-surface;
+  box-shadow: $iod-shadow-card;
 
   h4 {
     margin-bottom: 16px;
-    color: $iod-white;
+    color: $iod-heading;
     font-size: 16px;
     font-weight: 800;
   }
@@ -1653,14 +2071,14 @@ body.iod-page {
     &:hover,
     &.is-active {
       border-color: $iod-gold;
-      color: $iod-white;
-      background: rgba(255, 255, 255, 0.03);
+      color: $iod-heading;
+      background: rgba(0, 0, 0, 0.04);
     }
   }
 }
 
 .iod-prose {
-  color: #c4c4c4;
+  color: #374151;
   font-size: 17.5px;
   line-height: 1.8;
 
@@ -1669,14 +2087,14 @@ body.iod-page {
   }
 
   &__lead {
-    color: #e0e0e0;
+    color: #111827;
     font-size: 20px;
     line-height: 1.7;
   }
 
   h2 {
     margin-top: 54px;
-    color: $iod-white;
+    color: $iod-heading;
     font-family: $iod-display;
     font-weight: 400;
     font-size: clamp(22px, 2.4vw, 30px);
@@ -1726,7 +2144,8 @@ body.iod-page {
     border-left: 3px solid $iod-gold;
     border-radius: 0 $iod-radius $iod-radius 0;
     background: $iod-surface;
-    color: $iod-white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    color: $iod-heading;
     font-size: 20px;
     font-weight: 600;
     line-height: 1.5;
@@ -1801,6 +2220,7 @@ body.iod-page {
   border: 1px solid $iod-border;
   border-radius: $iod-radius;
   background: $iod-surface;
+  box-shadow: $iod-shadow-card;
   transition: border-color 0.4s;
 
   &:hover {
@@ -1813,7 +2233,7 @@ body.iod-page {
 
   h3 {
     margin-bottom: 6px;
-    color: $iod-white;
+    color: $iod-heading;
     font-size: 18px;
     font-weight: 700;
   }
@@ -1830,17 +2250,17 @@ body.iod-page {
 
 .iod-form--dark {
   border: 1px solid $iod-border;
-  background: $iod-surface;
-  box-shadow: none;
+  background: #ffffff;
+  box-shadow: 0 8px 30px -6px rgba(0, 0, 0, 0.06);
 
   .iod-form__services legend,
   .iod-field span {
-    color: #e6e6e6;
+    color: $iod-heading;
   }
 
   .iod-form__services span {
     border-color: $iod-border-strong;
-    color: #d6d6d6;
+    color: $iod-text;
   }
 
   .iod-form__services input:checked + span {
@@ -1853,11 +2273,11 @@ body.iod-page {
   .iod-field textarea,
   .iod-field select {
     border-color: $iod-border-strong;
-    background: $iod-bg;
-    color: $iod-white;
+    background: #ffffff;
+    color: $iod-heading;
 
     &::placeholder {
-      color: #6d6d6d;
+      color: #94a3b8;
     }
   }
 
@@ -1911,7 +2331,7 @@ body.iod-page {
 
   &__code {
     margin: 20px 0 10px;
-    color: $iod-white;
+    color: $iod-heading;
     font-family: $iod-display;
     font-weight: 400;
     font-size: clamp(120px, 24vw, 280px);
@@ -1944,7 +2364,7 @@ html.iod-locked {
   &__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(5, 5, 5, 0.72);
+    background: rgba(15, 23, 42, 0.5);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     opacity: 0;
@@ -1959,10 +2379,10 @@ html.iod-locked {
     max-height: calc(100vh - 48px);
     max-height: calc(100dvh - 48px);
     overflow: hidden;
-    border: 1px solid $iod-border-strong;
+    border: 1px solid $iod-border;
     border-radius: 28px;
-    background: $iod-surface;
-    box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.9);
+    background: #ffffff;
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: translateY(40px) scale(0.96);
     transition: opacity 0.4s, transform 0.6s $iod-ease;
@@ -2002,8 +2422,8 @@ html.iod-locked {
     height: 42px;
     border: 1px solid $iod-border-strong;
     border-radius: 50%;
-    background: rgba(10, 10, 10, 0.7);
-    color: $iod-white;
+    background: rgba(0, 0, 0, 0.05);
+    color: $iod-heading;
     cursor: pointer;
     transition: transform 0.4s $iod-ease, background 0.3s, color 0.3s;
 
@@ -2217,8 +2637,9 @@ html.iod-locked {
     .iod-field textarea,
     .iod-field select {
       padding: 12px 14px;
-      color: $iod-white;
-      background-color: $iod-bg;
+      color: $iod-heading;
+      background-color: #ffffff;
+      border-color: $iod-border-strong;
     }
 
     .iod-btn {
@@ -2249,7 +2670,7 @@ html.iod-locked {
 
     p {
       max-width: 340px;
-      color: #bdbdbd;
+      color: $iod-text;
       line-height: 1.6;
     }
 
@@ -2303,7 +2724,9 @@ html.iod-locked {
 
 // ---------- Portfolio ----------
 .iod-logos-wrap {
-  padding-bottom: 0;
+  padding-bottom: 70px;
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid $iod-border;
 }
 
 .iod-logos {
@@ -2312,6 +2735,8 @@ html.iod-locked {
   overflow: hidden;
   border: 1px solid $iod-border;
   border-radius: $iod-radius;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
 
   @include max(767) {
     grid-template-columns: repeat(2, 1fr);
@@ -2347,8 +2772,8 @@ html.iod-locked {
       width: 100%;
       max-width: 170px;
       height: auto;
-      opacity: 0.5;
-      filter: grayscale(1);
+      opacity: 0.6;
+      filter: brightness(0);
       transition: opacity 0.4s, filter 0.4s, transform 0.5s $iod-ease;
     }
 
@@ -2356,16 +2781,41 @@ html.iod-locked {
       background: radial-gradient(circle at 50% 120%, rgba($iod-gold, 0.16), transparent 70%);
 
       img {
-        opacity: 1;
-        filter: none;
+        opacity: 0.95;
+        filter: brightness(0);
         transform: scale(1.05);
       }
     }
   }
 }
 
-.iod-portfolio .iod-filter {
-  margin-top: 40px;
+.iod-portfolio {
+  background: $iod-bg-alt;
+  border-top: 1px solid $iod-border;
+  border-bottom: 1px solid $iod-border;
+
+  .iod-filter {
+    margin-top: 36px;
+    margin-bottom: 36px;
+
+    &__btn {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+
+      &:hover {
+        border-color: $iod-gold;
+        color: $iod-heading;
+      }
+
+      &.is-active {
+        background: $iod-gold-gradient;
+        border-color: transparent;
+        color: $iod-black;
+        box-shadow: 0 4px 14px rgba(224, 159, 0, 0.3);
+      }
+    }
+  }
 }
 
 .iod-works {
@@ -2383,10 +2833,11 @@ html.iod-locked {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid $iod-border;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: $iod-radius;
-  background: $iod-surface;
-  transition: border-color 0.4s, transform 0.5s $iod-ease;
+  background: #ffffff;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.4s, transform 0.5s $iod-ease, box-shadow 0.4s;
 
   &.is-hidden {
     display: none;
@@ -2394,6 +2845,7 @@ html.iod-locked {
 
   &:hover {
     border-color: rgba($iod-gold, 0.45);
+    box-shadow: $iod-shadow-card-hover;
     transform: translateY(-4px);
   }
 
@@ -2403,9 +2855,9 @@ html.iod-locked {
     display: block;
     margin: 14px 14px 0;
     overflow: hidden;
-    border: 1px solid $iod-border-strong;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 14px;
-    background: #0d0d0d;
+    background: #f1f5f9;
   }
 
   &__bar {
@@ -2414,8 +2866,8 @@ html.iod-locked {
     gap: 14px;
     height: 40px;
     padding: 0 14px;
-    border-bottom: 1px solid $iod-border;
-    background: #1b1b1b;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background: #e2e8f0;
   }
 
   &__dots {
@@ -2454,8 +2906,8 @@ html.iod-locked {
     padding: 0 12px;
     overflow: hidden;
     border-radius: 100px;
-    background: #0f0f0f;
-    color: #a8a8a8;
+    background: #ffffff;
+    color: #475569;
     font-size: 12px;
     font-weight: 600;
     white-space: nowrap;
@@ -2524,12 +2976,12 @@ html.iod-locked {
       margin-bottom: 8px;
       font-size: 22px;
       font-weight: 800;
-      color: $iod-white;
+      color: $iod-heading;
     }
 
     p {
       margin-bottom: 18px;
-      color: #a9a9a9;
+      color: $iod-text;
       font-size: 15px;
       line-height: 1.6;
     }
@@ -2546,10 +2998,12 @@ html.iod-locked {
   &__logo {
     width: auto;
     height: 26px;
+    filter: brightness(0);
+    opacity: 0.85;
   }
 
   &__meta {
-    color: #8a8a8a;
+    color: $iod-text-soft;
     font-size: 13px;
     font-weight: 600;
     white-space: nowrap;
@@ -2565,9 +3019,10 @@ html.iod-locked {
 
     li {
       padding: 5px 12px;
-      border: 1px solid $iod-border-strong;
+      border: 1px solid $iod-border;
       border-radius: 100px;
-      color: #d0d0d0;
+      color: $iod-text;
+      background: rgba(0, 0, 0, 0.02);
       font-size: 12.5px;
       font-weight: 600;
     }
@@ -2757,7 +3212,7 @@ html.iod-locked {
 
   &__title {
     margin: 22px 0 18px;
-    color: $iod-white;
+    color: $iod-heading;
     font-family: $iod-display;
     font-size: clamp(44px, 7vw, 92px);
     font-weight: 400;
@@ -2780,7 +3235,8 @@ html.iod-locked {
     border: 1px solid $iod-border;
     border-radius: $iod-radius;
     background: $iod-surface;
-    transition: border-color 0.4s;
+    box-shadow: $iod-shadow-card;
+    transition: border-color 0.4s, box-shadow 0.4s;
 
     @include max(575) {
       gap: 16px;
@@ -2789,18 +3245,19 @@ html.iod-locked {
 
     &:hover {
       border-color: rgba($iod-gold, 0.45);
+      box-shadow: $iod-shadow-card-hover;
     }
 
     h3 {
       margin-bottom: 6px;
-      color: $iod-white;
+      color: $iod-heading;
       font-size: 19px;
       font-weight: 800;
     }
 
     p {
       margin-bottom: 10px;
-      color: #a9a9a9;
+      color: $iod-text;
       font-size: 15px;
       line-height: 1.6;
     }
@@ -2892,6 +3349,9 @@ html.iod-locked {
 
 // ---------- Testimonials ----------
 .iod-testis {
+  background: $iod-bg-alt;
+  border-top: 1px solid $iod-border;
+  border-bottom: 1px solid $iod-border;
   overflow: hidden;
 
   &__head {
@@ -2997,7 +3457,8 @@ html.iod-locked {
   padding: 28px;
   border: 1px solid $iod-border;
   border-radius: $iod-radius;
-  background: linear-gradient(160deg, #181818, #111);
+  background: #ffffff;
+  box-shadow: $iod-shadow-card;
   transition: border-color 0.4s, transform 0.5s $iod-ease, box-shadow 0.4s;
 
   @include max(575) {
@@ -3008,7 +3469,7 @@ html.iod-locked {
   &:hover {
     border-color: rgba($iod-gold, 0.45);
     transform: translateY(-6px);
-    box-shadow: 0 26px 50px -24px rgba($iod-gold, 0.35);
+    box-shadow: $iod-shadow-card-hover;
   }
 
   &__top {
@@ -3044,7 +3505,7 @@ html.iod-locked {
   blockquote {
     flex: 1;
     margin: 0 0 24px;
-    color: #e2e2e2;
+    color: $iod-text;
     font-size: 15.5px;
     line-height: 1.7;
 
@@ -3062,13 +3523,13 @@ html.iod-locked {
 
     strong {
       display: block;
-      color: $iod-white;
+      color: $iod-heading;
       font-size: 15px;
       font-weight: 800;
     }
 
     small {
-      color: #8f8f8f;
+      color: $iod-text-soft;
       font-size: 13px;
     }
   }

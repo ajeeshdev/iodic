@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — iodic Digital</title>
   <meta name="description" content="Selected websites, web apps, branding and marketing projects by iodic Digital.">
-  <meta name="theme-color" content="#0A0A0A">
+  <meta name="theme-color" content="#F8F9FA">
   <link rel="icon" type="image/svg+xml" href="assets/images/iodic/mark.svg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,29 +21,178 @@
   <header class="iod-header" id="iodHeader">
     <div class="container-ctn iod-header__bar">
       <a href="index.html" class="iod-header__logo" aria-label="iodic Digital home">
-        <img src="assets/images/iodic/logo-white.svg" alt="iodic Digital" width="154" height="50">
+        <img src="assets/images/iodic/logo-dark.svg" alt="iodic Digital" width="154" height="50">
       </a>
 
       <nav class="iod-nav" id="iodNav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <div class="iod-dd">
+        <div class="iod-dd iod-mega">
           <button class="iod-dd__toggle" type="button" aria-expanded="false" aria-controls="iodDD">
             Services
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="iod-dd__menu" id="iodDD">
-            <div class="iod-dd__grid">
-            <a class="iod-dd__item" href="website-development.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg></span><span><strong>Website Development</strong><small>Laravel, WordPress, Next.js, React</small></span></a>
-            <a class="iod-dd__item" href="web-application-development.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></span><span><strong>Web Application Development</strong><small>SaaS, portals & dashboards</small></span></a>
-            <a class="iod-dd__item" href="seo.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11.5l2 2 4-4"/></svg></span><span><strong>SEO</strong><small>Rank higher, grow organically</small></span></a>
-            <a class="iod-dd__item" href="content-writing.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg></span><span><strong>Content Writing</strong><small>Copy that ranks and converts</small></span></a>
-            <a class="iod-dd__item" href="graphic-design.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18c1 0 1.5-.8 1.5-1.5 0-1.2-1-1.5-1-2.5s.8-1.5 2-1.5H17a4 4 0 004-4c0-4.4-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></svg></span><span><strong>Graphic Designing</strong><small>Branding, UI & creatives</small></span></a>
-            <a class="iod-dd__item" href="ads-marketing.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1zM15.5 8.5a5 5 0 010 7M18.5 5.5a9 9 0 010 13"/></svg></span><span><strong>Ads & Performance Marketing</strong><small>Google, Meta & LinkedIn ads</small></span></a>
-            <a class="iod-dd__item" href="social-media-marketing.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></span><span><strong>Social Media Marketing</strong><small>Content, community & growth</small></span></a>
-            <a class="iod-dd__item" href="maintenance-hosting.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></span><span><strong>Maintenance & Hosting</strong><small>Fast, secure, always online</small></span></a>
+          <div class="iod-dd__menu iod-mega__menu" id="iodDD">
+            <div class="iod-mega__inner">
+              <div class="iod-mega__cols">
+
+                <!-- Col 1: Web & Technology -->
+                <div class="iod-mega__col">
+                  <div class="iod-mega__head">
+                    <span class="iod-mega__tag">Engineering</span>
+                    <h3 class="iod-mega__title">Web &amp; Technology</h3>
+                  </div>
+                  <div class="iod-mega__list">
+                    <a class="iod-mega__item" href="website-development.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Website Development</strong>
+                        <small>Laravel, WordPress, Next.js &amp; React</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="web-application-development.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Web Application Development</strong>
+                        <small>Custom SaaS, client portals &amp; dashboards</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="maintenance-hosting.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Maintenance &amp; Hosting</strong>
+                        <small>24/7 uptime, speed &amp; security updates</small>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Col 2: Growth & Performance -->
+                <div class="iod-mega__col">
+                  <div class="iod-mega__head">
+                    <span class="iod-mega__tag">Marketing</span>
+                    <h3 class="iod-mega__title">Growth &amp; Performance</h3>
+                  </div>
+                  <div class="iod-mega__list">
+                    <a class="iod-mega__item" href="seo.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11.5l2 2 4-4"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>SEO &amp; Organic Search</strong>
+                        <small>Rank higher, dominate search &amp; audits</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="ads-marketing.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1zM15.5 8.5a5 5 0 010 7M18.5 5.5a9 9 0 010 13"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Ads &amp; Performance Marketing</strong>
+                        <small>High-ROI Google, Meta &amp; LinkedIn ads</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="social-media-marketing.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Social Media Marketing</strong>
+                        <small>Content creation, community &amp; viral reels</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="google-business-profile.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Google Business &amp; Reputation</strong>
+                        <small>Google Maps #1, local pack &amp; review trust</small>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Col 3: Brand & Creative Strategy -->
+                <div class="iod-mega__col">
+                  <div class="iod-mega__head">
+                    <span class="iod-mega__tag">Creative</span>
+                    <h3 class="iod-mega__title">Brand &amp; Strategy</h3>
+                  </div>
+                  <div class="iod-mega__list">
+                    <a class="iod-mega__item" href="brand-strategy-consulting.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Brand Strategy &amp; Consulting</strong>
+                        <small>Brand positioning, identity &amp; messaging</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="brand-digital-consultation.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Brand Digital Consultation</strong>
+                        <small>Digital transformation roadmaps &amp; advisory</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="video-production.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="15" height="16" rx="2"/><path d="M17 9l5-3v12l-5-3z"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Video &amp; Production</strong>
+                        <small>Commercials, reels &amp; 4K drone cinematography</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="graphic-design.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18c1 0 1.5-.8 1.5-1.5 0-1.2-1-1.5-1-2.5s.8-1.5 2-1.5H17a4 4 0 004-4c0-4.4-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Graphic Designing</strong>
+                        <small>Visual identities, UI/UX &amp; design assets</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="content-writing.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Content Writing</strong>
+                        <small>SEO articles, copy &amp; storytelling that converts</small>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Col 4: Industry Spotlight & Action Card -->
+                <div class="iod-mega__col iod-mega__col--feature">
+                  <div class="iod-mega__head">
+                    <span class="iod-mega__tag iod-mega__tag--gold">Specialized Practice</span>
+                    <h3 class="iod-mega__title">Industry Spotlight</h3>
+                  </div>
+
+                  <a class="iod-mega__card" href="hospitality-digital-marketing.html">
+                    <span class="iod-mega__card-badge">Hospitality &amp; Travel</span>
+                    <h4 class="iod-mega__card-title">Hospitality Digital Marketing</h4>
+                    <p class="iod-mega__card-text">Specialized digital growth for luxury resorts, boutique hotels, homestays &amp; travel destinations.</p>
+                    <div class="iod-mega__card-stat">
+                      <strong>+240%</strong>
+                      <span>avg. direct bookings boost</span>
+                    </div>
+                    <span class="iod-mega__card-link">Explore hospitality practice <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                  </a>
+
+                  <div class="iod-mega__audit">
+                    <div class="iod-mega__audit-text">
+                      <strong>Need a custom roadmap?</strong>
+                      <p>Get a free digital audit &amp; quote within 24 hours.</p>
+                    </div>
+                    <a href="contact.html" class="iod-btn iod-btn--gold iod-btn--sm" data-quote>Get free audit <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Mega Menu Bottom Bar -->
+              <div class="iod-mega__bar">
+                <div class="iod-mega__bar-left">
+                  <span class="iod-mega__bar-dot"></span>
+                  <span>13 multidisciplinary practices under one roof &mdash; engineered to scale ambitious brands.</span>
+                </div>
+                <div class="iod-mega__bar-right">
+                  <a class="iod-mega__bar-link" href="services.html">
+                    Explore all 13 services
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </a>
+                </div>
+              </div>
             </div>
-            <a class="iod-dd__all" href="services.html">View all services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
         <a href="portfolio.html" class="is-active">Portfolio</a>
@@ -86,14 +235,14 @@
       <div class="container-ctn">
         <p class="iod-logos__label" data-reveal>Trusted by growing brands</p>
         <div class="iod-logos" data-reveal>
-          <a href="https://brightleaf.demo" class="iod-logos__item" target="_blank" rel="noopener" title="Brightleaf Wellness"><img src="assets/images/iodic/clients/brightleaf.svg" alt="Brightleaf Wellness" width="190" height="36" loading="lazy"></a>
-          <a href="https://nexora.demo" class="iod-logos__item" target="_blank" rel="noopener" title="Nexora Cloud"><img src="assets/images/iodic/clients/nexora.svg" alt="Nexora Cloud" width="190" height="36" loading="lazy"></a>
-          <a href="https://urbannest.demo" class="iod-logos__item" target="_blank" rel="noopener" title="UrbanNest Realty"><img src="assets/images/iodic/clients/urbannest.svg" alt="UrbanNest Realty" width="190" height="36" loading="lazy"></a>
-          <a href="https://spiceroute.demo" class="iod-logos__item" target="_blank" rel="noopener" title="Spice Route Foods"><img src="assets/images/iodic/clients/spiceroute.svg" alt="Spice Route Foods" width="190" height="36" loading="lazy"></a>
-          <a href="https://kinetic.demo" class="iod-logos__item" target="_blank" rel="noopener" title="Kinetic Fitness"><img src="assets/images/iodic/clients/kinetic.svg" alt="Kinetic Fitness" width="190" height="36" loading="lazy"></a>
-          <a href="https://aurum.demo" class="iod-logos__item" target="_blank" rel="noopener" title="Aurum Jewels"><img src="assets/images/iodic/clients/aurum.svg" alt="Aurum Jewels" width="190" height="36" loading="lazy"></a>
-          <a href="https://eduspark.demo" class="iod-logos__item" target="_blank" rel="noopener" title="EduSpark Academy"><img src="assets/images/iodic/clients/eduspark.svg" alt="EduSpark Academy" width="190" height="36" loading="lazy"></a>
-          <a href="https://coastline.demo" class="iod-logos__item" target="_blank" rel="noopener" title="Coastline Travels"><img src="assets/images/iodic/clients/coastline.svg" alt="Coastline Travels" width="190" height="36" loading="lazy"></a>
+          <a href="https://aromahillsmunnar.com/" class="iod-logos__item" target="_blank" rel="noopener" title="Aroma Hills Munnar"><img src="assets/images/iodic/clients/aromahills.svg" alt="Aroma Hills Munnar" width="190" height="36" loading="lazy"></a>
+          <a href="https://www.wegomap.com/" class="iod-logos__item" target="_blank" rel="noopener" title="WegoMap"><img src="assets/images/iodic/clients/wegomap.svg" alt="WegoMap" width="190" height="36" loading="lazy"></a>
+          <a href="https://adwayaayurveda.com/" class="iod-logos__item" target="_blank" rel="noopener" title="Adwaya Ayurveda"><img src="assets/images/iodic/clients/adwaya.svg" alt="Adwaya Ayurveda" width="190" height="36" loading="lazy"></a>
+          <a href="https://the-nook.in/" class="iod-logos__item" target="_blank" rel="noopener" title="The Nook Vagamon"><img src="assets/images/iodic/clients/thenook.svg" alt="The Nook Vagamon" width="190" height="36" loading="lazy"></a>
+          <a href="https://bracknell.in/" class="iod-logos__item" target="_blank" rel="noopener" title="Bracknell Forest Resort"><img src="assets/images/iodic/clients/bracknell.svg" alt="Bracknell Forest Resort" width="190" height="36" loading="lazy"></a>
+          <a href="https://svsarena.com/" class="iod-logos__item" target="_blank" rel="noopener" title="SVS Arena Heritage"><img src="assets/images/iodic/clients/svsarena.svg" alt="SVS Arena Heritage" width="190" height="36" loading="lazy"></a>
+          <a href="https://jathikkahomestay.com/" class="iod-logos__item" target="_blank" rel="noopener" title="Jathikka Homestay"><img src="assets/images/iodic/clients/jathikka.svg" alt="Jathikka Homestay" width="190" height="36" loading="lazy"></a>
+          <a href="contact.html" class="iod-logos__item" title="Partner with IODIC"><span style="font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #E09F00; display: inline-flex; align-items: center; gap: 6px;">+ Your Brand</span></a>
         </div>
       </div>
     </section>
@@ -104,167 +253,160 @@
           <span class="iod-eyebrow"><i class="iod-chevron"></i>Selected projects</span>
           <h2 class="iod-section-title">Work we&rsquo;re <span class="iod-gold-text">proud of</span>.</h2>
         </div>
-        <div class="iod-filter" role="group" aria-label="Filter projects" data-reveal><button type="button" class="iod-filter__btn is-active" data-filter="All">All</button><button type="button" class="iod-filter__btn" data-filter="Branding">Branding</button><button type="button" class="iod-filter__btn" data-filter="SEO & Ads">SEO & Ads</button><button type="button" class="iod-filter__btn" data-filter="Web apps">Web apps</button><button type="button" class="iod-filter__btn" data-filter="Websites">Websites</button><button type="button" class="iod-filter__btn" data-filter="eCommerce">eCommerce</button></div>
+        <div class="iod-filter" role="group" aria-label="Filter projects" data-reveal><button type="button" class="iod-filter__btn is-active" data-filter="All">All</button><button type="button" class="iod-filter__btn" data-filter="Hospitality">Hospitality</button><button type="button" class="iod-filter__btn" data-filter="Websites">Websites</button><button type="button" class="iod-filter__btn" data-filter="Web apps">Web apps</button><button type="button" class="iod-filter__btn" data-filter="Branding">Branding</button><button type="button" class="iod-filter__btn" data-filter="SEO & Ads">SEO & Ads</button></div>
 
         <div class="iod-works">
-          <article class="iod-work iod-work--featured" data-cat="Websites" data-reveal>
-            <a href="https://brightleaf.demo" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit Brightleaf Wellness website">
+          <!-- Real Client 1: Aroma Hills Munnar -->
+          <article class="iod-work iod-work--featured" data-cat="Hospitality, Websites" data-reveal>
+            <a href="https://aromahillsmunnar.com/" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit Aroma Hills Munnar website">
               <span class="iod-work__bar">
                 <span class="iod-work__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>brightleaf.demo</span>
+                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>aromahillsmunnar.com</span>
               </span>
-              <span class="iod-work__shot"><img src="assets/images/iodic/services/website-development.jpg" alt="Brightleaf Wellness website" loading="lazy" width="800" height="1000"></span>
-              <span class="iod-work__result"><strong>+182%</strong>organic traffic</span>
+              <span class="iod-work__shot"><img src="assets/images/iodic/portfolio/aroma-hills.jpg" alt="Aroma Hills Munnar boutique villa resort" loading="lazy" width="800" height="500"></span>
+              <span class="iod-work__result"><strong>+240%</strong>direct bookings</span>
             </a>
             <div class="iod-work__body">
               <div class="iod-work__head">
-                <img class="iod-work__logo" src="assets/images/iodic/clients/brightleaf.svg" alt="Brightleaf Wellness logo" width="190" height="36" loading="lazy">
-                <span class="iod-work__meta">Websites · 2026</span>
+                <img class="iod-work__logo" src="assets/images/iodic/clients/aromahills.svg" alt="Aroma Hills Munnar logo" width="190" height="36" loading="lazy">
+                <span class="iod-work__meta">Hospitality · Websites · 2026</span>
               </div>
-              <h3>Brightleaf Wellness</h3>
-              <p>A calm, conversion-focused website for a multi-location wellness clinic, with online booking and local SEO for every branch.</p>
-              <ul class="iod-work__stack"><li>WordPress</li><li>Custom theme</li><li>SEO</li></ul>
-              <a href="https://brightleaf.demo" class="iod-work__visit" target="_blank" rel="noopener">brightleaf.demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <h3>Aroma Hills Munnar</h3>
+              <p>Luxury plantation villa resort website designed for direct guest reservations, featuring an integrated WhatsApp concierge, seasonal villa galleries, and targeted hospitality SEO.</p>
+              <ul class="iod-work__stack"><li>Hospitality Web Design</li><li>Direct Booking Engine</li><li>Local Munnar SEO</li></ul>
+              <a href="https://aromahillsmunnar.com/" class="iod-work__visit" target="_blank" rel="noopener">aromahillsmunnar.com <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
             </div>
           </article>
-          <article class="iod-work" data-cat="Web apps" data-reveal>
-            <a href="https://nexora.demo" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit Nexora Cloud website">
+
+          <!-- Real Client 2: WegoMap -->
+          <article class="iod-work" data-cat="Web apps, Hospitality" data-reveal>
+            <a href="https://www.wegomap.com/" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit WegoMap travel booking platform">
               <span class="iod-work__bar">
                 <span class="iod-work__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>nexora.demo</span>
+                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>wegomap.com</span>
               </span>
-              <span class="iod-work__shot"><img src="assets/images/iodic/services/web-apps.jpg" alt="Nexora Cloud website" loading="lazy" width="800" height="1000"></span>
-              <span class="iod-work__result"><strong>3×</strong>faster dashboard</span>
+              <span class="iod-work__shot"><img src="assets/images/iodic/portfolio/wegomap.jpg" alt="WegoMap tour and travel booking platform" loading="lazy" width="800" height="500"></span>
+              <span class="iod-work__result"><strong>10k+</strong>monthly travelers</span>
             </a>
             <div class="iod-work__body">
               <div class="iod-work__head">
-                <img class="iod-work__logo" src="assets/images/iodic/clients/nexora.svg" alt="Nexora Cloud logo" width="190" height="36" loading="lazy">
-                <span class="iod-work__meta">Web apps · 2026</span>
+                <img class="iod-work__logo" src="assets/images/iodic/clients/wegomap.svg" alt="WegoMap logo" width="190" height="36" loading="lazy">
+                <span class="iod-work__meta">Web apps · Hospitality · 2026</span>
               </div>
-              <h3>Nexora Cloud</h3>
-              <p>Customer portal and analytics dashboard for a B2B SaaS platform.</p>
-              <ul class="iod-work__stack"><li>Next.js</li><li>Laravel API</li><li>Stripe</li></ul>
-              <a href="https://nexora.demo" class="iod-work__visit" target="_blank" rel="noopener">nexora.demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <h3>WegoMap</h3>
+              <p>Comprehensive travel package booking platform and interactive itinerary builder offering curated holiday packages across Kerala, Kashmir, Himachal, Thailand, Bali, and Dubai.</p>
+              <ul class="iod-work__stack"><li>Next.js Web App</li><li>Tour Package Engine</li><li>Custom CRM & Leads</li></ul>
+              <a href="https://www.wegomap.com/" class="iod-work__visit" target="_blank" rel="noopener">wegomap.com <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
             </div>
           </article>
-          <article class="iod-work" data-cat="Web apps" data-reveal>
-            <a href="https://urbannest.demo" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit UrbanNest Realty website">
+
+          <!-- Real Client 3: Adwaya Ayurveda -->
+          <article class="iod-work" data-cat="Websites, SEO & Ads" data-reveal>
+            <a href="https://adwayaayurveda.com/" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit Adwaya Ayurveda website">
               <span class="iod-work__bar">
                 <span class="iod-work__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>urbannest.demo</span>
+                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>adwayaayurveda.com</span>
               </span>
-              <span class="iod-work__shot"><img src="assets/images/iodic/services/ui-ux.jpg" alt="UrbanNest Realty website" loading="lazy" width="800" height="1000"></span>
-              <span class="iod-work__result"><strong>2.4k</strong>leads per month</span>
+              <span class="iod-work__shot"><img src="assets/images/iodic/portfolio/adwaya-ayurveda.jpg" alt="Adwaya Ayurveda Clinic & Wellness Sanctuary" loading="lazy" width="800" height="500"></span>
+              <span class="iod-work__result"><strong>4.9★</strong>patient rating</span>
             </a>
             <div class="iod-work__body">
               <div class="iod-work__head">
-                <img class="iod-work__logo" src="assets/images/iodic/clients/urbannest.svg" alt="UrbanNest Realty logo" width="190" height="36" loading="lazy">
-                <span class="iod-work__meta">Web apps · 2025</span>
+                <img class="iod-work__logo" src="assets/images/iodic/clients/adwaya.svg" alt="Adwaya Ayurveda logo" width="190" height="36" loading="lazy">
+                <span class="iod-work__meta">Websites · Healthcare · 2026</span>
               </div>
-              <h3>UrbanNest Realty</h3>
-              <p>Property search portal with agent CRM, saved searches and WhatsApp lead routing.</p>
-              <ul class="iod-work__stack"><li>Laravel</li><li>Vue</li><li>Maps API</li></ul>
-              <a href="https://urbannest.demo" class="iod-work__visit" target="_blank" rel="noopener">urbannest.demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <h3>Adwaya Ayurveda</h3>
+              <p>Authentic Ayurvedic wellness clinic website featuring Panchakarma treatment packages, online doctor consultation booking, and targeted wellness patient acquisition SEO.</p>
+              <ul class="iod-work__stack"><li>Holistic Web Design</li><li>Consultation Booking</li><li>Healthcare SEO</li></ul>
+              <a href="https://adwayaayurveda.com/" class="iod-work__visit" target="_blank" rel="noopener">adwayaayurveda.com <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
             </div>
           </article>
-          <article class="iod-work" data-cat="eCommerce" data-reveal>
-            <a href="https://spiceroute.demo" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit Spice Route Foods website">
+
+          <!-- Real Client 4: The Nook Vagamon -->
+          <article class="iod-work" data-cat="Hospitality, Websites" data-reveal>
+            <a href="https://the-nook.in/" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit The Nook Vagamon website">
               <span class="iod-work__bar">
                 <span class="iod-work__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>spiceroute.demo</span>
+                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>the-nook.in</span>
               </span>
-              <span class="iod-work__shot"><img src="assets/images/iodic/services/social-media.jpg" alt="Spice Route Foods website" loading="lazy" width="800" height="1000"></span>
-              <span class="iod-work__result"><strong>+64%</strong>online revenue</span>
+              <span class="iod-work__shot"><img src="assets/images/iodic/portfolio/the-nook.jpg" alt="The Nook Vagamon plantation hostel and dorms" loading="lazy" width="800" height="500"></span>
+              <span class="iod-work__result"><strong>85%</strong>direct occupancy</span>
             </a>
             <div class="iod-work__body">
               <div class="iod-work__head">
-                <img class="iod-work__logo" src="assets/images/iodic/clients/spiceroute.svg" alt="Spice Route Foods logo" width="190" height="36" loading="lazy">
-                <span class="iod-work__meta">eCommerce · 2025</span>
+                <img class="iod-work__logo" src="assets/images/iodic/clients/thenook.svg" alt="The Nook Vagamon logo" width="190" height="36" loading="lazy">
+                <span class="iod-work__meta">Hospitality · Websites · 2025</span>
               </div>
-              <h3>Spice Route Foods</h3>
-              <p>D2C store relaunch with recipe-led content and always-on social campaigns.</p>
-              <ul class="iod-work__stack"><li>WooCommerce</li><li>Meta Ads</li><li>Content</li></ul>
-              <a href="https://spiceroute.demo" class="iod-work__visit" target="_blank" rel="noopener">spiceroute.demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <h3>The Nook Vagamon</h3>
+              <p>Vibrant plantation hostel and backpacker retreat nestled in tea hills. Direct bed and dorm reservations, camper community events, and Google Business reputation management.</p>
+              <ul class="iod-work__stack"><li>Youth Hostel Portal</li><li>Dorm Reservation</li><li>Google Business Profile</li></ul>
+              <a href="https://the-nook.in/" class="iod-work__visit" target="_blank" rel="noopener">the-nook.in <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
             </div>
           </article>
-          <article class="iod-work" data-cat="Branding" data-reveal>
-            <a href="https://kinetic.demo" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit Kinetic Fitness website">
+
+          <!-- Real Client 5: Bracknell Forest Resort -->
+          <article class="iod-work" data-cat="Hospitality, SEO & Ads" data-reveal>
+            <a href="https://bracknell.in/" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit Bracknell Forest Resort website">
               <span class="iod-work__bar">
                 <span class="iod-work__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>kinetic.demo</span>
+                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>bracknell.in</span>
               </span>
-              <span class="iod-work__shot"><img src="assets/images/iodic/services/brand-design.jpg" alt="Kinetic Fitness website" loading="lazy" width="800" height="1000"></span>
-              <span class="iod-work__result"><strong>4.1×</strong>return on ad spend</span>
+              <span class="iod-work__shot"><img src="assets/images/iodic/portfolio/bracknell.jpg" alt="Bracknell Forest Resort Munnar" loading="lazy" width="800" height="500"></span>
+              <span class="iod-work__result"><strong>#1</strong>Munnar stay rank</span>
             </a>
             <div class="iod-work__body">
               <div class="iod-work__head">
-                <img class="iod-work__logo" src="assets/images/iodic/clients/kinetic.svg" alt="Kinetic Fitness logo" width="190" height="36" loading="lazy">
-                <span class="iod-work__meta">Branding · 2025</span>
+                <img class="iod-work__logo" src="assets/images/iodic/clients/bracknell.svg" alt="Bracknell Forest Resort logo" width="190" height="36" loading="lazy">
+                <span class="iod-work__meta">Hospitality · SEO & Ads · 2025</span>
               </div>
-              <h3>Kinetic Fitness</h3>
-              <p>Bold new identity and launch campaign for a chain of performance gyms.</p>
-              <ul class="iod-work__stack"><li>Brand identity</li><li>Signage</li><li>Social kit</li></ul>
-              <a href="https://kinetic.demo" class="iod-work__visit" target="_blank" rel="noopener">kinetic.demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <h3>Bracknell Forest Resort</h3>
+              <p>Luxury high-altitude nature resort surrounded by cardamom plantations and misty valleys. Full-funnel hospitality digital marketing, high-intent Google search ads, and OTA commission reduction.</p>
+              <ul class="iod-work__stack"><li>Luxury Resort Web</li><li>Hospitality Marketing</li><li>Google Search Ads</li></ul>
+              <a href="https://bracknell.in/" class="iod-work__visit" target="_blank" rel="noopener">bracknell.in <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
             </div>
           </article>
-          <article class="iod-work" data-cat="eCommerce" data-reveal>
-            <a href="https://aurum.demo" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit Aurum Jewels website">
+
+          <!-- Real Client 6: SVS Arena Heritage -->
+          <article class="iod-work" data-cat="Hospitality, Branding" data-reveal>
+            <a href="https://svsarena.com/" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit SVS Arena Heritage website">
               <span class="iod-work__bar">
                 <span class="iod-work__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>aurum.demo</span>
+                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>svsarena.com</span>
               </span>
-              <span class="iod-work__shot"><img src="assets/images/iodic/services/graphic-design.jpg" alt="Aurum Jewels website" loading="lazy" width="800" height="1000"></span>
-              <span class="iod-work__result"><strong>0.9s</strong>page load</span>
+              <span class="iod-work__shot"><img src="assets/images/iodic/portfolio/svs-arena.jpg" alt="SVS Arena Heritage Ettukettu Palace" loading="lazy" width="800" height="500"></span>
+              <span class="iod-work__result"><strong>98%</strong>satisfaction</span>
             </a>
             <div class="iod-work__body">
               <div class="iod-work__head">
-                <img class="iod-work__logo" src="assets/images/iodic/clients/aurum.svg" alt="Aurum Jewels logo" width="190" height="36" loading="lazy">
-                <span class="iod-work__meta">eCommerce · 2024</span>
+                <img class="iod-work__logo" src="assets/images/iodic/clients/svsarena.svg" alt="SVS Arena Heritage logo" width="190" height="36" loading="lazy">
+                <span class="iod-work__meta">Hospitality · Branding · 2025</span>
               </div>
-              <h3>Aurum Jewels</h3>
-              <p>Headless luxury storefront with 3D product views and lightning-fast checkout.</p>
-              <ul class="iod-work__stack"><li>Next.js</li><li>Shopify</li><li>Google Ads</li></ul>
-              <a href="https://aurum.demo" class="iod-work__visit" target="_blank" rel="noopener">aurum.demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <h3>SVS Arena Heritage</h3>
+              <p>Traditional Ettukettu wooden palace heritage resort & wedding destination. Heritage storytelling, cinematic video showcasing architectural charm, and destination wedding event lead funnels.</p>
+              <ul class="iod-work__stack"><li>Heritage Brand Identity</li><li>Event Lead Funnels</li><li>Video Production</li></ul>
+              <a href="https://svsarena.com/" class="iod-work__visit" target="_blank" rel="noopener">svsarena.com <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
             </div>
           </article>
-          <article class="iod-work" data-cat="Web apps" data-reveal>
-            <a href="https://eduspark.demo" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit EduSpark Academy website">
+
+          <!-- Real Client 7: Jathikka Homestay -->
+          <article class="iod-work" data-cat="Hospitality, Websites" data-reveal>
+            <a href="https://jathikkahomestay.com/" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit Jathikka Homestay website">
               <span class="iod-work__bar">
                 <span class="iod-work__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>eduspark.demo</span>
+                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>jathikkahomestay.com</span>
               </span>
-              <span class="iod-work__shot"><img src="assets/images/iodic/services/strategy.jpg" alt="EduSpark Academy website" loading="lazy" width="800" height="1000"></span>
-              <span class="iod-work__result"><strong>12k</strong>active learners</span>
+              <span class="iod-work__shot"><img src="assets/images/iodic/portfolio/jathikka-homestay.jpg" alt="Jathikka Homestay plantation retreat" loading="lazy" width="800" height="500"></span>
+              <span class="iod-work__result"><strong>+190%</strong>inquiries</span>
             </a>
             <div class="iod-work__body">
               <div class="iod-work__head">
-                <img class="iod-work__logo" src="assets/images/iodic/clients/eduspark.svg" alt="EduSpark Academy logo" width="190" height="36" loading="lazy">
-                <span class="iod-work__meta">Web apps · 2024</span>
+                <img class="iod-work__logo" src="assets/images/iodic/clients/jathikka.svg" alt="Jathikka Homestay logo" width="190" height="36" loading="lazy">
+                <span class="iod-work__meta">Hospitality · Websites · 2025</span>
               </div>
-              <h3>EduSpark Academy</h3>
-              <p>Learning platform with live classes, course builder and progress tracking.</p>
-              <ul class="iod-work__stack"><li>React</li><li>Node.js</li><li>LMS</li></ul>
-              <a href="https://eduspark.demo" class="iod-work__visit" target="_blank" rel="noopener">eduspark.demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-            </div>
-          </article>
-          <article class="iod-work" data-cat="SEO & Ads" data-reveal>
-            <a href="https://coastline.demo" class="iod-work__frame" target="_blank" rel="noopener" aria-label="Visit Coastline Travels website">
-              <span class="iod-work__bar">
-                <span class="iod-work__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="iod-work__url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>coastline.demo</span>
-              </span>
-              <span class="iod-work__shot"><img src="assets/images/iodic/services/analytics.jpg" alt="Coastline Travels website" loading="lazy" width="800" height="1000"></span>
-              <span class="iod-work__result"><strong>#1</strong>for 40+ keywords</span>
-            </a>
-            <div class="iod-work__body">
-              <div class="iod-work__head">
-                <img class="iod-work__logo" src="assets/images/iodic/clients/coastline.svg" alt="Coastline Travels logo" width="190" height="36" loading="lazy">
-                <span class="iod-work__meta">SEO & Ads · 2024</span>
-              </div>
-              <h3>Coastline Travels</h3>
-              <p>SEO and content programme that took a regional tour operator to the top of Google.</p>
-              <ul class="iod-work__stack"><li>Technical SEO</li><li>Content</li><li>Google Ads</li></ul>
-              <a href="https://coastline.demo" class="iod-work__visit" target="_blank" rel="noopener">coastline.demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <h3>Jathikka Homestay</h3>
+              <p>Nutmeg and spice plantation homestay in Poonjar, Kottayam. Warm hospitable design highlighting heritage farm activities, home-cooked culinary experiences, and direct WhatsApp bookings.</p>
+              <ul class="iod-work__stack"><li>Homestay Web Design</li><li>WhatsApp Fast Booking</li><li>Farm Tourism SEO</li></ul>
+              <a href="https://jathikkahomestay.com/" class="iod-work__visit" target="_blank" rel="noopener">jathikkahomestay.com <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
             </div>
           </article>
           <a href="contact.html" class="iod-work iod-work--cta" data-quote data-reveal>
@@ -412,7 +554,7 @@
     <div class="container-ctn">
       <div class="iod-footer__top">
         <div class="iod-footer__brand">
-          <img src="assets/images/iodic/logo-white.svg" alt="iodic Digital" width="170" height="55" loading="lazy">
+          <img src="assets/images/iodic/logo-dark.svg" alt="iodic Digital" width="170" height="55" loading="lazy">
           <p>Websites, web apps and digital marketing that grow your business.</p>
           <div class="iod-social">
             <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></a>
@@ -422,16 +564,21 @@
           </div>
         </div>
 
-        <div class="iod-footer__col">
+        <div class="iod-footer__col iod-footer__col--services">
           <h4>Services</h4>
           <ul>
             <li><a href="website-development.html">Website Development</a></li>
             <li><a href="web-application-development.html">Web Application Development</a></li>
             <li><a href="seo.html">SEO</a></li>
-            <li><a href="content-writing.html">Content Writing</a></li>
-            <li><a href="graphic-design.html">Graphic Designing</a></li>
             <li><a href="ads-marketing.html">Ads & Performance Marketing</a></li>
             <li><a href="social-media-marketing.html">Social Media Marketing</a></li>
+            <li><a href="video-production.html">Video & Production</a></li>
+            <li><a href="brand-digital-consultation.html">Brand Digital Consultation</a></li>
+            <li><a href="brand-strategy-consulting.html">Brand Strategy & Consulting</a></li>
+            <li><a href="google-business-profile.html">Google Business & Reputation</a></li>
+            <li><a href="hospitality-digital-marketing.html">Hospitality Marketing</a></li>
+            <li><a href="graphic-design.html">Graphic Designing</a></li>
+            <li><a href="content-writing.html">Content Writing</a></li>
             <li><a href="maintenance-hosting.html">Maintenance & Hosting</a></li>
           </ul>
         </div>
@@ -515,10 +662,15 @@
             <label><input type="checkbox" name="service" value="Website"><span>Website</span></label>
             <label><input type="checkbox" name="service" value="Web app"><span>Web app</span></label>
             <label><input type="checkbox" name="service" value="SEO"><span>SEO</span></label>
-            <label><input type="checkbox" name="service" value="Content"><span>Content</span></label>
-            <label><input type="checkbox" name="service" value="Design"><span>Design</span></label>
             <label><input type="checkbox" name="service" value="Ads"><span>Ads</span></label>
             <label><input type="checkbox" name="service" value="Social media"><span>Social media</span></label>
+            <label><input type="checkbox" name="service" value="Video production"><span>Video & Production</span></label>
+            <label><input type="checkbox" name="service" value="Digital consultation"><span>Digital Consultation</span></label>
+            <label><input type="checkbox" name="service" value="Brand strategy"><span>Brand Strategy</span></label>
+            <label><input type="checkbox" name="service" value="Google business"><span>GBP & Reputation</span></label>
+            <label><input type="checkbox" name="service" value="Hospitality marketing"><span>Hospitality & Resorts</span></label>
+            <label><input type="checkbox" name="service" value="Design"><span>Design</span></label>
+            <label><input type="checkbox" name="service" value="Content"><span>Content</span></label>
             <label><input type="checkbox" name="service" value="Maintenance"><span>Maintenance</span></label>
           </fieldset>
 

@@ -136,12 +136,12 @@ textarea {
 
   &--ghost {
     border-color: $iod-border-strong;
-    color: $iod-white;
-    background: rgba(255, 255, 255, 0.03);
+    color: $iod-heading;
+    background: rgba(0, 0, 0, 0.02);
 
     &:hover {
       border-color: $iod-gold;
-      color: $iod-gold;
+      color: #b8740c;
     }
   }
 
@@ -151,7 +151,7 @@ textarea {
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.35);
     }
   }
 }
@@ -160,7 +160,7 @@ textarea {
 .iod-header {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 100;
+  z-index: 1000;
   padding: 16px 0;
   transition: padding 0.4s $iod-ease;
 
@@ -180,8 +180,9 @@ textarea {
     padding: 10px 0;
 
     .iod-header__bar {
-      background: rgba(12, 12, 12, 0.72);
+      background: rgba(255, 255, 255, 0.85);
       border-color: $iod-border;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
       backdrop-filter: blur(16px) saturate(140%);
       -webkit-backdrop-filter: blur(16px) saturate(140%);
       width: calc(100% - 24px);
@@ -213,21 +214,21 @@ textarea {
   padding: 6px;
   border: 1px solid $iod-border;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.03);
 
   > a:not(.iod-btn),
   .iod-dd__toggle {
     padding: 9px 16px;
     border-radius: 100px;
-    color: #d0d0d0;
+    color: #4b5563;
     font-weight: 600;
     font-size: 14.5px;
     transition: color 0.3s, background 0.3s;
 
     &:hover,
     &.is-active {
-      color: $iod-white;
-      background: rgba(255, 255, 255, 0.07);
+      color: $iod-heading;
+      background: rgba(0, 0, 0, 0.06);
     }
   }
 
@@ -247,8 +248,9 @@ textarea {
     gap: 2px;
     padding: 12px;
     border-radius: $iod-radius;
-    background: #0e0e0e;
-    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+    background: #ffffff;
+    border: 1px solid $iod-border;
+    box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.14);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -285,7 +287,7 @@ textarea {
   height: 46px;
   border: 1px solid $iod-border-strong;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.04);
   cursor: pointer;
 
   span {
@@ -294,7 +296,7 @@ textarea {
     right: 13px;
     height: 2px;
     border-radius: 2px;
-    background: $iod-white;
+    background: $iod-heading;
     transition: transform 0.3s $iod-ease, top 0.3s $iod-ease;
 
     &:first-child {
@@ -334,6 +336,12 @@ textarea {
 
   @include max(575) {
     padding: 70px 0;
+  }
+
+  &--alt {
+    background: $iod-bg-alt;
+    border-top: 1px solid $iod-border;
+    border-bottom: 1px solid $iod-border;
   }
 }
 
@@ -515,13 +523,13 @@ textarea {
   &__title {
     max-width: 1060px;
     margin: 28px 0 26px;
-    color: $iod-white;
+    color: $iod-heading;
     font-family: $iod-display;
     font-weight: 400;
     font-size: clamp(40px, 6.8vw, 98px);
     line-height: 1.02;
     letter-spacing: -0.02em;
-    text-shadow: 0 10px 60px rgba(0, 0, 0, 0.6);
+    text-shadow: none;
 
     .iod-gold-text {
       position: relative;
@@ -547,7 +555,7 @@ textarea {
   &__text {
     max-width: 600px;
     font-size: 18.5px;
-    color: #bdbdbd;
+    color: $iod-text;
 
     @include max(575) {
       font-size: 16.5px;
@@ -577,7 +585,8 @@ textarea {
     padding: 16px 8px;
     border: 1px solid $iod-border;
     border-radius: 100px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
@@ -594,7 +603,7 @@ textarea {
     }
 
     strong {
-      color: $iod-white;
+      color: $iod-heading;
       font-family: $iod-display;
       font-weight: 400;
       font-size: 26px;
@@ -647,13 +656,13 @@ textarea {
   align-items: center;
   gap: 9px;
   padding: 10px 16px 10px 10px;
-  border: 1px solid $iod-border-strong;
+  border: 1px solid $iod-border;
   border-radius: 100px;
-  background: rgba(22, 22, 22, 0.7);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 16px 40px -14px rgba(0, 0, 0, 0.8);
-  color: #e6e6e6;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.1);
+  color: $iod-heading;
   font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
@@ -709,10 +718,10 @@ textarea {
     height: 400px;
     margin-left: -145px;
     overflow: hidden;
-    border: 1px solid $iod-border-strong;
+    border: 1px solid $iod-border;
     border-radius: 24px;
     background: $iod-surface;
-    box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.12);
     transform-origin: 50% 120%;
     transform:
       translateX(calc(var(--i) * var(--spread)))
@@ -762,10 +771,11 @@ textarea {
     padding: 7px 14px;
     border: 1px solid $iod-border-strong;
     border-radius: 100px;
-    background: rgba(10, 10, 10, 0.72);
+    background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: $iod-white;
+    color: $iod-heading;
+    border: 1px solid $iod-border;
     font-size: 12.5px;
     font-weight: 700;
     white-space: nowrap;
@@ -794,7 +804,7 @@ textarea {
     height: 38px;
     border: 2px solid $iod-gold;
     border-radius: 50%;
-    background: rgba(10, 10, 10, 0.72);
+    background: rgba(255, 255, 255, 0.9);
     color: $iod-gold;
     font-family: $iod-display;
     font-size: 13px;
@@ -895,7 +905,10 @@ textarea {
 
 // ---------- Services (bento) ----------
 .iod-services {
-  padding-top: 150px;
+  padding-top: 130px;
+  background: $iod-bg-alt;
+  border-top: 1px solid $iod-border;
+  border-bottom: 1px solid $iod-border;
 }
 
 .iod-bento {
@@ -919,12 +932,13 @@ textarea {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  border: 1px solid $iod-border;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: $iod-radius;
-  background: $iod-surface;
+  background: #ffffff;
+  box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
   overflow: hidden;
   isolation: isolate;
-  transition: border-color 0.4s, transform 0.5s $iod-ease;
+  transition: border-color 0.4s, transform 0.5s $iod-ease, box-shadow 0.4s;
 
   // cursor-follow glow
   &::before {
@@ -938,7 +952,8 @@ textarea {
   }
 
   &:hover {
-    border-color: rgba($iod-gold, 0.35);
+    border-color: rgba($iod-gold, 0.45);
+    box-shadow: $iod-shadow-card-hover;
     transform: translateY(-4px);
 
     &::before {
@@ -994,14 +1009,14 @@ textarea {
   }
 
   &__num {
-    color: #3a3a3a;
+    color: #cbd5e1;
     font-family: $iod-display;
     font-size: 15px;
   }
 
   h3 {
     margin-bottom: 12px;
-    color: $iod-white;
+    color: $iod-heading;
     font-size: 22px;
     font-weight: 700;
     line-height: 1.25;
@@ -1106,9 +1121,10 @@ textarea {
 
   li {
     padding: 6px 13px;
-    border: 1px solid $iod-border-strong;
+    border: 1px solid $iod-border;
     border-radius: 100px;
-    color: #d6d6d6;
+    color: $iod-text;
+    background: rgba(0, 0, 0, 0.02);
     font-size: 13px;
     font-weight: 600;
     transition: border-color 0.3s, color 0.3s;
@@ -1116,6 +1132,64 @@ textarea {
 
   .iod-card:hover & li {
     border-color: rgba($iod-gold, 0.3);
+  }
+}
+
+.iod-services__foot {
+  margin-top: 36px;
+
+  &-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 36px 44px;
+    background: $iod-surface;
+    border: 1px solid $iod-border;
+    border-radius: $iod-radius;
+    box-shadow: $iod-shadow-card;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s $iod-ease, box-shadow 0.4s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: $iod-gold-gradient;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $iod-shadow-card-hover;
+    }
+  }
+
+  &-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: $iod-heading;
+    margin: 6px 0 8px;
+  }
+
+  &-desc {
+    color: $iod-text-soft;
+    font-size: 15px;
+    margin: 0;
+    max-width: 680px;
+    line-height: 1.5;
+  }
+
+  @include max(991) {
+    &-card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px 24px;
+      gap: 20px;
+    }
   }
 }
 
@@ -1143,11 +1217,12 @@ textarea {
       padding: 14px 24px;
       border: 1px solid $iod-border;
       border-radius: 14px;
-      background: $iod-bg-alt;
-      color: #e2e2e2;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      color: $iod-heading;
       font-weight: 700;
       font-size: 15.5px;
-      transition: transform 0.35s $iod-ease, border-color 0.35s, color 0.35s;
+      transition: transform 0.35s $iod-ease, border-color 0.35s, color 0.35s, box-shadow 0.35s;
 
       &:hover {
         transform: translateY(-3px);
@@ -1223,7 +1298,7 @@ textarea {
 
   h3 {
     margin-bottom: 10px;
-    color: $iod-white;
+    color: $iod-heading;
     font-size: 21px;
     font-weight: 700;
   }
@@ -1294,7 +1369,7 @@ textarea {
   li {
     position: relative;
     padding-left: 34px;
-    color: #dcdcdc;
+    color: $iod-heading;
     font-weight: 600;
 
     &::before {
@@ -1423,10 +1498,12 @@ textarea {
     border: 1px solid $iod-border;
     border-radius: $iod-radius-sm;
     background: $iod-surface;
-    transition: border-color 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: border-color 0.3s, box-shadow 0.3s;
 
     &[open] {
-      border-color: rgba($iod-gold, 0.35);
+      border-color: rgba($iod-gold, 0.45);
+      box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.06);
 
       summary::after {
         transform: rotate(45deg);
@@ -1441,7 +1518,7 @@ textarea {
       align-items: center;
       gap: 20px;
       padding: 22px 24px;
-      color: $iod-white;
+      color: $iod-heading;
       font-size: 17px;
       font-weight: 700;
       cursor: pointer;
@@ -1459,7 +1536,7 @@ textarea {
         width: 32px;
         height: 32px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.06);
+        background: rgba(0, 0, 0, 0.05);
         color: $iod-gold;
         font-size: 20px;
         font-weight: 500;
@@ -1694,11 +1771,12 @@ textarea {
 
   &__top {
     display: grid;
-    grid-template-columns: 1.6fr repeat(3, 1fr);
-    gap: 40px;
+    grid-template-columns: 1.25fr 2.35fr 0.85fr 1.05fr;
+    gap: 48px;
 
     @include max(991) {
       grid-template-columns: 1fr 1fr;
+      gap: 36px 24px;
     }
 
     @include max(575) {
@@ -1722,7 +1800,7 @@ textarea {
   &__col {
     h4 {
       margin-bottom: 18px;
-      color: $iod-white;
+      color: $iod-heading;
       font-size: 15px;
       font-weight: 800;
       letter-spacing: 0.04em;
@@ -1733,8 +1811,28 @@ textarea {
       gap: 10px;
     }
 
+    &--services,
+    &:nth-child(2) {
+      min-width: 0;
+
+      ul {
+        @include min(992) {
+          display: block;
+          column-count: 2;
+          column-gap: 32px;
+
+          li {
+            break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
     a {
-      font-size: 15px;
+      font-size: 14.5px;
       transition: color 0.25s;
 
       &:hover {

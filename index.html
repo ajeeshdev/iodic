@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iodic Digital — Websites, Web Apps, SEO &amp; Performance Marketing</title>
   <meta name="description" content="iodic Digital is a digital marketing studio building high-performance websites and web apps (Laravel, WordPress, Next.js, React), and growing brands with SEO, content, design and paid ads.">
-  <meta name="theme-color" content="#0A0A0A">
+  <meta name="theme-color" content="#F8F9FA">
   <link rel="icon" type="image/svg+xml" href="assets/images/iodic/mark.svg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,29 +21,178 @@
   <header class="iod-header" id="iodHeader">
     <div class="container-ctn iod-header__bar">
       <a href="index.html" class="iod-header__logo" aria-label="iodic Digital home">
-        <img src="assets/images/iodic/logo-white.svg" alt="iodic Digital" width="154" height="50">
+        <img src="assets/images/iodic/logo-dark.svg" alt="iodic Digital" width="154" height="50">
       </a>
 
       <nav class="iod-nav" id="iodNav" aria-label="Primary">
         <a href="index.html" class="is-active">Home</a>
         <a href="about.html">About</a>
-        <div class="iod-dd">
+        <div class="iod-dd iod-mega">
           <button class="iod-dd__toggle" type="button" aria-expanded="false" aria-controls="iodDD">
             Services
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="iod-dd__menu" id="iodDD">
-            <div class="iod-dd__grid">
-            <a class="iod-dd__item" href="website-development.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg></span><span><strong>Website Development</strong><small>Laravel, WordPress, Next.js, React</small></span></a>
-            <a class="iod-dd__item" href="web-application-development.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></span><span><strong>Web Application Development</strong><small>SaaS, portals & dashboards</small></span></a>
-            <a class="iod-dd__item" href="seo.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11.5l2 2 4-4"/></svg></span><span><strong>SEO</strong><small>Rank higher, grow organically</small></span></a>
-            <a class="iod-dd__item" href="content-writing.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg></span><span><strong>Content Writing</strong><small>Copy that ranks and converts</small></span></a>
-            <a class="iod-dd__item" href="graphic-design.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18c1 0 1.5-.8 1.5-1.5 0-1.2-1-1.5-1-2.5s.8-1.5 2-1.5H17a4 4 0 004-4c0-4.4-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></svg></span><span><strong>Graphic Designing</strong><small>Branding, UI & creatives</small></span></a>
-            <a class="iod-dd__item" href="ads-marketing.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1zM15.5 8.5a5 5 0 010 7M18.5 5.5a9 9 0 010 13"/></svg></span><span><strong>Ads & Performance Marketing</strong><small>Google, Meta & LinkedIn ads</small></span></a>
-            <a class="iod-dd__item" href="social-media-marketing.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></span><span><strong>Social Media Marketing</strong><small>Content, community & growth</small></span></a>
-            <a class="iod-dd__item" href="maintenance-hosting.html"><span class="iod-dd__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></span><span><strong>Maintenance & Hosting</strong><small>Fast, secure, always online</small></span></a>
+          <div class="iod-dd__menu iod-mega__menu" id="iodDD">
+            <div class="iod-mega__inner">
+              <div class="iod-mega__cols">
+
+                <!-- Col 1: Web & Technology -->
+                <div class="iod-mega__col">
+                  <div class="iod-mega__head">
+                    <span class="iod-mega__tag">Engineering</span>
+                    <h3 class="iod-mega__title">Web &amp; Technology</h3>
+                  </div>
+                  <div class="iod-mega__list">
+                    <a class="iod-mega__item" href="website-development.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Website Development</strong>
+                        <small>Laravel, WordPress, Next.js &amp; React</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="web-application-development.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Web Application Development</strong>
+                        <small>Custom SaaS, client portals &amp; dashboards</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="maintenance-hosting.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Maintenance &amp; Hosting</strong>
+                        <small>24/7 uptime, speed &amp; security updates</small>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Col 2: Growth & Performance -->
+                <div class="iod-mega__col">
+                  <div class="iod-mega__head">
+                    <span class="iod-mega__tag">Marketing</span>
+                    <h3 class="iod-mega__title">Growth &amp; Performance</h3>
+                  </div>
+                  <div class="iod-mega__list">
+                    <a class="iod-mega__item" href="seo.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11.5l2 2 4-4"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>SEO &amp; Organic Search</strong>
+                        <small>Rank higher, dominate search &amp; audits</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="ads-marketing.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1zM15.5 8.5a5 5 0 010 7M18.5 5.5a9 9 0 010 13"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Ads &amp; Performance Marketing</strong>
+                        <small>High-ROI Google, Meta &amp; LinkedIn ads</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="social-media-marketing.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Social Media Marketing</strong>
+                        <small>Content creation, community &amp; viral reels</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="google-business-profile.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Google Business &amp; Reputation</strong>
+                        <small>Google Maps #1, local pack &amp; review trust</small>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Col 3: Brand & Creative Strategy -->
+                <div class="iod-mega__col">
+                  <div class="iod-mega__head">
+                    <span class="iod-mega__tag">Creative</span>
+                    <h3 class="iod-mega__title">Brand &amp; Strategy</h3>
+                  </div>
+                  <div class="iod-mega__list">
+                    <a class="iod-mega__item" href="brand-strategy-consulting.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Brand Strategy &amp; Consulting</strong>
+                        <small>Brand positioning, identity &amp; messaging</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="brand-digital-consultation.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Brand Digital Consultation</strong>
+                        <small>Digital transformation roadmaps &amp; advisory</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="video-production.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="15" height="16" rx="2"/><path d="M17 9l5-3v12l-5-3z"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Video &amp; Production</strong>
+                        <small>Commercials, reels &amp; 4K drone cinematography</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="graphic-design.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18c1 0 1.5-.8 1.5-1.5 0-1.2-1-1.5-1-2.5s.8-1.5 2-1.5H17a4 4 0 004-4c0-4.4-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Graphic Designing</strong>
+                        <small>Visual identities, UI/UX &amp; design assets</small>
+                      </div>
+                    </a>
+                    <a class="iod-mega__item" href="content-writing.html">
+                      <span class="iod-mega__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg></span>
+                      <div class="iod-mega__info">
+                        <strong>Content Writing</strong>
+                        <small>SEO articles, copy &amp; storytelling that converts</small>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Col 4: Industry Spotlight & Action Card -->
+                <div class="iod-mega__col iod-mega__col--feature">
+                  <div class="iod-mega__head">
+                    <span class="iod-mega__tag iod-mega__tag--gold">Specialized Practice</span>
+                    <h3 class="iod-mega__title">Industry Spotlight</h3>
+                  </div>
+
+                  <a class="iod-mega__card" href="hospitality-digital-marketing.html">
+                    <span class="iod-mega__card-badge">Hospitality &amp; Travel</span>
+                    <h4 class="iod-mega__card-title">Hospitality Digital Marketing</h4>
+                    <p class="iod-mega__card-text">Specialized digital growth for luxury resorts, boutique hotels, homestays &amp; travel destinations.</p>
+                    <div class="iod-mega__card-stat">
+                      <strong>+240%</strong>
+                      <span>avg. direct bookings boost</span>
+                    </div>
+                    <span class="iod-mega__card-link">Explore hospitality practice <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                  </a>
+
+                  <div class="iod-mega__audit">
+                    <div class="iod-mega__audit-text">
+                      <strong>Need a custom roadmap?</strong>
+                      <p>Get a free digital audit &amp; quote within 24 hours.</p>
+                    </div>
+                    <a href="contact.html" class="iod-btn iod-btn--gold iod-btn--sm" data-quote>Get free audit <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Mega Menu Bottom Bar -->
+              <div class="iod-mega__bar">
+                <div class="iod-mega__bar-left">
+                  <span class="iod-mega__bar-dot"></span>
+                  <span>13 multidisciplinary practices under one roof &mdash; engineered to scale ambitious brands.</span>
+                </div>
+                <div class="iod-mega__bar-right">
+                  <a class="iod-mega__bar-link" href="services.html">
+                    Explore all 13 services
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </a>
+                </div>
+              </div>
             </div>
-            <a class="iod-dd__all" href="services.html">View all services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
         <a href="portfolio.html">Portfolio</a>
@@ -206,90 +355,71 @@
               </span>
               <span class="iod-card__num">03</span>
             </div>
-            <h3><a href="seo.html" class="iod-card__link" aria-label="SEO"></a>SEO</h3>
+            <h3><a href="seo.html" class="iod-card__link" aria-label="SEO"></a>SEO &amp; Growth</h3>
             <p>Technical audits, on-page optimisation, local SEO and link building that turn search into a dependable revenue channel.</p>
             <ul class="iod-tags">
-              <li>Technical SEO</li><li>Local SEO</li><li>Link building</li>
+              <li>Technical SEO</li><li>Local SEO</li><li>Rankings</li>
             </ul>
           </article>
 
           <article class="iod-card" data-reveal>
             <div class="iod-card__top">
               <span class="iod-card__icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="15" height="16" rx="2"/><path d="M17 9l5-3v12l-5-3z"/></svg>
               </span>
               <span class="iod-card__num">04</span>
             </div>
-            <h3><a href="content-writing.html" class="iod-card__link" aria-label="Content Writing"></a>Content Writing</h3>
-            <p>Website copy, blogs, product descriptions and social captions — written for people, structured for search engines.</p>
+            <h3><a href="video-production.html" class="iod-card__link" aria-label="Video & Production"></a>Video &amp; Production</h3>
+            <p>Cinematic brand films, commercial video production, viral social reels, and 4K drone cinematography that command attention.</p>
             <ul class="iod-tags">
-              <li>Web copy</li><li>Blogs</li><li>Social</li>
+              <li>Brand films</li><li>Commercials</li><li>Reels</li><li>4K Drone</li>
             </ul>
           </article>
 
           <article class="iod-card" data-reveal>
             <div class="iod-card__top">
               <span class="iod-card__icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18c1 0 1.5-.8 1.5-1.5 0-1.2-1-1.5-1-2.5s.8-1.5 2-1.5H17a4 4 0 004-4c0-4.4-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
               </span>
               <span class="iod-card__num">05</span>
             </div>
-            <h3><a href="graphic-design.html" class="iod-card__link" aria-label="Graphic Designing"></a>Graphic Designing</h3>
-            <p>Logos, brand identities, social creatives, brochures and UI design that make your brand instantly recognisable.</p>
+            <h3><a href="brand-strategy-consulting.html" class="iod-card__link" aria-label="Brand Strategy & Consulting"></a>Brand Strategy &amp; Consulting</h3>
+            <p>Brand positioning, value propositions, messaging frameworks and visual identities that win category leadership.</p>
             <ul class="iod-tags">
-              <li>Branding</li><li>UI / UX</li><li>Print</li>
+              <li>Positioning</li><li>Category Design</li><li>Messaging</li>
             </ul>
           </article>
 
-          <article class="iod-card iod-card--wide iod-card--feature" data-reveal>
+          <article class="iod-card iod-card--wide" data-reveal>
             <div class="iod-card__top">
               <span class="iod-card__icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1zM15.5 8.5a5 5 0 010 7M18.5 5.5a9 9 0 010 13"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1"/></svg>
               </span>
               <span class="iod-card__num">06</span>
             </div>
-            <h3><a href="ads-marketing.html" class="iod-card__link" aria-label="Ads & Performance Marketing"></a>Ads &amp; Performance Marketing</h3>
-            <p>ROI-focused campaigns on Google, Meta, LinkedIn and YouTube — with conversion tracking, landing pages and weekly optimisation built in.</p>
+            <h3><a href="hospitality-digital-marketing.html" class="iod-card__link" aria-label="Hospitality Digital Marketing"></a>Hospitality Digital Marketing</h3>
+            <p>High-occupancy campaigns and direct booking engines for luxury resorts, boutique stays, and travel brands — eliminating OTA commission dependencies.</p>
             <ul class="iod-tags">
-              <li>Google Ads</li><li>Meta Ads</li><li>LinkedIn Ads</li><li>YouTube</li><li>Retargeting</li>
+              <li>Resorts &amp; Stays</li><li>Direct Bookings</li><li>Google Hotel Ads</li><li>Travel SEO</li><li>OTA Reduction</li>
             </ul>
-            <div class="iod-card__chart" aria-hidden="true">
-              <span style="--h:34%"></span><span style="--h:48%"></span><span style="--h:42%"></span><span style="--h:62%"></span><span style="--h:56%"></span><span style="--h:78%"></span><span style="--h:92%"></span>
-            </div>
           </article>
 
-          <article class="iod-card" data-reveal>
-            <div class="iod-card__top">
-              <span class="iod-card__icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
-              </span>
-              <span class="iod-card__num">07</span>
+        </div>
+
+        <div class="iod-services__foot" data-reveal>
+          <div class="iod-services__foot-card">
+            <div class="iod-services__foot-info">
+              <span class="iod-eyebrow"><i class="iod-chevron"></i>Complete Capabilities</span>
+              <h3 class="iod-services__foot-title">Explore all 13 specialized services &amp; case studies</h3>
+              <p class="iod-services__foot-desc">Looking for Performance Ads, Social Media Marketing, Google Business Reputation, Graphic Design, Content Writing, or Cloud Maintenance? View our full suite of digital growth services.</p>
             </div>
-            <h3><a href="social-media-marketing.html" class="iod-card__link" aria-label="Social Media Marketing"></a>Social Media Marketing</h3>
-            <p>Content calendars, community management and creatives that build an audience — not just followers.</p>
-          </article>
-
-          <article class="iod-card" data-reveal>
-            <div class="iod-card__top">
-              <span class="iod-card__icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v6H4zM4 14h7v6H4zM15 14h5v6h-5z"/></svg>
-              </span>
-              <span class="iod-card__num">08</span>
+            <div class="iod-services__foot-btn">
+              <a href="services.html" class="iod-btn iod-btn--gold iod-btn--lg">
+                View all services
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
             </div>
-            <h3><a href="maintenance-hosting.html" class="iod-card__link" aria-label="Maintenance & Hosting"></a>Maintenance &amp; Hosting</h3>
-            <p>Managed hosting, security updates, backups and speed tuning — so your site stays fast and online.</p>
-          </article>
-
-          <a href="#contact" class="iod-card iod-card--wide iod-card--cta" data-quote data-reveal>
-            <span class="iod-eyebrow iod-eyebrow--dark"><i class="iod-chevron"></i>Free audit</span>
-            <h3>Not sure where to start?</h3>
-            <p>Get a free website &amp; SEO audit with a clear, prioritised action plan — no strings attached.</p>
-            <span class="iod-btn iod-btn--dark">
-              Claim your audit
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-
+          </div>
         </div>
       </div>
     </section>
@@ -595,9 +725,16 @@
               <label><input type="checkbox" name="service" value="website"><span>Website</span></label>
               <label><input type="checkbox" name="service" value="webapp"><span>Web app</span></label>
               <label><input type="checkbox" name="service" value="seo"><span>SEO</span></label>
-              <label><input type="checkbox" name="service" value="content"><span>Content</span></label>
-              <label><input type="checkbox" name="service" value="design"><span>Design</span></label>
               <label><input type="checkbox" name="service" value="ads"><span>Ads</span></label>
+              <label><input type="checkbox" name="service" value="social"><span>Social media</span></label>
+              <label><input type="checkbox" name="service" value="video"><span>Video & Production</span></label>
+              <label><input type="checkbox" name="service" value="consultation"><span>Digital Consultation</span></label>
+              <label><input type="checkbox" name="service" value="brand-strategy"><span>Brand Strategy</span></label>
+              <label><input type="checkbox" name="service" value="gbp"><span>GBP & Reputation</span></label>
+              <label><input type="checkbox" name="service" value="hospitality"><span>Hospitality & Resorts</span></label>
+              <label><input type="checkbox" name="service" value="design"><span>Design</span></label>
+              <label><input type="checkbox" name="service" value="content"><span>Content</span></label>
+              <label><input type="checkbox" name="service" value="maintenance"><span>Maintenance</span></label>
             </fieldset>
 
             <div class="iod-form__row">
@@ -633,7 +770,7 @@
     <div class="container-ctn">
       <div class="iod-footer__top">
         <div class="iod-footer__brand">
-          <img src="assets/images/iodic/logo-white.svg" alt="iodic Digital" width="170" height="55" loading="lazy">
+          <img src="assets/images/iodic/logo-dark.svg" alt="iodic Digital" width="170" height="55" loading="lazy">
           <p>Websites, web apps and digital marketing that grow your business.</p>
           <div class="iod-social">
             <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></a>
@@ -643,16 +780,21 @@
           </div>
         </div>
 
-        <div class="iod-footer__col">
+        <div class="iod-footer__col iod-footer__col--services">
           <h4>Services</h4>
           <ul>
             <li><a href="website-development.html">Website Development</a></li>
             <li><a href="web-application-development.html">Web Application Development</a></li>
             <li><a href="seo.html">SEO</a></li>
-            <li><a href="content-writing.html">Content Writing</a></li>
-            <li><a href="graphic-design.html">Graphic Designing</a></li>
             <li><a href="ads-marketing.html">Ads & Performance Marketing</a></li>
             <li><a href="social-media-marketing.html">Social Media Marketing</a></li>
+            <li><a href="video-production.html">Video & Production</a></li>
+            <li><a href="brand-digital-consultation.html">Brand Digital Consultation</a></li>
+            <li><a href="brand-strategy-consulting.html">Brand Strategy & Consulting</a></li>
+            <li><a href="google-business-profile.html">Google Business & Reputation</a></li>
+            <li><a href="hospitality-digital-marketing.html">Hospitality Marketing</a></li>
+            <li><a href="graphic-design.html">Graphic Designing</a></li>
+            <li><a href="content-writing.html">Content Writing</a></li>
             <li><a href="maintenance-hosting.html">Maintenance & Hosting</a></li>
           </ul>
         </div>
@@ -736,10 +878,15 @@
             <label><input type="checkbox" name="service" value="Website"><span>Website</span></label>
             <label><input type="checkbox" name="service" value="Web app"><span>Web app</span></label>
             <label><input type="checkbox" name="service" value="SEO"><span>SEO</span></label>
-            <label><input type="checkbox" name="service" value="Content"><span>Content</span></label>
-            <label><input type="checkbox" name="service" value="Design"><span>Design</span></label>
             <label><input type="checkbox" name="service" value="Ads"><span>Ads</span></label>
             <label><input type="checkbox" name="service" value="Social media"><span>Social media</span></label>
+            <label><input type="checkbox" name="service" value="Video production"><span>Video & Production</span></label>
+            <label><input type="checkbox" name="service" value="Digital consultation"><span>Digital Consultation</span></label>
+            <label><input type="checkbox" name="service" value="Brand strategy"><span>Brand Strategy</span></label>
+            <label><input type="checkbox" name="service" value="Google business"><span>GBP & Reputation</span></label>
+            <label><input type="checkbox" name="service" value="Hospitality marketing"><span>Hospitality & Resorts</span></label>
+            <label><input type="checkbox" name="service" value="Design"><span>Design</span></label>
+            <label><input type="checkbox" name="service" value="Content"><span>Content</span></label>
             <label><input type="checkbox" name="service" value="Maintenance"><span>Maintenance</span></label>
           </fieldset>
 

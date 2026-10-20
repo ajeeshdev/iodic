@@ -28,6 +28,14 @@
       nav.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Open menu');
+
+      // Reset nested dropdown accordion on mobile when main nav closes
+      var dd = nav.querySelector('.iod-dd');
+      if (dd) {
+        dd.classList.remove('is-open');
+        var ddToggle = dd.querySelector('.iod-dd__toggle');
+        if (ddToggle) ddToggle.setAttribute('aria-expanded', 'false');
+      }
     }
 
     toggle.addEventListener('click', function (e) {
@@ -37,8 +45,11 @@
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
 
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', close);
+    // Close when clicking nav links that navigate away
+    nav.querySelectorAll('a:not(.iod-dd__toggle)').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (window.innerWidth < 992) close();
+      });
     });
 
     document.addEventListener('click', function (e) {
@@ -50,29 +61,90 @@
     });
   }
 
-  // Services dropdown — hover on desktop (CSS), click toggle everywhere.
+  // Services dropdown — hover intent with grace period on desktop, accordion toggle on mobile.
   function initDropdown() {
     var dd = document.querySelector('.iod-dd');
     if (!dd) return;
     var toggle = dd.querySelector('.iod-dd__toggle');
+    var menu = dd.querySelector('.iod-dd__menu');
+    var closeTimer = null;
 
-    function set(open) {
-      dd.classList.toggle('is-open', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    function isOpen() {
+      return dd.classList.contains('is-open');
     }
 
-    toggle.addEventListener('click', function (e) {
-      e.stopPropagation();
-      set(!dd.classList.contains('is-open'));
-    });
+    function isDesktop() {
+      return window.innerWidth >= 992;
+    }
 
+    function set(open) {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      dd.classList.toggle('is-open', open);
+      if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    // Desktop hover intent with 280ms grace period so moving cursor diagonally never closes menu
+    function handleEnter() {
+      if (!isDesktop()) return;
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      set(true);
+    }
+
+    function handleLeave() {
+      if (!isDesktop()) return;
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(function () {
+        set(false);
+      }, 280);
+    }
+
+    // Attach hover listeners to both the wrapper and the menu
+    dd.addEventListener('mouseenter', handleEnter);
+    dd.addEventListener('mouseleave', handleLeave);
+    if (menu) {
+      menu.addEventListener('mouseenter', handleEnter);
+      menu.addEventListener('mouseleave', handleLeave);
+    }
+
+    // Toggle button click (works on mobile accordion & desktop click-to-pin)
+    if (toggle) {
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        set(!isOpen());
+      });
+    }
+
+    // Close when clicking outside
     document.addEventListener('click', function (e) {
-      if (!dd.contains(e.target)) set(false);
+      if (!dd.contains(e.target)) {
+        set(false);
+      }
     });
 
+    // Close on Escape
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') set(false);
+      if (e.key === 'Escape') {
+        set(false);
+        if (toggle) toggle.focus();
+      }
     });
+
+    // When clicking a link inside the dropdown on mobile, close the mobile nav
+    if (menu) {
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (!isDesktop()) {
+            set(false);
+          }
+        });
+      });
+    }
   }
 
   // Floating back-to-top button.
@@ -196,7 +268,9 @@
         var cat = btn.getAttribute('data-filter');
         buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
         posts.forEach(function (post) {
-          var show = cat === 'All' || post.getAttribute('data-cat') === cat;
+          var postCat = post.getAttribute('data-cat') || '';
+          var cats = postCat.split(',').map(function (c) { return c.trim(); });
+          var show = cat === 'All' || cats.indexOf(cat) !== -1;
           post.classList.toggle('is-hidden', !show);
           if (show) {
             post.style.opacity = 1;

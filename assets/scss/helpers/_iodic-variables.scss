@@ -1,28 +1,32 @@
 // iodic Digital brand (source: iodic.pdf brand guide — Typography & Colors)
-$iod-gold: #f4c236 !default;
+// Light Theme Palette: Crisp, warm-clean off-white background with gold accents and high-contrast typography
+$iod-gold: #e09f00 !default;
 $iod-amber: #bd7211 !default;
-$iod-gold-gradient: linear-gradient(135deg, $iod-gold 0%, $iod-amber 100%) !default;
+$iod-gold-gradient: linear-gradient(135deg, #f4c236 0%, #bd7211 100%) !default;
 
 $iod-black: #000000 !default;
-$iod-bg: #0a0a0a !default;
-$iod-bg-alt: #111111 !default;
-$iod-surface: #151515 !default;
-$iod-surface-2: #1c1c1c !default;
-$iod-border: rgba(255, 255, 255, 0.08) !default;
-$iod-border-strong: rgba(255, 255, 255, 0.16) !default;
+$iod-bg: #f4f5f8 !default;
+$iod-bg-alt: #e9ecf2 !default;
+$iod-surface: #ffffff !default;
+$iod-surface-2: #eceff5 !default;
+$iod-border: rgba(0, 0, 0, 0.08) !default; 
+$iod-border-strong: rgba(0, 0, 0, 0.14) !default;
 
 $iod-white: #ffffff !default;
-$iod-text: #a6a6a6 !default;
-$iod-text-soft: #7a7a7a !default;
-$iod-heading: #ffffff !default;
+$iod-text: #4a5568 !default;
+$iod-text-soft: #718096 !default;
+$iod-heading: #0a0a0a !default;
 
-$iod-gold-soft: rgba(244, 194, 54, 0.1) !default;
-$iod-gold-tint: rgba(244, 194, 54, 0.22) !default;
+$iod-gold-soft: rgba(224, 159, 0, 0.1) !default;
+$iod-gold-tint: rgba(224, 159, 0, 0.22) !default;
+
+$iod-shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03) !default;
+$iod-shadow-card-hover: 0 20px 40px -12px rgba(0, 0, 0, 0.1) !default;
 
 $iod-display: "Audiowide", "Manrope", sans-serif;
 $iod-font: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
 
 $iod-radius: 22px !default;
 $iod-radius-sm: 14px !default;
-$iod-container: 1240px !default;
+$iod-container: 1400px !default;
 $iod-ease: cubic-bezier(0.22, 1, 0.36, 1);
